@@ -16,15 +16,23 @@ module Components::Attributes
       return unless value
 
       count = value.count
+      label_text = "#{count} #{association.klass.model_name.human(count: count)}"
+      
+      # Se não tem itens, mostra apenas o texto
+      if count == 0
+        plain label_text
+        return
+      end
+      
       modal_id = "modal-#{attribute_name}-#{@item_id}"
       
       # Link para abrir o modal
       button(
         type: "button",
-        class: "text-blue-600 hover:text-blue-800 underline cursor-pointer",
+        class: "text-indigo-600 hover:text-indigo-800 underline cursor-pointer",
         data_modal_target: modal_id
       ) do
-        plain "#{count} #{association.klass.model_name.human(count: count)}"
+        plain label_text
       end
 
       # Modal com a lista de itens relacionados
@@ -40,7 +48,7 @@ module Components::Attributes
                 
                 a(
                   href: "/#{association.klass.model_name.route_key}/#{item.id}",
-                  class: "text-blue-600 hover:text-blue-800 underline"
+                  class: "text-indigo-600 hover:text-indigo-800 underline"
                 ) { display_value }
               end
             end

@@ -6,7 +6,7 @@ module Components::Attributes
 
     def render_value
       a(href: "/#{model_class.model_name.route_key}/#{value}",
-        class: "text-blue-600 hover:text-blue-800 underline") { value }
+        class: "text-indigo-600 hover:text-indigo-800 underline") { value }
     end
   end
 end

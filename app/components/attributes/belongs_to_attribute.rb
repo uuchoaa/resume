@@ -23,7 +23,7 @@ module Components::Attributes
                       "#{association.klass.model_name.human} ##{related.id}"
 
       a(href: "/#{association.klass.model_name.route_key}/#{related.id}",
-        class: "text-blue-600 hover:text-blue-800 underline") { display_value }
+        class: "text-indigo-600 hover:text-indigo-800 underline") { display_value }
     end
   end
 end
