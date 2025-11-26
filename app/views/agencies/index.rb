@@ -8,7 +8,7 @@ module Views
         @agencies = agencies
       end
 
-      def page_title = "Agencies"
+      def page_title = "Agencias"
 
       def view_template
         ul do

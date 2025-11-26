@@ -4,12 +4,12 @@ class AgenciesController < ApplicationController
   # GET /agencies or /agencies.json
   def index
     agencies = Agency.all
-    render Views::Agencies::Index.new(agencies: agencies, request: request)
-    # render Views::DefaultCrud::Index.new do |view|
-    #   view.request = request
-    #   view.page_title = "Agencies"
-    #   view.data_collection = agencies
-    # end
+    # render Views::Agencies::Index.new(agencies: agencies, request: request)
+    view = Views::DefaultCruds::Index.new
+    view.current_path = request.path
+    view.page_title = "Agencies"
+    view.data_collection = agencies
+    render view
   end
 
   # GET /agencies/1 or /agencies/1.json
