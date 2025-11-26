@@ -7,7 +7,7 @@ class Views::Base < Components::Base
 
   attr_accessor :current_path
   attr_accessor :page_title
-  attr_accessor :data_collection
+  attr_accessor :data
 
   def around_template
     doctype

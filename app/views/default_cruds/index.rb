@@ -2,7 +2,7 @@ module Views
   module DefaultCruds
     class Index < Views::Base
       def view_template(&)
-        render Table.new(data_collection) do |table|
+        render Table.new(data) do |table|
           table.column("ID") do |item|
             a(href: "/agencies/#{item.id}") { item.id }
           end
