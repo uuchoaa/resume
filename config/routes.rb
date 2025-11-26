@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :deals
+  resources :deals do
+    collection do
+      get :kanban
+    end
+  end
   resources :agencies
   resources :recruters
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,5 +17,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root to: redirect("/agencies")
+  root "deals#kanban"
 end

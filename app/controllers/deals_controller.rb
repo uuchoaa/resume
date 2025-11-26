@@ -1,9 +1,19 @@
 class DealsController < ApplicationController
+  before_action :set_index_view, only: %i[ index ]
+  before_action :set_kanban_view, only: %i[ kanban ]
   before_action :set_deal, only: %i[ show edit update destroy ]
 
   # GET /deals or /deals.json
   def index
     view.data = Deal.all
+    view.current_path = request.path
+    render view
+  end
+
+  # GET /deals/kanban
+  def kanban
+    view.data = Deal.includes(:agency, :recruter).all
+    view.current_path = request.path
     render view
   end
 
@@ -62,6 +72,14 @@ class DealsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_deal
       @deal = Deal.find(params.expect(:id))
+    end
+
+    def set_index_view
+      @view = Views::Deals::Index.new
+    end
+
+    def set_kanban_view
+      @view = Views::Deals::Kanban.new
     end
 
     # Only allow a list of trusted parameters through.
