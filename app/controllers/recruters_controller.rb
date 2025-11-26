@@ -3,7 +3,8 @@ class RecrutersController < ApplicationController
 
   # GET /recruters or /recruters.json
   def index
-    @recruters = Recruter.all
+    view.data = Recruter.all
+    render view
   end
 
   # GET /recruters/1 or /recruters/1.json

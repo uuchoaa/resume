@@ -3,7 +3,8 @@ class DealsController < ApplicationController
 
   # GET /deals or /deals.json
   def index
-    @deals = Deal.all
+    view.data = Deal.all
+    render view
   end
 
   # GET /deals/1 or /deals/1.json

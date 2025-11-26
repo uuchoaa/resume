@@ -1,13 +1,5 @@
 class AgenciesController < ApplicationController
   before_action :set_agency, only: %i[ show edit update destroy ]
-  before_action :set_default_cruds_view, only: %i[ index ] # [ index show edit ]
-
-  def set_default_cruds_view
-    @view = "Views::DefaultCruds::#{action_name.camelize}".constantize.new
-    @view.current_path = request.path
-  end
-
-  attr_reader :view
 
   # GET /agencies or /agencies.json
   def index

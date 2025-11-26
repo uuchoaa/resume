@@ -87,9 +87,35 @@ class Views::Base < Components::Base
 
   def render_desktop_menu
     render Nav.new(current_path) do |nav|
-      nav.item("/agencies") { "Agencias" }
-      nav.item("/recruters") { "Recrutadores" }
+      resource_routes.each do |route|
+        nav.item(route[:path]) { route[:name] }
+      end
     end
+  end
+
+  def resource_routes
+    routes = []
+
+    Rails.application.routes.routes.each do |route|
+      # Pega apenas rotas GET com action index
+      next unless route.verb.match?(/GET/)
+      next unless route.defaults[:action] == "index"
+      next if route.defaults[:controller].blank?
+
+      controller = route.defaults[:controller]
+      path = "/#{controller}"
+
+      # Usa I18n para traduzir o nome do resource
+      begin
+        model_name = controller.singularize.camelize.constantize.model_name
+        name = model_name.human(count: 2)
+        routes << { path: path, name: name }
+      rescue NameError
+        # Ignora se o model não existir
+      end
+    end
+
+    routes.uniq { |r| r[:path] }
   end
 
   def render_logo
