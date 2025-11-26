@@ -42,7 +42,7 @@ module Views
 
         table.column(column_name) do |item|
           value = item.public_send(association.name)
-          component = attribute_component_for_association(value, association)
+          component = attribute_component_for_association(value, association, item)
           render component
         end
       end
@@ -72,7 +72,7 @@ module Views
 
         table.column(column_name) do |item|
           related_object = item.public_send(association.name)
-          component = Attributes::BelongsToAttribute.new(
+          component = Components::Attributes::BelongsToAttribute.new(
             value: related_object&.id,
             attribute_name: association.name.to_s,
             model_class: data.model,
@@ -85,30 +85,31 @@ module Views
       def attribute_component_for(attr, value, model_class)
         case attr
         when "id"
-          Attributes::IdAttribute.new(value: value, attribute_name: attr, model_class: model_class)
+          Components::Attributes::IdAttribute.new(value: value, attribute_name: attr, model_class: model_class)
         when "created_at", "updated_at"
-          Attributes::TimestampAttribute.new(value: value, attribute_name: attr, model_class: model_class)
+          Components::Attributes::TimestampAttribute.new(value: value, attribute_name: attr, model_class: model_class)
         else
           # Verifica se é enum
           if model_class.defined_enums.key?(attr)
-            Attributes::EnumAttribute.new(value: value, attribute_name: attr, model_class: model_class)
+            Components::Attributes::EnumAttribute.new(value: value, attribute_name: attr, model_class: model_class)
           else
-            Attributes::Base.new(value: value, attribute_name: attr, model_class: model_class)
+            Components::Attributes::Base.new(value: value, attribute_name: attr, model_class: model_class)
           end
         end
       end
 
-      def attribute_component_for_association(value, association)
+      def attribute_component_for_association(value, association, item)
         case association.macro
         when :has_many, :has_and_belongs_to_many
-          Attributes::HasManyAttribute.new(
+          Components::Attributes::HasManyAttribute.new(
             value: value,
             attribute_name: association.name.to_s,
             model_class: association.active_record,
-            association: association
+            association: association,
+            item_id: item.id
           )
         when :has_one
-          Attributes::BelongsToAttribute.new(
+          Components::Attributes::BelongsToAttribute.new(
             value: value&.id,
             attribute_name: association.name.to_s,
             model_class: association.active_record,
