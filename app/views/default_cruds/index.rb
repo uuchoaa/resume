@@ -14,8 +14,12 @@ module Views
       def setup_columns(table)
         model_class = data.model
 
-        # Adiciona colunas de atributos
-        model_class.attribute_names.each do |attr|
+        # Separa timestamps dos outros atributos
+        timestamps = %w[created_at updated_at]
+        regular_attrs = model_class.attribute_names.reject { |attr| timestamps.include?(attr) }
+
+        # Adiciona colunas de atributos regulares primeiro
+        regular_attrs.each do |attr|
           add_column(table, attr, model_class)
         end
 
@@ -25,6 +29,11 @@ module Views
           next if association.macro == :belongs_to
 
           add_association_column(table, association)
+        end
+
+        # Adiciona timestamps por último
+        timestamps.each do |attr|
+          add_column(table, attr, model_class) if model_class.attribute_names.include?(attr)
         end
       end
 
