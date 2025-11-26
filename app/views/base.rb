@@ -51,7 +51,7 @@ class Views::Base < Components::Base
   private
 
   def render_navbar
-    nav(class: "border-b border-gray-200 bg-white dark:border-white/10 dark:bg-gray-900") do
+    nav(class: "border-b border-gray-200 bg-white") do
       div(class: "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8") do
         div(class: "flex h-16 items-center justify-between") do
           div(class: "flex") do

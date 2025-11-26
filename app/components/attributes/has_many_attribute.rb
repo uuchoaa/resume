@@ -38,7 +38,7 @@ module Components::Attributes
       # Modal com a lista de itens relacionados
       render Components::Modal.new(id: modal_id, title: association.klass.model_name.human(count: count)) do
         if count > 0
-          ul(class: "divide-y divide-gray-200 dark:divide-gray-700") do
+          ul(class: "divide-y divide-gray-200") do
             value.each do |item|
               li(class: "py-2") do
                 display_value = item.try(:name) ||
@@ -54,7 +54,7 @@ module Components::Attributes
             end
           end
         else
-          p(class: "text-gray-500 dark:text-gray-400") { "Nenhum item encontrado" }
+          p(class: "text-gray-500") { "Nenhum item encontrado" }
         end
       end
     end
