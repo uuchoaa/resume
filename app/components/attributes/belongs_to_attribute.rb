@@ -22,7 +22,8 @@ module Components::Attributes
                       related.try(:email) ||
                       "#{association.klass.model_name.human} ##{related.id}"
 
-      plain display_value
+      a(href: "/#{association.klass.model_name.route_key}/#{related.id}",
+        class: "text-blue-600 hover:text-blue-800 underline") { display_value }
     end
   end
 end
