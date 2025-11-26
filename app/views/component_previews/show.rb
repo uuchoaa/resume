@@ -22,13 +22,21 @@ module Views
           # Variant tabs
           render_variant_tabs
 
+          # Description section
+          div(class: "mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4") do
+            h4(class: "text-base font-semibold text-blue-900 mb-2") { @selected_preview[:name] }
+            if @selected_preview[:description].present?
+              p(class: "text-sm text-blue-800 leading-relaxed") { @selected_preview[:description] }
+            end
+          end
+
           # Preview section
           div(class: "mt-6 bg-white rounded-lg border border-gray-200 overflow-hidden") do
             div(class: "border-b border-gray-200 bg-gray-50 px-4 py-2") do
               h3(class: "text-sm font-semibold text-gray-700") { "Preview" }
             end
             div(class: "p-8 bg-gradient-to-br from-gray-50 to-gray-100") do
-              div(class: "inline-block border-2 border-dashed border-blue-300 rounded-lg bg-white shadow-sm w-full") do
+              div(class: "inline-block border-2 border-dashed border-blue-300 rounded-lg bg-white shadow-sm") do
                 render @selected_preview[:block].call
               end
             end

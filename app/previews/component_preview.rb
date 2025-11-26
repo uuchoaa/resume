@@ -2,8 +2,9 @@
 
 class ComponentPreview
   class << self
-    def preview(name, description: nil, code: nil, &block)
-      previews[name] = {
+    def preview(variant_name, name: nil, description: nil, code: nil, &block)
+      previews[variant_name] = {
+        name: name || variant_name.to_s.humanize,
         description: description,
         block: block,
         code: code
