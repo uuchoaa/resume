@@ -11,6 +11,12 @@ tech_teems = Agency.create({
   name: '@TechTeams'
 })
 
+Agency.create({ name: 'Hirely' })
+Agency.create({ name: 'TalentPro' })
+Agency.create({ name: 'Staffing Solutions' })
+Agency.create({ name: 'RecruitRight' })
+
+
 camila = Recruter.create({
   agency: tech_teems,
   name: 'Camila Felippo',

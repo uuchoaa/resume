@@ -5,6 +5,11 @@ class AgenciesController < ApplicationController
   def index
     agencies = Agency.all
     render Views::Agencies::Index.new(agencies: agencies, request: request)
+    # render Views::DefaultCrud::Index.new do |view|
+    #   view.request = request
+    #   view.page_title = "Agencies"
+    #   view.data_collection = agencies
+    # end
   end
 
   # GET /agencies/1 or /agencies/1.json

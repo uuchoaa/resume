@@ -11,8 +11,6 @@ module Views
       def page_title = "Agencies"
 
       def view_template
-        h1 { "Agencies" }
-
         ul do
           agencies.each do |agency|
             li do
