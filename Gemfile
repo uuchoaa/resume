@@ -59,6 +59,12 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # Syntax highlighting for component previews
+  gem "rouge"
+
+  # Extract source code from blocks
+  gem "method_source"
 end
 
 group :test do
