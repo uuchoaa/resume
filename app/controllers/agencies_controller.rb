@@ -5,7 +5,6 @@ class AgenciesController < ApplicationController
   def set_default_cruds_view
     @view = "Views::DefaultCruds::#{action_name.camelize}".constantize.new
     @view.current_path = request.path
-    @view.page_title = "Agencies"
   end
 
   attr_reader :view
