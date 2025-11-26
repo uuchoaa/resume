@@ -3,7 +3,8 @@ class AgenciesController < ApplicationController
 
   # GET /agencies or /agencies.json
   def index
-    @agencies = Agency.all
+    agencies = Agency.all
+    render Views::Agencies::Index.new(agencies: agencies)
   end
 
   # GET /agencies/1 or /agencies/1.json
