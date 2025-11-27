@@ -14,5 +14,5 @@ class ApplicationController < ActionController::Base
     @view.current_path = request.path
   end
 
-  before_action :set_default_cruds_view, only: %i[ index ] # [ index show edit ]
+  before_action :set_default_cruds_view, only: %i[ index new ] # [ index show edit ]
 end

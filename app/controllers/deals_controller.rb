@@ -23,10 +23,7 @@ class DealsController < ApplicationController
 
   # GET /deals/new
   def new
-    @deal = Deal.new
-    @view = Views::Deals::New.new
-    @view.current_path = request.path
-    @view.deal = @deal
+    view.model = Deal.new
     render @view
   end
 

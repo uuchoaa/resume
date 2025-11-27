@@ -13,7 +13,8 @@ class RecrutersController < ApplicationController
 
   # GET /recruters/new
   def new
-    @recruter = Recruter.new
+    view.model = Recruter.new
+    render view
   end
 
   # GET /recruters/1/edit

@@ -13,7 +13,8 @@ class AgenciesController < ApplicationController
 
   # GET /agencies/new
   def new
-    @agency = Agency.new
+    view.model = Agency.new
+    render view
   end
 
   # GET /agencies/1/edit
