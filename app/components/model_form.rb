@@ -34,7 +34,7 @@ class Components::ModelForm < Components::Form
   # Wrapper para agrupar attributes em uma section com grid
   def attributes(&block)
     div(class: "border-b border-gray-900/10 pb-12 dark:border-white/10") do
-      div(class: "mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6") do
+      div(class: "mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12") do
         yield self if block_given?
       end
     end
@@ -70,20 +70,20 @@ class Components::ModelForm < Components::Form
     case type
     when :email
       render Components::Inputs::Email.new(
-        span: common_options[:span] || 3,
+        span: common_options[:span] || 6,
         **common_options.except(:span),
         **options
       )
     when :textarea
       render Components::Inputs::Textarea.new(
-        span: common_options[:span] || :full,
+        span: common_options[:span] || 6,
         rows: options.delete(:rows),
         **common_options.except(:span),
         **options
       )
     when :select, :belongs_to, :enum
       render Components::Inputs::Select.new(
-        span: common_options[:span] || 3,
+        span: common_options[:span] || 6,
         options: options.delete(:options) || select_options(name),
         selected: value,
         include_blank: options.delete(:include_blank) || false,
@@ -93,7 +93,7 @@ class Components::ModelForm < Components::Form
       )
     else # :text ou desconhecido
       render Components::Inputs::Text.new(
-        span: common_options[:span] || 3,
+        span: common_options[:span] || 6,
         **common_options.except(:span),
         **options
       )

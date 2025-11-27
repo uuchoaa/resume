@@ -23,11 +23,20 @@ pt-BR:
         updated_at: "Atualizado em"
       deal:
         agency: "Agência"
+        agency_id: "Agência"
         recruter: "Recrutador"
+        recruter_id: "Recrutador"
         stage: "Etapa"
         description: "Descrição"
         created_at: "Criado em"
         updated_at: "Atualizado em"
+        stage/open: "Aberto"
+        stage/screening: "Triagem"
+        stage/company_screening: "Triagem da Empresa"
+        stage/tech_assessment: "Avaliação Técnica"
+        stage/cultural_fit: "Adequação Cultural"
+        stage/offer: "Proposta"
+        stage/closed: "Fechado"
     enums:
       deal:
         stage:
@@ -38,6 +47,25 @@ pt-BR:
           cultural_fit: "Adequação Cultural"
           offer: "Proposta"
           closed: "Fechado"
+    errors:
+      models:
+        deal:
+          attributes:
+            agency:
+              required: "Agência é obrigatória"
+              blank: "Agência não pode ficar em branco"
+            recruter:
+              required: "Recrutador é obrigatório"
+              blank: "Recrutador não pode ficar em branco"
+            stage:
+              required: "Etapa é obrigatória"
+              blank: "Etapa não pode ficar em branco"
+            description:
+              required: "Descrição é obrigatória"
+              blank: "Descrição não pode ficar em branco"
+      messages:
+        required: "é obrigatório"
+        blank: "não pode ficar em branco"
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
@@ -48,4 +76,10 @@ pt-BR:
       default: "%d/%m/%Y"
       short: "%d/%m/%Y"
       long: "%d de %B de %Y"
+  helpers:
+    submit:
+      submit: "Salvar"
+      cancel: "Cancelar"
+      create: "Criar %{model}"
+      update: "Atualizar %{model}"
   hello: "Olá mundo"

@@ -69,14 +69,32 @@ class Components::Form::Field < Components::Base
 
   def span_class
     case @span
-    when :full, 6
+    when :full
       "col-span-full"
+    when 1
+      "sm:col-span-1"
     when 2
       "sm:col-span-2"
     when 3
       "sm:col-span-3"
     when 4
       "sm:col-span-4"
+    when 5
+      "sm:col-span-5"
+    when 6
+      "sm:col-span-6"
+    when 7
+      "sm:col-span-7"
+    when 8
+      "sm:col-span-8"
+    when 9
+      "sm:col-span-9"
+    when 10
+      "sm:col-span-10"
+    when 11
+      "sm:col-span-11"
+    when 12
+      "col-span-full"
     else
       "sm:col-span-#{@span}"
     end

@@ -4,7 +4,7 @@ module Components::Inputs
   class Textarea < Base
     attr_reader :rows
 
-    def initialize(rows: 3, span: :full, **args)
+    def initialize(rows: 3, span: 6, **args)
       @rows = rows
       super(span: span, **args)
     end
