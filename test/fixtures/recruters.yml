@@ -2,10 +2,15 @@
 
 one:
   agency: one
-  name: MyString
-  linkedin_chat_url: MyString
+  name: John Smith
+  linkedin_chat_url: https://linkedin.com/in/johnsmith
 
 two:
   agency: two
-  name: MyString
-  linkedin_chat_url: MyString
+  name: Maria Garcia
+  linkedin_chat_url: https://linkedin.com/in/mariagarcia
+
+three:
+  agency: one
+  name: Robert Chen
+  linkedin_chat_url: https://linkedin.com/in/robertchen

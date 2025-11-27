@@ -3,9 +3,23 @@
 one:
   agency: one
   recruter: one
-  stage: 1
+  stage: 0
+  description: Senior Ruby on Rails Developer position at a fintech startup
 
 two:
   agency: two
   recruter: two
   stage: 1
+  description: Full Stack Engineer role with focus on React and Node.js
+
+three:
+  agency: one
+  recruter: three
+  stage: 3
+  description: Lead Backend Developer for e-commerce platform migration project
+
+four:
+  agency: three
+  recruter: one
+  stage: 5
+  description: DevOps Engineer position at a cloud infrastructure company

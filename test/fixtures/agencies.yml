@@ -1,7 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: TechRecruit Inc
 
 two:
-  name: MyString
+  name: Global Staffing Solutions
+
+three:
+  name: Innovation Partners
