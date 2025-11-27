@@ -102,17 +102,29 @@ class Components::ModelForm < Components::Form
 
   # Override field_name para incluir o namespace do model
   def field_name(name)
-    "#{model_param_key}[#{name}]"
+    # Para associações belongs_to, precisamos adicionar _id
+    association = @model.class.reflect_on_association(name)
+    field_key = association&.macro == :belongs_to ? "#{name}_id" : name
+    "#{model_param_key}[#{field_key}]"
   end
 
   # Override field_id para incluir o namespace do model
   def field_id(name)
-    "#{model_param_key}_#{name}"
+    # Para associações belongs_to, precisamos adicionar _id
+    association = @model.class.reflect_on_association(name)
+    field_key = association&.macro == :belongs_to ? "#{name}_id" : name
+    "#{model_param_key}_#{field_key}"
   end
 
   # Override field_value para pegar do model se não fornecido explicitamente
   def field_value(name, explicit_value)
     return explicit_value unless explicit_value.nil?
+
+    # Para associações belongs_to, pegar o ID
+    association = @model.class.reflect_on_association(name)
+    if association&.macro == :belongs_to
+      return model.public_send("#{name}_id") if model.respond_to?("#{name}_id")
+    end
 
     model.public_send(name) if model.respond_to?(name)
   end
@@ -121,7 +133,11 @@ class Components::ModelForm < Components::Form
   def field_error(name)
     return nil unless model.errors.any?
 
-    errors = model.errors[name]
+    # Para associações belongs_to, o erro pode estar em name_id
+    association = @model.class.reflect_on_association(name)
+    error_key = association&.macro == :belongs_to ? "#{name}_id" : name
+
+    errors = model.errors[error_key]
     errors.first if errors.any?
   end
 

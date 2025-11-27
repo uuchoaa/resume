@@ -40,7 +40,7 @@ class DealsController < ApplicationController
 
     respond_to do |format|
       if @deal.save
-        format.html { redirect_to @deal, notice: "Deal was successfully created." }
+        format.html { redirect_to deals_path, notice: "Deal was successfully created." }
         format.json { render :show, status: :created, location: @deal }
       else
         @view = Views::Deals::New.new
