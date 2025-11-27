@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   resources :recruters
 
   # Kitchen Sink
-  namespace :kitchen_sink do
-    get :model_form
-    get :toast
+  scope :kitchen_sink, as: :kitchen_sink do
+    get "/", to: "kitchen_sink#index", as: :root
+    get :model_form, to: "kitchen_sink#model_form"
+    get :toast, to: "kitchen_sink#toast"
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

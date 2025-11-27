@@ -87,6 +87,9 @@ class Views::Base < Components::Base
       resource_routes.each do |route|
         nav.item(route[:path]) { route[:name] }
       end
+
+      # Kitchen Sink link
+      nav.item(kitchen_sink_root_path) { "Kitchen Sink" }
     end
   end
 
