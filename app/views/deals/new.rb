@@ -10,10 +10,53 @@ module Views
       def view_template
         render Components::PageHeader.new(page_title)
 
-        div(class: "mt-8 max-w-4xl mx-auto") do
+        div(class: "mt-8 max-w-2xl mx-auto") do
           div(class: "bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl") do
             div(class: "px-4 py-6 sm:p-8") do
               render Components::Form.new(action: deals_path, method: :post) do |form|
+                form.section(
+                  title: "Personal Information",
+                  description: "Use a permanent address where you can receive mail."
+                ) do |section|
+                  section.text :first_name,
+                    label: "First name",
+                    span: 3
+
+                  section.text :last_name,
+                    label: "Last name",
+                    span: 3
+
+                  section.email :email,
+                    label: "Email address",
+                    span: 4
+
+                  section.select :country,
+                    label: "Country",
+                    span: 3,
+                    options: [
+                      { value: "US", label: "United States" },
+                      { value: "CA", label: "Canada" },
+                      { value: "MX", label: "Mexico" }
+                    ],
+                    selected: "US"
+
+                  section.text :street_address,
+                    label: "Street address",
+                    span: :full
+
+                  section.text :city,
+                    label: "City",
+                    span: 2
+
+                  section.text :state,
+                    label: "State / Province",
+                    span: 2
+
+                  section.text :postal_code,
+                    label: "ZIP / Postal code",
+                    span: 2
+                end
+
                 form.section(
                   title: "Informações Básicas",
                   description: "Dados principais do deal"
@@ -100,6 +143,37 @@ module Views
                     rows: 3,
                     placeholder: "Digite uma descrição detalhada...",
                     description: "Forneça o máximo de detalhes possível"
+
+                  section.select :example_select_error,
+                    label: "Select com erro",
+                    span: 3,
+                    options: [
+                      { value: "1", label: "Opção Inválida" },
+                      { value: "2", label: "Opção 2" },
+                      { value: "3", label: "Opção 3" }
+                    ],
+                    selected: "1",
+                    error: "Seleção inválida"
+
+                  section.select :example_select_disabled,
+                    label: "Select desabilitado",
+                    span: 3,
+                    options: [
+                      { value: "1", label: "Opção 1" },
+                      { value: "2", label: "Opção 2" }
+                    ],
+                    selected: "1",
+                    disabled: true
+
+                  section.select :example_select_hint,
+                    label: "Select com dica",
+                    span: 3,
+                    options: [
+                      { value: "", label: "Selecione uma opção" },
+                      { value: "1", label: "Opção 1" },
+                      { value: "2", label: "Opção 2" }
+                    ],
+                    description: "Escolha a melhor opção disponível"
 
                   section.field(label: "Campo customizado", span: :full) do
                     div(class: "flex gap-4") do
