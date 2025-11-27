@@ -30,24 +30,28 @@ module Views
             # Notice (Success)
             render Components::Toast.new(
               message: "Deal criado com sucesso!",
+              description: "O deal foi salvo e está disponível para todos os usuários.",
               type: :notice
             )
 
             # Alert (Error)
             render Components::Toast.new(
-              message: "Não foi possível criar o deal. Verifique os erros abaixo.",
+              message: "Não foi possível criar o deal.",
+              description: "Verifique os campos obrigatórios e tente novamente.",
               type: :alert
             )
 
             # Warning
             render Components::Toast.new(
               message: "Atenção: Esta ação não pode ser desfeita.",
+              description: "Todos os dados relacionados serão removidos permanentemente.",
               type: :warning
             )
 
             # Info
             render Components::Toast.new(
-              message: "Uma nova versão está disponível para download.",
+              message: "Uma nova versão está disponível.",
+              description: "Recarregue a página para ver as últimas atualizações.",
               type: :info
             )
           end
