@@ -40,12 +40,13 @@ class DealsController < ApplicationController
 
     respond_to do |format|
       if @deal.save
-        format.html { redirect_to deals_path, notice: "Deal was successfully created." }
+        format.html { redirect_to deals_path, notice: "Deal criado com sucesso!" }
         format.json { render :show, status: :created, location: @deal }
       else
         @view = Views::Deals::New.new
         @view.current_path = request.path
         @view.deal = @deal
+        flash.now[:alert] = "Não foi possível criar o deal. Verifique os erros abaixo."
         format.html { render @view, status: :unprocessable_entity }
         format.json { render json: @deal.errors, status: :unprocessable_entity }
       end
@@ -63,9 +64,10 @@ class DealsController < ApplicationController
           @deal
         end
 
-        format.html { redirect_to redirect_path, notice: "Deal was successfully updated.", status: :see_other }
+        format.html { redirect_to redirect_path, notice: "Deal atualizado com sucesso!", status: :see_other }
         format.json { render :show, status: :ok, location: @deal }
       else
+        flash.now[:alert] = "Não foi possível atualizar o deal. Verifique os erros abaixo."
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @deal.errors, status: :unprocessable_entity }
       end
@@ -77,7 +79,7 @@ class DealsController < ApplicationController
     @deal.destroy!
 
     respond_to do |format|
-      format.html { redirect_to deals_path, notice: "Deal was successfully destroyed.", status: :see_other }
+      format.html { redirect_to deals_path, notice: "Deal removido com sucesso!", status: :see_other }
       format.json { head :no_content }
     end
   end

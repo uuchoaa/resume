@@ -8,4 +8,10 @@ class KitchenSinkController < ApplicationController
     view.current_path = request.path
     render view
   end
+
+  def toast
+    view = Views::KitchenSink::Toast.new
+    view.current_path = request.path
+    render view
+  end
 end

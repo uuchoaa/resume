@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # Kitchen Sink
   namespace :kitchen_sink do
     get :model_form
+    get :toast
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

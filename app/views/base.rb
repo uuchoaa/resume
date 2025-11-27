@@ -40,6 +40,9 @@ class Views::Base < Components::Base
             end
           end
         end
+
+        # Toast notifications container (top-right)
+        render_toasts
       end
     end
   end
@@ -194,6 +197,26 @@ class Views::Base < Components::Base
           fill: "#1e1b4b"
         )
       end # end svg
+    end
+  end
+
+  def render_toasts
+    return unless helpers.flash.any?
+
+    div(
+      aria_live: "assertive",
+      class: "pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6 z-50"
+    ) do
+      div(class: "flex w-full flex-col items-center space-y-4 sm:items-end") do
+        helpers.flash.each do |type, message|
+          next if message.blank?
+
+          render Components::Toast.new(
+            message: message,
+            type: type.to_sym
+          )
+        end
+      end
     end
   end
 end
