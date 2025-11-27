@@ -53,9 +53,23 @@ class Components::ModelFormTest < ActiveSupport::TestCase
     assert_nil form.field_error(:description)
   end
 
+  test "infers action path for new records" do
+    new_deal = Deal.new
+    form = Components::ModelForm.new(model: new_deal)
+
+    assert_equal "/deals", form.action
+  end
+
+  test "infers action path for persisted records" do
+    @deal.save!
+    form = Components::ModelForm.new(model: @deal)
+
+    assert_equal "/deals/#{@deal.id}", form.action
+  end
+
   test "uses POST method for new records" do
     new_deal = Deal.new
-    form = Components::ModelForm.new(model: new_deal, action: "/deals")
+    form = Components::ModelForm.new(model: new_deal)
 
     assert_equal :post, form.method
   end
@@ -65,6 +79,12 @@ class Components::ModelFormTest < ActiveSupport::TestCase
     form = Components::ModelForm.new(model: @deal)
 
     assert_equal :patch, form.method
+  end
+
+  test "allows explicit action to override inferred path" do
+    form = Components::ModelForm.new(model: @deal, action: "/custom/path")
+
+    assert_equal "/custom/path", form.action
   end
 
   test "renders form with model binding" do
@@ -91,5 +111,73 @@ class Components::ModelFormTest < ActiveSupport::TestCase
 
     assert_match(/aria-invalid="true"/, output)
     assert_match(/deal_description-error/, output)
+  end
+
+  test "attribute method detects text field" do
+    output = Components::ModelForm.new(model: @agency, action: "/agencies").call do |form|
+      form.attribute :name
+    end
+
+    assert_match(/name="agency\[name\]"/, output)
+    assert_match(/type="text"/, output)
+    assert_match(/Test Agency/, output)
+  end
+
+  test "attribute method detects textarea field" do
+    output = Components::ModelForm.new(model: @deal, action: "/deals").call do |form|
+      form.attribute :description
+    end
+
+    assert_match(/name="deal\[description\]"/, output)
+    assert_match(/<textarea/, output)
+    assert_match(/Test Deal/, output)
+  end
+
+  test "attribute method detects enum select" do
+    output = Components::ModelForm.new(model: @deal, action: "/deals").call do |form|
+      form.attribute :stage
+    end
+
+    assert_match(/name="deal\[stage\]"/, output)
+    assert_match(/<select/, output)
+    assert_match(/open/, output)
+  end
+
+  test "attribute method detects belongs_to select" do
+    output = Components::ModelForm.new(model: @deal, action: "/deals").call do |form|
+      form.attribute :agency
+    end
+
+    assert_match(/name="deal\[agency\]"/, output)
+    assert_match(/<select/, output)
+    assert_match(/Test Agency/, output)
+  end
+
+  test "attribute method uses human_attribute_name for label" do
+    output = Components::ModelForm.new(model: @agency, action: "/agencies").call do |form|
+      form.attribute :name
+    end
+
+    # Should use I18n human_attribute_name
+    assert_match(/<label/, output)
+  end
+
+  test "attribute method allows custom label" do
+    output = Components::ModelForm.new(model: @agency, action: "/agencies").call do |form|
+      form.attribute :name, label: "Custom Label"
+    end
+
+    assert_match(/Custom Label/, output)
+  end
+
+  test "attribute method displays errors automatically" do
+    @deal.description = nil
+    @deal.valid?
+
+    output = Components::ModelForm.new(model: @deal, action: "/deals").call do |form|
+      form.attribute :description
+    end
+
+    assert_match(/aria-invalid="true"/, output)
   end
 end

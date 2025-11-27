@@ -27,8 +27,6 @@ class DealsController < ApplicationController
     @view = Views::Deals::New.new
     @view.current_path = request.path
     @view.deal = @deal
-    @view.agencies = Agency.order(:name)
-    @view.recruiters = Recruter.order(:name)
     render @view
   end
 
