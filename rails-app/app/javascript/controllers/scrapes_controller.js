@@ -41,6 +41,11 @@ export default class extends Controller {
       window.electronAPI.scrapeW1()
         .then(result => {
           console.log("Scrape initiated:", result)
+          
+          // Display results immediately from the scrape response
+          if (result && result.scrapeData) {
+            this.displayResults(result.scrapeData)
+          }
         })
         .catch(error => {
           console.error("Scrape error:", error)
@@ -60,30 +65,12 @@ export default class extends Controller {
     emptyState.classList.add("hidden")
     container.classList.remove("hidden")
 
-    // Create results HTML
-    content.innerHTML = `
-      <div class="border-l-4 border-green-400 bg-green-50 p-4">
-        <div class="flex">
-          <div class="flex-shrink-0">
-            <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-          </div>
-          <div class="ml-3 flex-1">
-            <h4 class="text-sm font-medium text-green-800">Scrape Successful</h4>
-            <div class="mt-2 text-sm text-green-700">
-              <p class="font-mono bg-white p-3 rounded border border-green-200 mt-2">
-                ${this.escapeHtml(data.text)}
-              </p>
-              <div class="mt-3 space-y-1 text-xs">
-                <p><strong>Total Paragraphs:</strong> ${data.total_paragraphs || data.totalParagraphs}</p>
-                <p><strong>Timestamp:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
-              </div>
-            </div>
-          </div>
+
+      content.innerHTML = `
+        <div class="border-l-4 border-green-400 bg-green-50 p-4">
+          <code class="text-xs font-mono bg-white p-3 mt-2 whitespace-pre-wrap">${JSON.stringify(data, null, 2)}</code>
         </div>
-      </div>
-    `
+      `
   }
 
   showError(message) {

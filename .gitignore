@@ -39,5 +39,6 @@
 
 # General
 PR_PLAN.md
+PR_DESCRIPTION.md
 .DS_Store
 *.log

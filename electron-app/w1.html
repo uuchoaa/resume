@@ -1,93 +1,3602 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>W1 - LinkedIn Window</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      max-width: 600px;
-    }
-    
-    h1 {
-      margin: 0 0 20px 0;
-      font-size: 2.5em;
-    }
-    
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      margin: 10px 0;
-      opacity: 0.9;
-    }
-    
-    .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 8px 16px;
-      border-radius: 20px;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-    
-    button {
-      background: white;
-      color: #667eea;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 1em;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: transform 0.2s;
-    }
-    
-    button:hover {
-      transform: scale(1.05);
-    }
-  </style>
-</head>
+<head><title>LinkedIn - W1</title></head>
 <body>
-  <div class="container">
-    <h1>🪟 Window 1</h1>
-    <p>LinkedIn Navigation Window</p>
-    <p>This window will be used to navigate LinkedIn normally.</p>
-    <div class="badge">Static HTML - Ready for Integration</div>
-    <button onclick="testElectronAPI()">Test Electron API</button>
+  <main id="main" class="utrLhBqOdLacwtLYWCbvaTqJwYxMYcARs
+  scaffold-layout__list-detail
+  msg__list-detail">
+  <div class="scaffold-layout__list-detail-container">
+    <div>
+      
+            
+  
+<div class="msg-cross-pillar-inbox-top-bar-wrapper__container" data-test-msg-cross-pillar-inbox-top-bar-wrapper="">
+  <div class="display-flex align-items-center flex-grow-1">
+    <h1 class="pl4 pr1 t-16 t-black t-bold" data-test-msg-cross-pillar-inbox-top-bar-title="">
+      Messaging
+    </h1>
+    
+    
+
+      
+
+  <div class="relative">
+    <label for="search-conversations" class="visually-hidden" data-test-msg-cross-pillar-search-form__placeholder-a11y="">
+      Search messages
+    </label>
+    <input id="search-conversations" class="ember-text-field ember-view msg-cross-pillar-search-form__search-field t-14 t-black t-normal" name="searchTerm" placeholder="Search messages" autocomplete="off" data-test-msg-cross-pillar-search-form__input="" type="search">
+      <span class="msg-cross-pillar-search-form__search-icon">
+        <svg role="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="search-small">
+<!---->    
+  <use href="#search-small" width="16" height="16"></use>
+</svg>
+
+      </span>
+<!---->    </div>
+
+    
+
+    <!---->
+    <!---->
+  
+  </div>
+  
+    <!---->
+    
+
+      <div id="ember49" class="mr1 artdeco-dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+        <button aria-expanded="false" aria-label="See more messaging options" id="ember50" class="artdeco-dropdown__trigger msg-conversations-container__dropdown-trigger artdeco-button artdeco-button--2 artdeco-button--circle artdeco-button--tertiary artdeco-button--muted artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+          <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="overflow-web-ios-medium">
+<!---->    
+  <use href="#overflow-web-ios-medium" width="24" height="24"></use>
+</svg>
+
+        
+<!----></button>
+        <div class="msg-conversations-container__dropdown-container">
+          <div tabindex="-1" aria-hidden="true" id="ember51" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+        </div>
+      </div>
+    
+
+    <!---->
+  
+  
+    <!---->
+    <!---->
+    
+
+      
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+        <button id="ember52" class="msg-conversations-container__compose-btn mr2 artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="compose-medium">
+<!---->    
+  <use href="#compose-medium" width="24" height="24"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  Compose a new message
+</span></button>
+      
   </div>
 
-  <script>
-    function testElectronAPI() {
-      if (window.electronAPI) {
-        window.electronAPI.test();
-        alert('Electron API is working! ✅');
-      } else {
-        alert('Electron API not found ❌');
-      }
-    }
     
-    console.log('W1 loaded successfully');
-  </script>
+
+  
+</div>
+
+    <div class="msg-conversations-container__title-row">
+        
+  <div class="msg-cross-pillar-inbox-filters-v3__container">
+    <div id="ember53" class="artdeco-dropdown msg-cross-pillar-inbox-filters-v3__all-filters pl4 pr2 artdeco-dropdown--placement-bottom artdeco-dropdown--justification-left ember-view" data-test-messaging-inbox-filters__folder-dropdown="">
+
+      <button aria-expanded="false" id="ember54" class="artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view artdeco-button msg-cross-pillar-inbox-filters-v3__drop-down-trigger vertial-align-middle" data-test-messaging-inbox-filters__folder-pill="" type="button" tabindex="0">
+
+          Focused
+
+        <svg role="none" aria-hidden="true" class="search-reusables__pill-button-caret-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="caret-small">
+<!---->    
+  <use href="#caret-small" width="16" height="16"></use>
+</svg>
+
+      
+<!----></button>
+
+      <div tabindex="-1" aria-hidden="true" id="ember55" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--justification-left artdeco-dropdown__content--placement-bottom ember-view ml4"><!----></div>
+    </div>
+      <div class="search-reusables__filter-vertical-divider"></div>
+      <div role="radiogroup" id="ember56" class="white-space-nowrap
+        pr2 artdeco-pill-choice-group ember-view" data-test-messaging-inbox-filters__filter-pill-group="">
+            <button aria-checked="false" role="button" id="ember293" class="vertical-align-middle artdeco-pill artdeco-pill--slate artdeco-pill--3 artdeco-pill--choice ember-view" aria-pressed="false" data-test-messaging-inbox-filters__filter-pill="JOB" type="button">  Jobs
+</button>
+            <button aria-checked="false" role="button" id="ember305" class="vertical-align-middle artdeco-pill artdeco-pill--slate artdeco-pill--3 artdeco-pill--choice ember-view" aria-pressed="false" data-test-messaging-inbox-filters__filter-pill="UNREAD" type="button">  Unread
+</button>
+            <button aria-checked="false" role="button" id="ember306" class="vertical-align-middle artdeco-pill artdeco-pill--slate artdeco-pill--3 artdeco-pill--choice ember-view" aria-pressed="false" data-test-messaging-inbox-filters__filter-pill="CONNECTIONS" type="button">  Connections
+</button>
+            <button aria-checked="false" role="button" id="ember307" class="vertical-align-middle artdeco-pill artdeco-pill--slate artdeco-pill--3 artdeco-pill--choice ember-view" aria-pressed="false" data-test-messaging-inbox-filters__filter-pill="INMAIL" type="button">  InMail
+</button>
+            <button aria-checked="false" role="button" id="ember308" class="vertical-align-middle artdeco-pill artdeco-pill--slate artdeco-pill--3 artdeco-pill--choice ember-view" aria-pressed="false" data-test-messaging-inbox-filters__filter-pill="STARRED" type="button">  Starred
+</button>
+      
+</div>
+<!----><!---->    </div>
+
+    </div>
+
+          
+    </div>
+    <div class="scaffold-layout__list-detail-inner scaffold-layout__list-detail-inner--grow">
+      <div class="scaffold-layout__list msg__list" tabindex="-1">
+        
+            
+  <div class="msg-conversations-container__header relative">
+
+<!---->
+<!---->
+    
+<!---->  
+
+      <a href="#thread-detail-jump-target" data-jump-to-conversation-link="" class="jump-link visually-hidden focusable">
+        <div class="pv1 ph2 t-14 t-black t-normal">
+          Jump to active conversation details
+        </div>
+      </a>
+
+    <h2 class="visually-hidden">
+      Conversation List
+    </h2>
+    <span class="visually-hidden">
+      Attention screen reader users, messaging items continuously update. Please use the tab and shift + tab keys instead of
+your up and down arrow keys to navigate between messaging items.
+    </span>
+  </div>
+
+<!---->
+<!---->
+    <div class="relative display-flex justify-center flex-column overflow-hidden msg-conversations-container--inbox-shortcuts">
+      <ul class="list-style-none msg-conversations-container__conversations-list" tabindex="-1" aria-label="Conversation List">
+        <li></li>
+<!---->
+          
+<!---->  
+                  
+      
+      <li id="ember65" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember66" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          msg-conversations-container__convo-item-link--active
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="presence-entity presence-entity--size-4 msg-selectable-entity__entity">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQHqT3k4pKKCcg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1707751445582?e=1766016000&amp;v=beta&amp;t=cFSj5jSNWTkGNb6s8KEnpsV2OVMeF0z4ax-vwukXBIw" loading="lazy" alt="Sean Sweeney" id="ember69" class="presence-entity__image EntityPhoto-circle-4  evi-image lazy-image ember-view" aria-describedby="ember68">
+      
+
+  <div id="ember68" class="presence-entity__indicator presence-entity__indicator--size-4
+           presence-indicator
+      hidden
+      presence-indicator--size-4">
+    <span class="visually-hidden">
+        Status is offline
+            </span>
+  </div>
+
+  </div>
+
+    <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember67" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Sean Sweeney" for="checkbox-msg-selectable-entity__checkbox-ember67">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Sean Sweeney
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                4:19 PM
+              </time>
+              <span class="visually-hidden">4:19 PM</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+                    <span class="msg-conversation-card__message-label--jobs text-body-xsmall-bold">
+                      Jobs
+                    </span>
+<!----><!---->                    You: Hi, thanks for the information! I’ve scheduled a time for Tuesday. Here’s the link:&nbsp;https://github.com/uuchoaa/resume/pull/5
+Please let me know if you need anything else from me.
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+        <span class="msg-conversation-listitem__active-text visually-hidden">
+          . Active conversation
+        </span>
+      <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember70" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember71" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Rafael Uchôa and Sean Sweeney
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember72" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember73" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember74" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="msg-facepile-grid--no-facepile msg-facepile-grid
+      msg-facepile-grid--4">
+<!---->          <img src="https://media.licdn.com/dms/image/v2/D4D03AQFGbO0XEBXURA/profile-displayphoto-scale_100_100/B4DZmVwN0nGwAg-/0/1759154069551?e=1766016000&amp;v=beta&amp;t=ZzgVWGILBsuArHop_CjoHNfz60jiIjXtPd-1zS-uUBI" loading="lazy" alt="Camila Filippo" id="ember196" class="msg-facepile-grid__img msg-facepile-grid__img--person evi-image lazy-image ember-view">
+        </div>
+
+            <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember75" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Camila Filippo" for="checkbox-msg-selectable-entity__checkbox-ember75">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Camila Filippo
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                Nov 27
+              </time>
+              <span class="visually-hidden">Nov 27</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+<!----><!----><!---->                    Opportunity @TechTeems - Engineering Manager
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+<!---->        <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember77" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember78" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Rafael Uchôa and Camila Filippo
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember79" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember80" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember81" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="msg-facepile-grid--no-facepile msg-facepile-grid
+      msg-facepile-grid--4">
+<!---->        <span tabindex="-1" id="ember83" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-bottom ember-view inline-block">
+        <button class="msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold" aria-controls="artdeco-hoverable-artdeco-gen-42" aria-expanded="false" type="button">
+            <img src="https://media.licdn.com/dms/image/v2/C4D03AQH3UDlLbQTsBQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1649873447147?e=1766016000&amp;v=beta&amp;t=nkZFCXi_rwdIo9u4Pt9dZAu5cO9IHbnHsq5R61_eszw" loading="lazy" alt="Carlos Rovedder" id="ember197" class="msg-facepile-grid__img msg-facepile-grid__img--person evi-image lazy-image ember-view" data-js-sponsored-conversation-hoverable-trigger="">
+        </button>
+        <div id="artdeco-gen-42" class="ember-view"><div id="ember86" class="ember-view"></div></div>
+      </span>
+  </div>
+
+            <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember82" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Carlos Rovedder" for="checkbox-msg-selectable-entity__checkbox-ember82">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Carlos Rovedder
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                Nov 26
+              </time>
+              <span class="visually-hidden">Nov 26</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+<!----><!---->                    <span class="msg-conversation-card__pill t-14
+                      
+                      t-bold pr1">
+                    Sponsored
+                  </span>
+                  Agentes de IA
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+<!---->        <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember87" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember88" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Carlos Rovedder
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember89" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember90" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember91" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="msg-facepile-grid--no-facepile msg-facepile-grid
+      msg-facepile-grid--4">
+<!---->          <img src="https://media.licdn.com/dms/image/v2/D4D03AQG_bKJHuoql6Q/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1704252219572?e=1766016000&amp;v=beta&amp;t=tGz0NuddnSkobCO0YdqUeYqPo8IaMrJtUzY92VLyGmY" loading="lazy" alt="Carmen Vilachá" id="ember198" class="msg-facepile-grid__img msg-facepile-grid__img--person evi-image lazy-image ember-view">
+        </div>
+
+            <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember92" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Carmen Vilachá" for="checkbox-msg-selectable-entity__checkbox-ember92">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Carmen Vilachá
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                Nov 25
+              </time>
+              <span class="visually-hidden">Nov 25</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+                    <span class="msg-conversation-card__message-label--jobs text-body-xsmall-bold">
+                      Jobs
+                    </span>
+<!----><!---->                    Hi Rafael! We'd really like to chat with you :)
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+<!---->        <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember94" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember95" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Carmen Vilachá and Rafael Uchôa
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember96" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember97" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember98" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="msg-facepile-grid--no-facepile msg-facepile-grid
+      msg-facepile-grid--4">
+<!---->          <img src="https://media.licdn.com/dms/image/v2/D4D03AQGyKJLRmgoXrA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1680176766369?e=1766016000&amp;v=beta&amp;t=gWMRLHWRFjpT29P5YLI2gTvTjgMmPo1pSLUgxHTisjo" loading="lazy" alt="Lucas Lima Bortolini" id="ember199" class="msg-facepile-grid__img msg-facepile-grid__img--person evi-image lazy-image ember-view">
+        </div>
+
+            <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember99" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Lucas Lima Bortolini" for="checkbox-msg-selectable-entity__checkbox-ember99">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Lucas Lima Bortolini
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                Nov 20
+              </time>
+              <span class="visually-hidden">Nov 20</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+                    <span class="msg-conversation-card__message-label--jobs text-body-xsmall-bold">
+                      Jobs
+                    </span>
+<!----><!---->                    [Remote]International Opportunity with Workana Premium
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+<!---->        <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember101" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember102" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Rafael Uchôa and Lucas Lima Bortolini
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember103" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember104" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember105" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="msg-facepile-grid--no-facepile msg-facepile-grid
+      msg-facepile-grid--4">
+<!---->          <img src="https://media.licdn.com/dms/image/v2/D4D03AQG9DuEKoaplfQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1694350243641?e=1766016000&amp;v=beta&amp;t=9G8xUo8RUu57Ffoj90W8TTF9UiVAqZTckUbxwrY3duE" loading="lazy" alt="Elena Netkach" id="ember200" class="msg-facepile-grid__img msg-facepile-grid__img--person evi-image lazy-image ember-view">
+        </div>
+
+            <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember106" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Elena Netkach" for="checkbox-msg-selectable-entity__checkbox-ember106">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Elena Netkach
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                Nov 19
+              </time>
+              <span class="visually-hidden">Nov 19</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+                    <span class="msg-conversation-card__message-label--jobs text-body-xsmall-bold">
+                      Jobs
+                    </span>
+<!----><!---->                    You: Okay, thanks
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+<!---->        <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember108" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember109" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Elena Netkach and Rafael Uchôa
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember110" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember111" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember112" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="msg-facepile-grid--no-facepile msg-facepile-grid
+      msg-facepile-grid--4">
+<!---->          <img src="https://media.licdn.com/dms/image/v2/D4E03AQHufRpsXWOgmA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1673973413840?e=1766016000&amp;v=beta&amp;t=8o1FFrrpWj1JQsnM74s2ujiFSb6Yf9A6-LNLc_DMhSc" loading="lazy" alt="Evan T." id="ember201" class="msg-facepile-grid__img msg-facepile-grid__img--person evi-image lazy-image ember-view">
+        </div>
+
+            <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember113" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Evan T." for="checkbox-msg-selectable-entity__checkbox-ember113">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Evan T.
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                Nov 19
+              </time>
+              <span class="visually-hidden">Nov 19</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+                    <span class="msg-conversation-card__message-label--jobs text-body-xsmall-bold">
+                      Jobs
+                    </span>
+<!----><!---->                    Urgent Remote Senior Full Stack Developer Job Opportunity
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+<!---->        <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember115" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember116" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Rafael Uchôa and Evan T.
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember117" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember118" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember119" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="msg-facepile-grid--no-facepile msg-facepile-grid
+      msg-facepile-grid--4">
+<!---->          <img src="https://media.licdn.com/dms/image/v2/D4E03AQFs1s5EnSku1A/profile-displayphoto-scale_100_100/B4EZh7rQrRGYAc-/0/1754421595545?e=1766016000&amp;v=beta&amp;t=wUsn_fZzt4V9J2qLOojpeuoZ34wNih6BAuLvZf1-7Yk" loading="lazy" alt="Rochelle Bruce" id="ember202" class="msg-facepile-grid__img msg-facepile-grid__img--person evi-image lazy-image ember-view">
+        </div>
+
+            <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember120" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Rochelle Bruce" for="checkbox-msg-selectable-entity__checkbox-ember120">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Rochelle Bruce
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                Nov 13
+              </time>
+              <span class="visually-hidden">Nov 13</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+<!----><!----><!---->                    Your experience really caught my eye, Rafael
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+<!---->        <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember122" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember123" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Rafael Uchôa and Rochelle Bruce
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember124" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember125" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember126" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="presence-entity presence-entity--size-4 msg-selectable-entity__entity">
+      <img src="https://media.licdn.com/dms/image/v2/D5635AQGqhsojhyDXjw/profile-framedphoto-shrink_100_100/profile-framedphoto-shrink_100_100/0/1736955512032?e=1764975600&amp;v=beta&amp;t=fEl-pZwEpwmJ_nbwcF7Ggjh83c-XeNu1K3DdGaFmxAc" loading="lazy" alt="Sofia Achaval, #HIRING" id="ember129" class="presence-entity__image EntityPhoto-circle-4  evi-image lazy-image ember-view" aria-describedby="ember128">
+      
+
+  <div id="ember128" class="presence-entity__indicator presence-entity__indicator--size-4
+           presence-indicator
+      hidden
+      presence-indicator--size-4">
+    <span class="visually-hidden">
+        Status is offline
+            </span>
+  </div>
+
+  </div>
+
+    <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember127" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Sofia Achaval" for="checkbox-msg-selectable-entity__checkbox-ember127">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Sofia Achaval
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                Nov 12
+              </time>
+              <span class="visually-hidden">Nov 12</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+<!----><!----><!---->                    You: Thank you
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+<!---->        <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember130" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember131" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Rafael Uchôa and Sofia Achaval
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember132" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember133" class="ember-view  scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+          
+        
+  <div class="msg-conversation-card msg-conversations-container__pillar" id="conversation-card-ember134" data-feedback-redacted="">
+    
+    
+
+  <div class="entry-point">
+    
+  <div></div>
+
+
+        
+      <div class="msg-conversation-listitem__link msg-conversations-container__convo-item-link
+          
+          pl3" tabindex="0">
+        
+      
+  <div class="msg-selectable-entity
+      
+      msg-selectable-entity--4">
+        
+  <div class="presence-entity presence-entity--size-4 msg-selectable-entity__entity">
+      <img src="https://media.licdn.com/dms/image/v2/D4D03AQHA80QpifRKOA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1723646140733?e=1766016000&amp;v=beta&amp;t=hdSTXPimAXozngxb-ihlH77VqqUiryno5y1ydc4YqBk" loading="lazy" alt="Fernanda Bonaldi" id="ember137" class="presence-entity__image EntityPhoto-circle-4  evi-image lazy-image ember-view" aria-describedby="ember136">
+      
+
+  <div id="ember136" class="presence-entity__indicator presence-entity__indicator--size-4
+           presence-indicator
+      hidden
+      presence-indicator--size-4">
+    <span class="visually-hidden">
+        Status is offline
+            </span>
+  </div>
+
+  </div>
+
+    <div class="msg-selectable-entity__checkbox-container">
+      <input id="checkbox-msg-selectable-entity__checkbox-ember135" class="ember-checkbox ember-view msg-selectable-entity__input simple-form" type="checkbox">
+      <label class="msg-selectable-entity__checkbox-label ml2" aria-label="Select conversation with Fernanda Bonaldi" for="checkbox-msg-selectable-entity__checkbox-ember135">
+      </label>
+
+      <div class="msg-selectable-entity__checkbox-circle-container">
+        <div class="msg-selectable-entity__checkbox-circle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="msg-conversation-card__content--selectable">
+        <div class="msg-conversation-card__rows">
+          <div class="msg-conversation-card__row msg-conversation-card__title-row">
+            <h3 class="msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black
+                t-normal">
+              <div class="display-flex justify-left align-items-center truncate">
+                <span class="truncate">
+                  Fernanda Bonaldi
+                </span>
+              </div>
+
+            </h3>
+            <div class="msg-conversation-card__mute-icon-holder">
+<!---->              </div>
+              <time class="msg-conversation-listitem__time-stamp t-14 t-black
+                  t-normal
+                  msg-conversation-card__time-stamp">
+                Nov 11
+              </time>
+              <span class="visually-hidden">Nov 11</span>
+              <div class="msg-conversation-card__inbox-shortcuts-placeholder">
+              </div>
+          </div>
+
+          <div class="msg-conversation-card__row msg-conversation-card__body-row">
+            <div class="msg-conversation-card__message-snippet-container flex-grow-1">
+<!---->                <p class="msg-conversation-card__message-snippet
+                  
+                  m0 t-14
+                  ">
+<!----><!----><!---->                    You: Thanks for letting me know
+              </p>
+            </div>
+            <div class="display-flex">
+              <div class="msg-conversation-card__conversation-status msg-conversation-card__star-icon
+                  " aria-label="Star conversation" role="img">
+<!---->                </div>
+<!---->              </div>
+          </div>
+
+<!---->          </div>
+      </div>
+
+<!---->        <span class="visually-hidden">
+        . Press return to go to conversation details
+      </span>
+    
+      </div>
+    
+  </div>
+
+
+      <div class="msg-conversation-card__inbox-shortcuts">
+        
+
+
+  <div id="ember138" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember139" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Fernanda Bonaldi and Rafael Uchôa
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember140" class="msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+      </div>
+  </div>
+
+      
+      </li>
+
+      
+      <li id="ember141" class="ember-view msg-conversation-card--occluded scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+<!---->        </li>
+
+      
+      <li id="ember142" class="ember-view msg-conversation-card--occluded scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+<!---->        </li>
+
+      
+      <li id="ember143" class="ember-view msg-conversation-card--occluded scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+<!---->        </li>
+
+      
+      <li id="ember144" class="ember-view msg-conversation-card--occluded scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+<!---->        </li>
+
+      
+      <li id="ember145" class="ember-view msg-conversation-card--occluded scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+<!---->        </li>
+
+      
+      <li id="ember146" class="ember-view msg-conversation-card--occluded scaffold-layout__list-item msg-conversation-listitem msg-conversations-container__convo-item msg-conversations-container__pillar " tabindex="-1">
+<!---->        </li>
+
+
+<!---->  
+<!---->
+          <li class="p3">
+            
+  <div data-test-msg-cross-pillar-visible-beacon="">
+    
+  </div>
+
+            <button id="ember310" class="block mlA mrA artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view"><!---->
+<span class="artdeco-button__text">
+  
+              Load more conversations
+            
+</span></button>
+          </li>
+      </ul>
+    </div>
+
+          
+      </div>
+
+      <div class="scaffold-layout__detail
+          msg__detail
+          
+          " tabindex="-1">
+        
+            
+  <div class="msg-convo-wrapper msg-thread msg-thread--pillar relative display-flex" id="message-thread-ember47" data-feedback-redacted="">
+
+  <div class="relative display-flex flex-column flex-grow-1">
+      
+    
+  <div></div>
+
+    
+  
+
+<div class="msg-title-bar global-title-container shared-title-bar" id="thread-detail-jump-target" data-jump-link-target="thread-detail-jump-target" tabindex="0">
+      <div class="shared-title-bar__title msg-title-bar__title-bar-title">
+<!---->
+<!---->
+
+    <!---->
+          <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  msg-thread__link-to-profile" title="Open Sean Sweeney’s profile" href="https://www.linkedin.com/in/ACoAAErGbqMBb7wHzxBiOX7XQYxaMTm6eerdmAo" data-test-app-aware-link="">
+            
+  <div class="msg-entity-lockup truncate
+      EntityLockup-circle-2">
+    <dl class="truncate">
+      <dt class="msg-entity-lockup__entity-title-wrapper display-flex justify-left align-items-center">
+          <h2 tabindex="-1" class="msg-entity-lockup__entity-title truncate pr2
+               hoverable-link-text">
+            Sean Sweeney
+          </h2>
+      </dt>
+      <dd class="msg-entity-lockup__entity-info t-12 t-black--light t-normal truncate">
+          <div class="display-flex align-items-center msg-entity-lockup__presence-status">
+              
+
+  <div class="msg-entity-lockup__presence-indicator mr2 presence-indicator
+      hidden
+      presence-indicator--size-2">
+    <span class="visually-hidden">
+        Status is offline
+            </span>
+  </div>
+
+                Technical Recruiter at DoneStreet
+                          </div>
+      </dd>
+    </dl>
+  </div>
+
+          </a>
+    
+
+
+  <div id="ember152" class="artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view">
+    <button aria-expanded="false" id="ember153" class="msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--2 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view" type="button" tabindex="0">
+        <svg role="none" aria-hidden="true" class="artdeco-button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="overflow-web-ios-medium">
+<!---->    
+  <use href="#overflow-web-ios-medium" width="24" height="24"></use>
+</svg>
+
+        <span class="visually-hidden">
+          Open the options list in your conversation with Rafael Uchôa and Sean Sweeney
+        </span>
+    
+<!----></button>
+    <div class="msg-thread-actions__dropdown-container">
+      <div tabindex="-1" aria-hidden="true" id="ember154" class="msg-thread-actions__dropdown-options artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view"><!----></div>
+    </div>
+  </div>
+
+  
+<!---->  
+
+  
+
+  <div data-test-msg-cross-pillar-conversation-semaphore-presenter="">
+<!---->    </div>
+
+
+<!---->
+<!---->  
+
+<!---->      <button class="msg-thread__star-icon
+        
+        artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary" aria-label="Star conversation" type="button">
+<!---->          
+<svg aria-hidden="true" focusable="false" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
+  <path d="M8,2.77,9.6,6l3.59.53-2.6,2.54.61,3.58L8,11,4.8,12.67l.61-3.58L2.81,6.55,6.4,6,8,2.77M8,.5,5.73,5.11.67,5.85,4.33,9.43,3.47,14.5,8,12.11l4.53,2.39-.86-5.07,3.66-3.58-5.06-.74L8,.5Z"></path>
+</svg>
+
+    </button>
+  </div>
+</div>
+
+
+    
+  <div>
+    
+  <div class="msg-thread-container msg-thread__thread-actions-tray">
+<!----><!---->    </div>
+
+<!---->
+<!---->  
+  </div>
+
+    
+  <div class="msg-s-message-list-container relative display-flex mbA
+      msg-s-message-list-container--column-reversed
+      ">
+    
+        <div class="msg-s-message-list__latest-messages-pill msg-animation__indicator">
+          <button aria-label="You have received new messages in your current conversation" id="ember311" class="artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--primary ember-view">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="arrow-down-small">
+<!---->    
+  <use href="#arrow-down-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  
+</span></button>
+        </div>
+      
+
+  <div class="msg-s-message-list msg-s-message-list--scroll-buffer
+      full-width scrollable" id="message-list-ember47">
+    <ul class="msg-s-message-list-content list-style-none full-width mbA">
+      <li class="msg-s-message-list__top-of-list"></li>
+
+<!----><!---->        <li class="msg-s-message-list__loader hidden">
+        <div id="ember157" class="artdeco-loader artdeco-loader--small ember-view"><!---->
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+<span class="artdeco-loader__bars"></span>
+</div>
+      </li>
+        <li class="msg-s-message-list__event clearfix
+            
+            
+            ">
+          
+    <time class="msg-s-message-list__time-heading t-12 t-black--light t-bold">
+      Tuesday
+    </time>
+
+    <span class="msg-s-event-listitem--group-a11y-heading visually-hidden">
+      Sean Sweeney sent the following message at 11:17 AM
+    </span>
+
+  <div class="msg-s-event-listitem
+      
+      
+      
+       msg-s-event-listitem--last-in-group
+      
+      
+      
+       msg-s-event-listitem--other
+      
+      " data-event-urn="urn:li:msg_message:(urn:li:fsd_profile:ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk,2-MTc2NDA4MDI1ODU3N2IzNzE2Ny0xMDAmYzBkYjZkYTgtMTdiNi00MmVmLTgwZTAtMjExZmY1MjZjZTEyXzEwMA==)" data-view-name="message-list-item">
+        
+        <a tabindex="0" href="https://www.linkedin.com/in/ACoAAErGbqMBb7wHzxBiOX7XQYxaMTm6eerdmAo" id="ember203" class="ember-view msg-s-event-listitem__link">
+          <span class="a11y-text">
+            View Sean’s profile
+          </span>
+            <img title="Sean Sweeney" src="https://media.licdn.com/dms/image/v2/D5603AQHqT3k4pKKCcg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1707751445582?e=1766016000&amp;v=beta&amp;t=cFSj5jSNWTkGNb6s8KEnpsV2OVMeF0z4ax-vwukXBIw" loading="lazy" alt="Sean Sweeney" id="ember204" class="msg-s-event-listitem__profile-picture EntityPhoto-circle-2 evi-image lazy-image ember-view">
+        </a>
+
+      
+      <div class="msg-s-message-group__meta">
+
+                <span>
+                  <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  inline-block v-align-middle" href="https://www.linkedin.com/in/ACoAAErGbqMBb7wHzxBiOX7XQYxaMTm6eerdmAo" data-test-app-aware-link="">
+                      <span class="msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text">
+
+                          Sean Sweeney
+                      </span>
+                  </a>
+                    
+    <svg role="img" aria-hidden="false" aria-label="LinkedIn Premium" class="inline-block v-align-middle flex-shrink-zero " xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" data-supported-dps="14x14" data-test-icon="linkedin-bug-premium-v2-xxsmall">
+<!---->    <svg display="var(--hue-web-svg-display-light)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/7lputkpzv6s224ks0n6c7h2qo" x="0" y="0" width="14" height="14"></image>
+  </svg>
+  <svg display="var(--hue-web-svg-display-dark)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/e41cj52mke6g9s3xjsvu8yrbz" x="0" y="0" width="14" height="14"></image>
+  </svg>
+</svg>
+
+
+                </span>
+        
+
+<!---->  
+        <time class="msg-s-message-group__timestamp white-space-nowrap t-12 t-black--light t-normal">
+          11:17 AM
+        </time>
+      </div>
+      
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-s-event-listitem__message-bubble msg-s-event-listitem__message-bubble--msg-fwd-enabled" tabindex="0">
+      <div class="msg-s-event-listitem__actions-container artdeco-card">
+          
+  <ul class="emoji-popular-list__container" role="menu">
+      <li role="none">
+        <div aria-label="React with clapping hands" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="clapping hands">
+          <span class="emoji-popular-list__item-emoji">
+            👏
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with thumbs up" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="thumbs up">
+          <span class="emoji-popular-list__item-emoji">
+            👍
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with smiling face with smiling eyes" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="smiling face with smiling eyes">
+          <span class="emoji-popular-list__item-emoji">
+            😊
+          </span>
+        </div>
+      </li>
+  </ul>
+
+    
+  <div>
+    <span tabindex="-1" id="ember206" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_hover_reaction__emoji-hoverable__content" id="ember207" class="msg-reactions__entry-point msg-reactions-action-menu__entry-point m0 p0 emoji-hoverable-trigger artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <li-icon aria-hidden="true" type="emoji-face-icon" class="artdeco-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+    <path d="M4.84 6A1.16 1.16 0 116 7.17 1.17 1.17 0 014.84 6zM8 9.38a3.51 3.51 0 01-2.3-.81l-.83 1.29a4.87 4.87 0 006.25 0l-.82-1.28a3.51 3.51 0 01-2.3.8zm2-4.55A1.17 1.17 0 1011.16 6 1.17 1.17 0 0010 4.83zM8 2.88A5.12 5.12 0 112.88 8 5.12 5.12 0 018 2.88M8 1a7 7 0 107 7 7 7 0 00-7-7z"></path>
+  </svg></li-icon>
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+<!---->    </div>
+
+
+
+          <button title="Reply to this message" aria-label="Reply to this message" id="ember208" class="artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view msg-s-event-listitem__hover-action-button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="reply-small">
+<!---->    
+  <use href="#reply-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  
+</span></button>
+
+          <div id="ember209" class="msg-s-event-listitem__reactions-options-ellipsis artdeco-dropdown artdeco-dropdown--placement-top artdeco-dropdown--justification-right ember-view" aria-label="Options for the message from Sean: Hi Rafael, Came across your profile while looking for talented fullstack engineers and wanted to learn more about your interests. We have a client who is hiring for a role using Ruby on Rails and it would be great to connect if you’re open to new opportunities. Would you like to discuss further?">
+            <button aria-expanded="false" id="ember210" class="msg-s-event-listitem__options-trigger artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-top ember-view" type="button" tabindex="0">
+              <svg role="img" aria-hidden="false" aria-label="Options for the message from Sean: Hi Rafael, Came across your profile while looking for talented fullstack engineers and wanted to learn more about your interests. We have a client who is hiring for a role using Ruby on Rails and it would be great to connect if you’re open to new opportunities. Would you like to discuss further?" class="msg-s-event-listitem__options-trigger-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+            
+<!----></button>
+            <div class="msg-s-event-listitem__options-content">
+              <div tabindex="-1" aria-hidden="true" id="ember211" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-top ember-view"><!----></div>
+            </div>
+          </div>
+      </div>
+    
+    
+<!---->            
+<div class="msg-s-event-with-indicator display-flex ">
+  <div class="msg-s-event__content" dir="ltr">
+    
+              <p class="msg-s-event-listitem__body t-14 t-black--light t-normal
+                  "><!---->Hi Rafael, Came across your profile while looking for talented fullstack engineers and wanted to learn more about your interests. We have a client who is hiring for a role using Ruby on Rails and it would be great to connect if you’re open to new opportunities. Would you like to discuss further?<!----><!----></p>
+  </div>
+<!---->  </div>
+
+
+<!---->          
+  </div>
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->    
+<!---->  
+
+    
+            
+          
+
+<!---->    </div>
+
+<!---->  
+        </li>
+        <li class="msg-s-message-list__event clearfix
+            
+            
+            ">
+          
+<!---->
+    <span class="msg-s-event-listitem--group-a11y-heading visually-hidden">
+      Rafael Uchôa sent the following message at 11:18 AM
+    </span>
+
+  <div class="msg-s-event-listitem
+      
+      
+      
+       msg-s-event-listitem--last-in-group
+      
+      
+      
+      
+      
+      " data-event-urn="urn:li:msg_message:(urn:li:fsd_profile:ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk,2-MTc2NDA4MDMzODIzMWI3NzkxNS0xMDAmYzBkYjZkYTgtMTdiNi00MmVmLTgwZTAtMjExZmY1MjZjZTEyXzEwMA==)" data-view-name="message-list-item">
+        
+        <a tabindex="0" href="https://www.linkedin.com/in/ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk" id="ember212" class="ember-view msg-s-event-listitem__link">
+          <span class="a11y-text">
+            View Rafael’s profile
+          </span>
+            <img title="Rafael Uchôa" src="https://media.licdn.com/dms/image/v2/D4D35AQGTq0Eiz6yqNQ/profile-framedphoto-shrink_100_100/B4DZoRu7PBGkAk-/0/1761234105585?e=1764975600&amp;v=beta&amp;t=TnCMcCOQmnn_QOP6sjgk53W2BObZVblG6ORiQ78Vgu8" loading="lazy" alt="Rafael Uchôa, #OPEN_TO_WORK" id="ember213" class="msg-s-event-listitem__profile-picture EntityPhoto-circle-2 evi-image lazy-image ember-view">
+        </a>
+
+      
+      <div class="msg-s-message-group__meta">
+
+                <span>
+                  <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  inline-block v-align-middle" href="https://www.linkedin.com/in/ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk" data-test-app-aware-link="">
+                      <span class="msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text">
+
+                          Rafael Uchôa
+                      </span>
+                  </a>
+                    
+    <svg role="img" aria-hidden="false" aria-label="LinkedIn Premium" class="inline-block v-align-middle flex-shrink-zero " xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" data-supported-dps="14x14" data-test-icon="linkedin-bug-premium-v2-xxsmall">
+<!---->    <svg display="var(--hue-web-svg-display-light)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/7lputkpzv6s224ks0n6c7h2qo" x="0" y="0" width="14" height="14"></image>
+  </svg>
+  <svg display="var(--hue-web-svg-display-dark)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/e41cj52mke6g9s3xjsvu8yrbz" x="0" y="0" width="14" height="14"></image>
+  </svg>
+</svg>
+
+
+                </span>
+        
+
+    <span class="t-12 t-black--light t-normal">
+       (He/Him)
+    </span>
+
+        <time class="msg-s-message-group__timestamp white-space-nowrap t-12 t-black--light t-normal">
+          11:18 AM
+        </time>
+      </div>
+      
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-s-event-listitem__message-bubble msg-s-event-listitem__message-bubble--msg-fwd-enabled" tabindex="0">
+      <div class="msg-s-event-listitem__actions-container artdeco-card">
+          
+  <ul class="emoji-popular-list__container" role="menu">
+      <li role="none">
+        <div aria-label="React with clapping hands" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="clapping hands">
+          <span class="emoji-popular-list__item-emoji">
+            👏
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with thumbs up" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="thumbs up">
+          <span class="emoji-popular-list__item-emoji">
+            👍
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with smiling face with smiling eyes" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="smiling face with smiling eyes">
+          <span class="emoji-popular-list__item-emoji">
+            😊
+          </span>
+        </div>
+      </li>
+  </ul>
+
+    
+  <div>
+    <span tabindex="-1" id="ember215" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_hover_reaction__emoji-hoverable__content" id="ember216" class="msg-reactions__entry-point msg-reactions-action-menu__entry-point m0 p0 emoji-hoverable-trigger artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <li-icon aria-hidden="true" type="emoji-face-icon" class="artdeco-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+    <path d="M4.84 6A1.16 1.16 0 116 7.17 1.17 1.17 0 014.84 6zM8 9.38a3.51 3.51 0 01-2.3-.81l-.83 1.29a4.87 4.87 0 006.25 0l-.82-1.28a3.51 3.51 0 01-2.3.8zm2-4.55A1.17 1.17 0 1011.16 6 1.17 1.17 0 0010 4.83zM8 2.88A5.12 5.12 0 112.88 8 5.12 5.12 0 018 2.88M8 1a7 7 0 107 7 7 7 0 00-7-7z"></path>
+  </svg></li-icon>
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+<!---->    </div>
+
+
+
+          <button title="Reply to this message" aria-label="Reply to this message" id="ember217" class="artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view msg-s-event-listitem__hover-action-button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="reply-small">
+<!---->    
+  <use href="#reply-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  
+</span></button>
+
+          <div id="ember218" class="msg-s-event-listitem__reactions-options-ellipsis artdeco-dropdown artdeco-dropdown--placement-top artdeco-dropdown--justification-right ember-view" aria-label="Options for the message from Rafael: Hey, hi Sean! Thanks for reaching out! Yeah, sure, I&amp;#39;d love to hear more about it.
+Cheers">
+            <button aria-expanded="false" id="ember219" class="msg-s-event-listitem__options-trigger artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-top ember-view" type="button" tabindex="0">
+              <svg role="img" aria-hidden="false" aria-label="Options for the message from Rafael: Hey, hi Sean! Thanks for reaching out! Yeah, sure, I&amp;#39;d love to hear more about it.
+Cheers" class="msg-s-event-listitem__options-trigger-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+            
+<!----></button>
+            <div class="msg-s-event-listitem__options-content">
+              <div tabindex="-1" aria-hidden="true" id="ember220" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-top ember-view"><!----></div>
+            </div>
+          </div>
+      </div>
+    
+    
+<!---->            
+<div class="msg-s-event-with-indicator display-flex ">
+  <div class="msg-s-event__content" dir="ltr">
+    
+              <p class="msg-s-event-listitem__body t-14 t-black--light t-normal
+                  "><!---->Hey, hi Sean! Thanks for reaching out! Yeah, sure, I'd love to hear more about it.<!----><br><!---->Cheers<!----><!----></p>
+  </div>
+    
+<span data-test-msg-cross-pillar-message-sending-indicator-presenter__container="" class="msg-s-event-with-indicator__sending-indicator align-self-flex-end
+     msg-s-event-with-indicator__sending-indicator--sent 
+    
+    " title="Sent at 11/25/2025, 11:18 AM">
+    <svg data-test-msg-cross-pillar-message-sending-indicator-presenter__sending-indicator--sent="" width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="8" cy="8" r="6.5"></circle>
+      <path d="M7.40005 12L4.30005 8.9L5.60005 7.6L7.10005 9L9.70005 5H12L7.40005 12Z">
+      </path>
+    </svg>
+</span>
+
+</div>
+
+
+<!---->          
+  </div>
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->    
+<!---->  
+
+    
+            
+          
+
+<!---->    </div>
+
+<!---->  
+        </li>
+        <li class="msg-s-message-list__event clearfix
+            
+            
+            ">
+          
+<!---->
+    <span class="msg-s-event-listitem--group-a11y-heading visually-hidden">
+      Sean Sweeney sent the following message at 11:24 AM
+    </span>
+
+  <div class="msg-s-event-listitem
+      
+      
+      
+       msg-s-event-listitem--last-in-group
+      
+      
+      
+       msg-s-event-listitem--other
+      
+      " data-event-urn="urn:li:msg_message:(urn:li:fsd_profile:ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk,2-MTc2NDA4MDY0Njk0MmI1MDgxNC0xMDAmYzBkYjZkYTgtMTdiNi00MmVmLTgwZTAtMjExZmY1MjZjZTEyXzEwMA==)" data-view-name="message-list-item">
+        
+        <a tabindex="0" href="https://www.linkedin.com/in/ACoAAErGbqMBb7wHzxBiOX7XQYxaMTm6eerdmAo" id="ember221" class="ember-view msg-s-event-listitem__link">
+          <span class="a11y-text">
+            View Sean’s profile
+          </span>
+            <img title="Sean Sweeney" src="https://media.licdn.com/dms/image/v2/D5603AQHqT3k4pKKCcg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1707751445582?e=1766016000&amp;v=beta&amp;t=cFSj5jSNWTkGNb6s8KEnpsV2OVMeF0z4ax-vwukXBIw" loading="lazy" alt="Sean Sweeney" id="ember222" class="msg-s-event-listitem__profile-picture EntityPhoto-circle-2 evi-image lazy-image ember-view">
+        </a>
+
+      
+      <div class="msg-s-message-group__meta">
+
+                <span>
+                  <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  inline-block v-align-middle" href="https://www.linkedin.com/in/ACoAAErGbqMBb7wHzxBiOX7XQYxaMTm6eerdmAo" data-test-app-aware-link="">
+                      <span class="msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text">
+
+                          Sean Sweeney
+                      </span>
+                  </a>
+                    
+    <svg role="img" aria-hidden="false" aria-label="LinkedIn Premium" class="inline-block v-align-middle flex-shrink-zero " xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" data-supported-dps="14x14" data-test-icon="linkedin-bug-premium-v2-xxsmall">
+<!---->    <svg display="var(--hue-web-svg-display-light)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/7lputkpzv6s224ks0n6c7h2qo" x="0" y="0" width="14" height="14"></image>
+  </svg>
+  <svg display="var(--hue-web-svg-display-dark)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/e41cj52mke6g9s3xjsvu8yrbz" x="0" y="0" width="14" height="14"></image>
+  </svg>
+</svg>
+
+
+                </span>
+        
+
+<!---->  
+        <time class="msg-s-message-group__timestamp white-space-nowrap t-12 t-black--light t-normal">
+          11:24 AM
+        </time>
+      </div>
+      
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-s-event-listitem__message-bubble msg-s-event-listitem__message-bubble--msg-fwd-enabled" tabindex="0">
+      <div class="msg-s-event-listitem__actions-container artdeco-card">
+          
+  <ul class="emoji-popular-list__container" role="menu">
+      <li role="none">
+        <div aria-label="React with clapping hands" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="clapping hands">
+          <span class="emoji-popular-list__item-emoji">
+            👏
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with thumbs up" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="thumbs up">
+          <span class="emoji-popular-list__item-emoji">
+            👍
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with smiling face with smiling eyes" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="smiling face with smiling eyes">
+          <span class="emoji-popular-list__item-emoji">
+            😊
+          </span>
+        </div>
+      </li>
+  </ul>
+
+    
+  <div>
+    <span tabindex="-1" id="ember224" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_hover_reaction__emoji-hoverable__content" id="ember225" class="msg-reactions__entry-point msg-reactions-action-menu__entry-point m0 p0 emoji-hoverable-trigger artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <li-icon aria-hidden="true" type="emoji-face-icon" class="artdeco-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+    <path d="M4.84 6A1.16 1.16 0 116 7.17 1.17 1.17 0 014.84 6zM8 9.38a3.51 3.51 0 01-2.3-.81l-.83 1.29a4.87 4.87 0 006.25 0l-.82-1.28a3.51 3.51 0 01-2.3.8zm2-4.55A1.17 1.17 0 1011.16 6 1.17 1.17 0 0010 4.83zM8 2.88A5.12 5.12 0 112.88 8 5.12 5.12 0 018 2.88M8 1a7 7 0 107 7 7 7 0 00-7-7z"></path>
+  </svg></li-icon>
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+<!---->    </div>
+
+
+
+          <button title="Reply to this message" aria-label="Reply to this message" id="ember226" class="artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view msg-s-event-listitem__hover-action-button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="reply-small">
+<!---->    
+  <use href="#reply-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  
+</span></button>
+
+          <div id="ember227" class="msg-s-event-listitem__reactions-options-ellipsis artdeco-dropdown artdeco-dropdown--placement-top artdeco-dropdown--justification-right ember-view" aria-label="Options for the message from Sean: Great, happy to share more Rafael. The client works in the Adult Entertainment space and is based in Chicago Illinois. The role would be fully remote. You&amp;#39;ll be brought right into the mix accepting challenges across the stack, contributing ideas, writing code, and shipping into production.
+
+They are looking for a mid-to-senior Full Stack Ruby on Rails Developer with a strong frontend focus to lead the charge for their Rails-based applications in the adult entertainment space. Their main product has been online for 25 years, attracts millions of monthly visitors and they are now making it faster, sleeker and easier to maintain.
+
+Some of their new services use Node.js, however, rails remains at the core of their platform. The ideal candidate should be comfortable working in Rails views (ERB, Haml) and parts of the legacy frontend (Backbone, jQuery, Bootstrap 3), while also introducing modern design systems and reusable components to improve performance and maintainability.
+
+You&amp;#39;ll be the go-to person for all things frontend in a product team of 4 developers, QA, and DevOps, working closely with the lead engineer and backend developers across Rails and Node.js services.
+
+What you’ll do:
+* Maintain and modernize frontends built with Rails views, Backbone, jQuery, and Bootstrap 3.
+* Refactor and migrate legacy code to TypeScript, React, Web Components, and Bootstrap 5.
+* Build new frontends for Node.js applications, ensuring consistency with our design systems and modern stack.
+* Create and maintain design systems that keep our components, typography, and styling looking sharp and consistent.
+* Improve Core Web Vitals, implement SEO changes, and run A/B tests to boost conversions.
+* Write unit tests with Jest and maintain high-quality code standards.
+* Collaborate closely with the team to deliver features that impact millions of visitors.
+
+What they’re looking for:
+* Strong frontend development skills with solid JavaScript and TypeScript experience.
+* Comfort working with Ruby on Rails and Node.js backend tasks.
+* Comfortable refactoring and improving legacy code. You&amp;#39;re not afraid to dive in and clean things up.
+* Experience working with a design system approach.
+* UX mindset with an eye for design. You know how to make things look beautiful and work great.
+* Curious about analytics and data-driven design decisions.
+* Familiarity with Docker and Kubernetes is a plus.
+
+To summarize the tech stack and tools:
+Ruby on Rails, Node.js, JavaScript, TypeScript, Backbone, jQuery, React, Web Components, Bootstrap, VideoJS, Jest, Vite, Webpack, Docker, Kubernetes, GitHub, Slack, JIRA, Notion
+
+For the role, you would need to be okay working with Adult content so no worries if you are not comfortable with that.
+
+What are your thoughts, does this sound like something of interest?">
+            <button aria-expanded="false" id="ember228" class="msg-s-event-listitem__options-trigger artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-top ember-view" type="button" tabindex="0">
+              <svg role="img" aria-hidden="false" aria-label="Options for the message from Sean: Great, happy to share more Rafael. The client works in the Adult Entertainment space and is based in Chicago Illinois. The role would be fully remote. You&amp;#39;ll be brought right into the mix accepting challenges across the stack, contributing ideas, writing code, and shipping into production.
+
+They are looking for a mid-to-senior Full Stack Ruby on Rails Developer with a strong frontend focus to lead the charge for their Rails-based applications in the adult entertainment space. Their main product has been online for 25 years, attracts millions of monthly visitors and they are now making it faster, sleeker and easier to maintain.
+
+Some of their new services use Node.js, however, rails remains at the core of their platform. The ideal candidate should be comfortable working in Rails views (ERB, Haml) and parts of the legacy frontend (Backbone, jQuery, Bootstrap 3), while also introducing modern design systems and reusable components to improve performance and maintainability.
+
+You&amp;#39;ll be the go-to person for all things frontend in a product team of 4 developers, QA, and DevOps, working closely with the lead engineer and backend developers across Rails and Node.js services.
+
+What you’ll do:
+* Maintain and modernize frontends built with Rails views, Backbone, jQuery, and Bootstrap 3.
+* Refactor and migrate legacy code to TypeScript, React, Web Components, and Bootstrap 5.
+* Build new frontends for Node.js applications, ensuring consistency with our design systems and modern stack.
+* Create and maintain design systems that keep our components, typography, and styling looking sharp and consistent.
+* Improve Core Web Vitals, implement SEO changes, and run A/B tests to boost conversions.
+* Write unit tests with Jest and maintain high-quality code standards.
+* Collaborate closely with the team to deliver features that impact millions of visitors.
+
+What they’re looking for:
+* Strong frontend development skills with solid JavaScript and TypeScript experience.
+* Comfort working with Ruby on Rails and Node.js backend tasks.
+* Comfortable refactoring and improving legacy code. You&amp;#39;re not afraid to dive in and clean things up.
+* Experience working with a design system approach.
+* UX mindset with an eye for design. You know how to make things look beautiful and work great.
+* Curious about analytics and data-driven design decisions.
+* Familiarity with Docker and Kubernetes is a plus.
+
+To summarize the tech stack and tools:
+Ruby on Rails, Node.js, JavaScript, TypeScript, Backbone, jQuery, React, Web Components, Bootstrap, VideoJS, Jest, Vite, Webpack, Docker, Kubernetes, GitHub, Slack, JIRA, Notion
+
+For the role, you would need to be okay working with Adult content so no worries if you are not comfortable with that.
+
+What are your thoughts, does this sound like something of interest?" class="msg-s-event-listitem__options-trigger-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+            
+<!----></button>
+            <div class="msg-s-event-listitem__options-content">
+              <div tabindex="-1" aria-hidden="true" id="ember229" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-top ember-view"><!----></div>
+            </div>
+          </div>
+      </div>
+    
+    
+<!---->            
+<div class="msg-s-event-with-indicator display-flex ">
+  <div class="msg-s-event__content" dir="ltr">
+    
+              <p class="msg-s-event-listitem__body t-14 t-black--light t-normal
+                  "><!---->Great, happy to share more Rafael. The client works in the Adult Entertainment space and is based in Chicago Illinois. The role would be fully remote. You'll be brought right into the mix accepting challenges across the stack, contributing ideas, writing code, and shipping into production.<!----><br><br><!---->They are looking for a mid-to-senior Full Stack Ruby on Rails Developer with a strong frontend focus to lead the charge for their Rails-based applications in the adult entertainment space. Their main product has been online for 25 years, attracts millions of monthly visitors and they are now making it faster, sleeker and easier to maintain.<!----><br><br><!---->Some of their new services use Node.js, however, rails remains at the core of their platform. The ideal candidate should be comfortable working in Rails views (ERB, Haml) and parts of the legacy frontend (Backbone, jQuery, Bootstrap 3), while also introducing modern design systems and reusable components to improve performance and maintainability.<!----><br><br><!---->You'll be the go-to person for all things frontend in a product team of 4 developers, QA, and DevOps, working closely with the lead engineer and backend developers across Rails and Node.js services.<!----><br><br><!---->What you’ll do:<!----><br><!---->* Maintain and modernize frontends built with Rails views, Backbone, jQuery, and Bootstrap 3.<!----><br><!---->* Refactor and migrate legacy code to TypeScript, React, Web Components, and Bootstrap 5.<!----><br><!---->* Build new frontends for Node.js applications, ensuring consistency with our design systems and modern stack.<!----><br><!---->* Create and maintain design systems that keep our components, typography, and styling looking sharp and consistent.<!----><br><!---->* Improve Core Web Vitals, implement SEO changes, and run A/B tests to boost conversions.<!----><br><!---->* Write unit tests with Jest and maintain high-quality code standards.<!----><br><!---->* Collaborate closely with the team to deliver features that impact millions of visitors.<!----><br><br><!---->What they’re looking for:<!----><br><!---->* Strong frontend development skills with solid JavaScript and TypeScript experience.<!----><br><!---->* Comfort working with Ruby on Rails and Node.js backend tasks.<!----><br><!---->* Comfortable refactoring and improving legacy code. You're not afraid to dive in and clean things up.<!----><br><!---->* Experience working with a design system approach.<!----><br><!---->* UX mindset with an eye for design. You know how to make things look beautiful and work great.<!----><br><!---->* Curious about analytics and data-driven design decisions.<!----><br><!---->* Familiarity with Docker and Kubernetes is a plus.<!----><br><br><!---->To summarize the tech stack and tools:<!----><br><!---->Ruby on Rails, Node.js, JavaScript, TypeScript, Backbone, jQuery, React, Web Components, Bootstrap, VideoJS, Jest, Vite, Webpack, Docker, Kubernetes, GitHub, Slack, JIRA, Notion<!----><br><br><!---->For the role, you would need to be okay working with Adult content so no worries if you are not comfortable with that.<!----><br><br><!---->What are your thoughts, does this sound like something of interest?<!----><!----></p>
+  </div>
+<!---->  </div>
+
+
+<!---->          
+  </div>
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->    
+<!---->  
+
+    
+            
+          
+
+<!---->    </div>
+
+<!---->  
+        </li>
+        <li class="msg-s-message-list__event clearfix
+            
+            
+            ">
+          
+<!---->
+    <span class="msg-s-event-listitem--group-a11y-heading visually-hidden">
+      Rafael Uchôa sent the following message at 11:36 AM
+    </span>
+
+  <div class="msg-s-event-listitem
+      
+      
+      
+       msg-s-event-listitem--last-in-group
+      
+      
+      
+      
+      
+      " data-event-urn="urn:li:msg_message:(urn:li:fsd_profile:ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk,2-MTc2NDA4MTM4NDMxNmI2MjY2My0xMDAmYzBkYjZkYTgtMTdiNi00MmVmLTgwZTAtMjExZmY1MjZjZTEyXzEwMA==)" data-view-name="message-list-item">
+        
+        <a tabindex="0" href="https://www.linkedin.com/in/ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk" id="ember230" class="ember-view msg-s-event-listitem__link">
+          <span class="a11y-text">
+            View Rafael’s profile
+          </span>
+            <img title="Rafael Uchôa" src="https://media.licdn.com/dms/image/v2/D4D35AQGTq0Eiz6yqNQ/profile-framedphoto-shrink_100_100/B4DZoRu7PBGkAk-/0/1761234105585?e=1764975600&amp;v=beta&amp;t=TnCMcCOQmnn_QOP6sjgk53W2BObZVblG6ORiQ78Vgu8" loading="lazy" alt="Rafael Uchôa, #OPEN_TO_WORK" id="ember231" class="msg-s-event-listitem__profile-picture EntityPhoto-circle-2 evi-image lazy-image ember-view">
+        </a>
+
+      
+      <div class="msg-s-message-group__meta">
+
+                <span>
+                  <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  inline-block v-align-middle" href="https://www.linkedin.com/in/ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk" data-test-app-aware-link="">
+                      <span class="msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text">
+
+                          Rafael Uchôa
+                      </span>
+                  </a>
+                    
+    <svg role="img" aria-hidden="false" aria-label="LinkedIn Premium" class="inline-block v-align-middle flex-shrink-zero " xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" data-supported-dps="14x14" data-test-icon="linkedin-bug-premium-v2-xxsmall">
+<!---->    <svg display="var(--hue-web-svg-display-light)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/7lputkpzv6s224ks0n6c7h2qo" x="0" y="0" width="14" height="14"></image>
+  </svg>
+  <svg display="var(--hue-web-svg-display-dark)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/e41cj52mke6g9s3xjsvu8yrbz" x="0" y="0" width="14" height="14"></image>
+  </svg>
+</svg>
+
+
+                </span>
+        
+
+    <span class="t-12 t-black--light t-normal">
+       (He/Him)
+    </span>
+
+        <time class="msg-s-message-group__timestamp white-space-nowrap t-12 t-black--light t-normal">
+          11:36 AM
+        </time>
+      </div>
+      
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-s-event-listitem__message-bubble msg-s-event-listitem__message-bubble--msg-fwd-enabled" tabindex="0">
+      <div class="msg-s-event-listitem__actions-container artdeco-card">
+          
+  <ul class="emoji-popular-list__container" role="menu">
+      <li role="none">
+        <div aria-label="React with clapping hands" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="clapping hands">
+          <span class="emoji-popular-list__item-emoji">
+            👏
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with thumbs up" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="thumbs up">
+          <span class="emoji-popular-list__item-emoji">
+            👍
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with smiling face with smiling eyes" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="smiling face with smiling eyes">
+          <span class="emoji-popular-list__item-emoji">
+            😊
+          </span>
+        </div>
+      </li>
+  </ul>
+
+    
+  <div>
+    <span tabindex="-1" id="ember233" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_hover_reaction__emoji-hoverable__content" id="ember234" class="msg-reactions__entry-point msg-reactions-action-menu__entry-point m0 p0 emoji-hoverable-trigger artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <li-icon aria-hidden="true" type="emoji-face-icon" class="artdeco-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+    <path d="M4.84 6A1.16 1.16 0 116 7.17 1.17 1.17 0 014.84 6zM8 9.38a3.51 3.51 0 01-2.3-.81l-.83 1.29a4.87 4.87 0 006.25 0l-.82-1.28a3.51 3.51 0 01-2.3.8zm2-4.55A1.17 1.17 0 1011.16 6 1.17 1.17 0 0010 4.83zM8 2.88A5.12 5.12 0 112.88 8 5.12 5.12 0 018 2.88M8 1a7 7 0 107 7 7 7 0 00-7-7z"></path>
+  </svg></li-icon>
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+<!---->    </div>
+
+
+
+          <button title="Reply to this message" aria-label="Reply to this message" id="ember235" class="artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view msg-s-event-listitem__hover-action-button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="reply-small">
+<!---->    
+  <use href="#reply-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  
+</span></button>
+
+          <div id="ember236" class="msg-s-event-listitem__reactions-options-ellipsis artdeco-dropdown artdeco-dropdown--placement-top artdeco-dropdown--justification-right ember-view" aria-label="Options for the message from Rafael: Yes, it sounds interesting! I&amp;#39;m very comfortable with this stack and have no concerns about working in this industry. Could you share the salary range for this role, pls?">
+            <button aria-expanded="false" id="ember237" class="msg-s-event-listitem__options-trigger artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-top ember-view" type="button" tabindex="0">
+              <svg role="img" aria-hidden="false" aria-label="Options for the message from Rafael: Yes, it sounds interesting! I&amp;#39;m very comfortable with this stack and have no concerns about working in this industry. Could you share the salary range for this role, pls?" class="msg-s-event-listitem__options-trigger-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+            
+<!----></button>
+            <div class="msg-s-event-listitem__options-content">
+              <div tabindex="-1" aria-hidden="true" id="ember238" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-top ember-view"><!----></div>
+            </div>
+          </div>
+      </div>
+    
+    
+<!---->            
+<div class="msg-s-event-with-indicator display-flex ">
+  <div class="msg-s-event__content" dir="ltr">
+    
+              <p class="msg-s-event-listitem__body t-14 t-black--light t-normal
+                  "><!---->Yes, it sounds interesting! I'm very comfortable with this stack and have no concerns about working in this industry. Could you share the salary range for this role, pls?<!----><!----></p>
+  </div>
+    
+<span data-test-msg-cross-pillar-message-sending-indicator-presenter__container="" class="msg-s-event-with-indicator__sending-indicator align-self-flex-end
+     msg-s-event-with-indicator__sending-indicator--sent 
+    
+    " title="Sent at 11/25/2025, 11:36 AM">
+    <svg data-test-msg-cross-pillar-message-sending-indicator-presenter__sending-indicator--sent="" width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="8" cy="8" r="6.5"></circle>
+      <path d="M7.40005 12L4.30005 8.9L5.60005 7.6L7.10005 9L9.70005 5H12L7.40005 12Z">
+      </path>
+    </svg>
+</span>
+
+</div>
+
+
+<!---->          
+  </div>
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->    
+<!---->  
+
+    
+            
+          
+
+<!---->    </div>
+
+<!---->  
+        </li>
+        <li class="msg-s-message-list__event clearfix
+            
+            
+            ">
+          
+<!---->
+    <span class="msg-s-event-listitem--group-a11y-heading visually-hidden">
+      Sean Sweeney sent the following message at 2:00 PM
+    </span>
+
+  <div class="msg-s-event-listitem
+      
+      
+      
+       msg-s-event-listitem--last-in-group
+      
+      
+      
+       msg-s-event-listitem--other
+      
+      " data-event-urn="urn:li:msg_message:(urn:li:fsd_profile:ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk,2-MTc2NDA5MDAwOTg3MGI1NzQ5NS0xMDAmYzBkYjZkYTgtMTdiNi00MmVmLTgwZTAtMjExZmY1MjZjZTEyXzEwMA==)" data-view-name="message-list-item">
+        
+        <a tabindex="0" href="https://www.linkedin.com/in/ACoAAErGbqMBb7wHzxBiOX7XQYxaMTm6eerdmAo" id="ember239" class="ember-view msg-s-event-listitem__link">
+          <span class="a11y-text">
+            View Sean’s profile
+          </span>
+            <img title="Sean Sweeney" src="https://media.licdn.com/dms/image/v2/D5603AQHqT3k4pKKCcg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1707751445582?e=1766016000&amp;v=beta&amp;t=cFSj5jSNWTkGNb6s8KEnpsV2OVMeF0z4ax-vwukXBIw" loading="lazy" alt="Sean Sweeney" id="ember240" class="msg-s-event-listitem__profile-picture EntityPhoto-circle-2 evi-image lazy-image ember-view">
+        </a>
+
+      
+      <div class="msg-s-message-group__meta">
+
+                <span>
+                  <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  inline-block v-align-middle" href="https://www.linkedin.com/in/ACoAAErGbqMBb7wHzxBiOX7XQYxaMTm6eerdmAo" data-test-app-aware-link="">
+                      <span class="msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text">
+
+                          Sean Sweeney
+                      </span>
+                  </a>
+                    
+    <svg role="img" aria-hidden="false" aria-label="LinkedIn Premium" class="inline-block v-align-middle flex-shrink-zero " xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" data-supported-dps="14x14" data-test-icon="linkedin-bug-premium-v2-xxsmall">
+<!---->    <svg display="var(--hue-web-svg-display-light)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/7lputkpzv6s224ks0n6c7h2qo" x="0" y="0" width="14" height="14"></image>
+  </svg>
+  <svg display="var(--hue-web-svg-display-dark)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/e41cj52mke6g9s3xjsvu8yrbz" x="0" y="0" width="14" height="14"></image>
+  </svg>
+</svg>
+
+
+                </span>
+        
+
+<!---->  
+        <time class="msg-s-message-group__timestamp white-space-nowrap t-12 t-black--light t-normal">
+          2:00 PM
+        </time>
+      </div>
+      
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-s-event-listitem__message-bubble msg-s-event-listitem__message-bubble--msg-fwd-enabled" tabindex="0">
+      <div class="msg-s-event-listitem__actions-container artdeco-card">
+          
+  <ul class="emoji-popular-list__container" role="menu">
+      <li role="none">
+        <div aria-label="React with clapping hands" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="clapping hands">
+          <span class="emoji-popular-list__item-emoji">
+            👏
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with thumbs up" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="thumbs up">
+          <span class="emoji-popular-list__item-emoji">
+            👍
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with smiling face with smiling eyes" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="smiling face with smiling eyes">
+          <span class="emoji-popular-list__item-emoji">
+            😊
+          </span>
+        </div>
+      </li>
+  </ul>
+
+    
+  <div>
+    <span tabindex="-1" id="ember242" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_hover_reaction__emoji-hoverable__content" id="ember243" class="msg-reactions__entry-point msg-reactions-action-menu__entry-point m0 p0 emoji-hoverable-trigger artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <li-icon aria-hidden="true" type="emoji-face-icon" class="artdeco-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+    <path d="M4.84 6A1.16 1.16 0 116 7.17 1.17 1.17 0 014.84 6zM8 9.38a3.51 3.51 0 01-2.3-.81l-.83 1.29a4.87 4.87 0 006.25 0l-.82-1.28a3.51 3.51 0 01-2.3.8zm2-4.55A1.17 1.17 0 1011.16 6 1.17 1.17 0 0010 4.83zM8 2.88A5.12 5.12 0 112.88 8 5.12 5.12 0 018 2.88M8 1a7 7 0 107 7 7 7 0 00-7-7z"></path>
+  </svg></li-icon>
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+<!---->    </div>
+
+
+
+          <button title="Reply to this message" aria-label="Reply to this message" id="ember244" class="artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view msg-s-event-listitem__hover-action-button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="reply-small">
+<!---->    
+  <use href="#reply-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  
+</span></button>
+
+          <div id="ember245" class="msg-s-event-listitem__reactions-options-ellipsis artdeco-dropdown artdeco-dropdown--placement-top artdeco-dropdown--justification-right ember-view" aria-label="Options for the message from Sean: It&amp;#39;s likely in the US$28-US$35/hr (US$6000/month) range.&nbsp;
+
+What is your target rate or monthly income?">
+            <button aria-expanded="false" id="ember246" class="msg-s-event-listitem__options-trigger artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-top ember-view" type="button" tabindex="0">
+              <svg role="img" aria-hidden="false" aria-label="Options for the message from Sean: It&amp;#39;s likely in the US$28-US$35/hr (US$6000/month) range.&nbsp;
+
+What is your target rate or monthly income?" class="msg-s-event-listitem__options-trigger-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+            
+<!----></button>
+            <div class="msg-s-event-listitem__options-content">
+              <div tabindex="-1" aria-hidden="true" id="ember247" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-top ember-view"><!----></div>
+            </div>
+          </div>
+      </div>
+    
+    
+<!---->            
+<div class="msg-s-event-with-indicator display-flex ">
+  <div class="msg-s-event__content" dir="ltr">
+    
+              <p class="msg-s-event-listitem__body t-14 t-black--light t-normal
+                  "><!---->It's likely in the US$28-US$35/hr (US$6000/month) range.<span class="white-space-pre"> </span><br><br><!---->What is your target rate or monthly income?<!----><!----></p>
+  </div>
+<!---->  </div>
+
+
+<!---->          
+  </div>
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->    
+<!---->  
+
+    
+            
+          
+
+<!---->    </div>
+
+<!---->  
+        </li>
+        <li class="msg-s-message-list__event clearfix
+            
+            
+            ">
+          
+<!---->
+    <span class="msg-s-event-listitem--group-a11y-heading visually-hidden">
+      Rafael Uchôa sent the following message at 4:47 PM
+    </span>
+
+  <div class="msg-s-event-listitem
+      
+      
+      
+       msg-s-event-listitem--last-in-group
+      
+      
+      
+      
+      
+      " data-event-urn="urn:li:msg_message:(urn:li:fsd_profile:ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk,2-MTc2NDEwMDAzODU5N2IxODgwMC0xMDAmYzBkYjZkYTgtMTdiNi00MmVmLTgwZTAtMjExZmY1MjZjZTEyXzEwMA==)" data-view-name="message-list-item">
+        
+        <a tabindex="0" href="https://www.linkedin.com/in/ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk" id="ember248" class="ember-view msg-s-event-listitem__link">
+          <span class="a11y-text">
+            View Rafael’s profile
+          </span>
+            <img title="Rafael Uchôa" src="https://media.licdn.com/dms/image/v2/D4D35AQGTq0Eiz6yqNQ/profile-framedphoto-shrink_100_100/B4DZoRu7PBGkAk-/0/1761234105585?e=1764975600&amp;v=beta&amp;t=TnCMcCOQmnn_QOP6sjgk53W2BObZVblG6ORiQ78Vgu8" loading="lazy" alt="Rafael Uchôa, #OPEN_TO_WORK" id="ember249" class="msg-s-event-listitem__profile-picture EntityPhoto-circle-2 evi-image lazy-image ember-view">
+        </a>
+
+      
+      <div class="msg-s-message-group__meta">
+
+                <span>
+                  <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  inline-block v-align-middle" href="https://www.linkedin.com/in/ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk" data-test-app-aware-link="">
+                      <span class="msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text">
+
+                          Rafael Uchôa
+                      </span>
+                  </a>
+                    
+    <svg role="img" aria-hidden="false" aria-label="LinkedIn Premium" class="inline-block v-align-middle flex-shrink-zero " xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" data-supported-dps="14x14" data-test-icon="linkedin-bug-premium-v2-xxsmall">
+<!---->    <svg display="var(--hue-web-svg-display-light)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/7lputkpzv6s224ks0n6c7h2qo" x="0" y="0" width="14" height="14"></image>
+  </svg>
+  <svg display="var(--hue-web-svg-display-dark)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/e41cj52mke6g9s3xjsvu8yrbz" x="0" y="0" width="14" height="14"></image>
+  </svg>
+</svg>
+
+
+                </span>
+        
+
+    <span class="t-12 t-black--light t-normal">
+       (He/Him)
+    </span>
+
+        <time class="msg-s-message-group__timestamp white-space-nowrap t-12 t-black--light t-normal">
+          4:47 PM
+        </time>
+      </div>
+      
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-s-event-listitem__message-bubble msg-s-event-listitem__message-bubble--msg-fwd-enabled" tabindex="0">
+      <div class="msg-s-event-listitem__actions-container artdeco-card">
+          
+  <ul class="emoji-popular-list__container" role="menu">
+      <li role="none">
+        <div aria-label="React with clapping hands" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="clapping hands">
+          <span class="emoji-popular-list__item-emoji">
+            👏
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with thumbs up" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="thumbs up">
+          <span class="emoji-popular-list__item-emoji">
+            👍
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with smiling face with smiling eyes" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="smiling face with smiling eyes">
+          <span class="emoji-popular-list__item-emoji">
+            😊
+          </span>
+        </div>
+      </li>
+  </ul>
+
+    
+  <div>
+    <span tabindex="-1" id="ember251" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_hover_reaction__emoji-hoverable__content" id="ember252" class="msg-reactions__entry-point msg-reactions-action-menu__entry-point m0 p0 emoji-hoverable-trigger artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <li-icon aria-hidden="true" type="emoji-face-icon" class="artdeco-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+    <path d="M4.84 6A1.16 1.16 0 116 7.17 1.17 1.17 0 014.84 6zM8 9.38a3.51 3.51 0 01-2.3-.81l-.83 1.29a4.87 4.87 0 006.25 0l-.82-1.28a3.51 3.51 0 01-2.3.8zm2-4.55A1.17 1.17 0 1011.16 6 1.17 1.17 0 0010 4.83zM8 2.88A5.12 5.12 0 112.88 8 5.12 5.12 0 018 2.88M8 1a7 7 0 107 7 7 7 0 00-7-7z"></path>
+  </svg></li-icon>
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+<!---->    </div>
+
+
+
+          <button title="Reply to this message" aria-label="Reply to this message" id="ember253" class="artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view msg-s-event-listitem__hover-action-button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="reply-small">
+<!---->    
+  <use href="#reply-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  
+</span></button>
+
+          <div id="ember254" class="msg-s-event-listitem__reactions-options-ellipsis artdeco-dropdown artdeco-dropdown--placement-top artdeco-dropdown--justification-right ember-view" aria-label="Options for the message from Rafael: We can go with&nbsp;US$35/hr, sounds good!">
+            <button aria-expanded="false" id="ember255" class="msg-s-event-listitem__options-trigger artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-top ember-view" type="button" tabindex="0">
+              <svg role="img" aria-hidden="false" aria-label="Options for the message from Rafael: We can go with&nbsp;US$35/hr, sounds good!" class="msg-s-event-listitem__options-trigger-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+            
+<!----></button>
+            <div class="msg-s-event-listitem__options-content">
+              <div tabindex="-1" aria-hidden="true" id="ember256" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-top ember-view"><!----></div>
+            </div>
+          </div>
+      </div>
+    
+    
+<!---->            
+<div class="msg-s-event-with-indicator display-flex ">
+  <div class="msg-s-event__content" dir="ltr">
+    
+              <p class="msg-s-event-listitem__body t-14 t-black--light t-normal
+                  "><!---->We can go with&nbsp;US$35/hr, sounds good!<!----><!----></p>
+  </div>
+    
+<span data-test-msg-cross-pillar-message-sending-indicator-presenter__container="" class="msg-s-event-with-indicator__sending-indicator align-self-flex-end
+     msg-s-event-with-indicator__sending-indicator--sent 
+    
+    " title="Sent at 11/25/2025, 4:47 PM">
+    <svg data-test-msg-cross-pillar-message-sending-indicator-presenter__sending-indicator--sent="" width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="8" cy="8" r="6.5"></circle>
+      <path d="M7.40005 12L4.30005 8.9L5.60005 7.6L7.10005 9L9.70005 5H12L7.40005 12Z">
+      </path>
+    </svg>
+</span>
+
+</div>
+
+
+<!---->          
+  </div>
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->    
+<!---->  
+
+    
+            
+          
+
+<!---->    </div>
+
+<!---->  
+        </li>
+        <li class="msg-s-message-list__event clearfix
+            
+            
+            ">
+          
+<!---->
+    <span class="msg-s-event-listitem--group-a11y-heading visually-hidden">
+      Sean Sweeney sent the following message at 5:39 PM
+    </span>
+
+  <div class="msg-s-event-listitem
+       msg-s-event-listitem--m2m-msg-followed-by-date-boundary
+      
+      
+       msg-s-event-listitem--last-in-group
+      
+      
+      
+       msg-s-event-listitem--other
+      
+      " data-event-urn="urn:li:msg_message:(urn:li:fsd_profile:ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk,2-MTc2NDEwMzE2NzI1MGI4NzI3MC0xMDAmYzBkYjZkYTgtMTdiNi00MmVmLTgwZTAtMjExZmY1MjZjZTEyXzEwMA==)" data-view-name="message-list-item">
+        
+        <a tabindex="0" href="https://www.linkedin.com/in/ACoAAErGbqMBb7wHzxBiOX7XQYxaMTm6eerdmAo" id="ember257" class="ember-view msg-s-event-listitem__link">
+          <span class="a11y-text">
+            View Sean’s profile
+          </span>
+            <img title="Sean Sweeney" src="https://media.licdn.com/dms/image/v2/D5603AQHqT3k4pKKCcg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1707751445582?e=1766016000&amp;v=beta&amp;t=cFSj5jSNWTkGNb6s8KEnpsV2OVMeF0z4ax-vwukXBIw" loading="lazy" alt="Sean Sweeney" id="ember258" class="msg-s-event-listitem__profile-picture EntityPhoto-circle-2 evi-image lazy-image ember-view">
+        </a>
+
+      
+      <div class="msg-s-message-group__meta">
+
+                <span>
+                  <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  inline-block v-align-middle" href="https://www.linkedin.com/in/ACoAAErGbqMBb7wHzxBiOX7XQYxaMTm6eerdmAo" data-test-app-aware-link="">
+                      <span class="msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text">
+
+                          Sean Sweeney
+                      </span>
+                  </a>
+                    
+    <svg role="img" aria-hidden="false" aria-label="LinkedIn Premium" class="inline-block v-align-middle flex-shrink-zero " xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" data-supported-dps="14x14" data-test-icon="linkedin-bug-premium-v2-xxsmall">
+<!---->    <svg display="var(--hue-web-svg-display-light)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/7lputkpzv6s224ks0n6c7h2qo" x="0" y="0" width="14" height="14"></image>
+  </svg>
+  <svg display="var(--hue-web-svg-display-dark)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/e41cj52mke6g9s3xjsvu8yrbz" x="0" y="0" width="14" height="14"></image>
+  </svg>
+</svg>
+
+
+                </span>
+        
+
+<!---->  
+        <time class="msg-s-message-group__timestamp white-space-nowrap t-12 t-black--light t-normal">
+          5:39 PM
+        </time>
+      </div>
+      
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-s-event-listitem__message-bubble msg-s-event-listitem__message-bubble--msg-fwd-enabled" tabindex="0">
+      <div class="msg-s-event-listitem__actions-container artdeco-card">
+          
+  <ul class="emoji-popular-list__container" role="menu">
+      <li role="none">
+        <div aria-label="React with clapping hands" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="clapping hands">
+          <span class="emoji-popular-list__item-emoji">
+            👏
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with thumbs up" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="thumbs up">
+          <span class="emoji-popular-list__item-emoji">
+            👍
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with smiling face with smiling eyes" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="smiling face with smiling eyes">
+          <span class="emoji-popular-list__item-emoji">
+            😊
+          </span>
+        </div>
+      </li>
+  </ul>
+
+    
+  <div>
+    <span tabindex="-1" id="ember260" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_hover_reaction__emoji-hoverable__content" id="ember261" class="msg-reactions__entry-point msg-reactions-action-menu__entry-point m0 p0 emoji-hoverable-trigger artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <li-icon aria-hidden="true" type="emoji-face-icon" class="artdeco-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+    <path d="M4.84 6A1.16 1.16 0 116 7.17 1.17 1.17 0 014.84 6zM8 9.38a3.51 3.51 0 01-2.3-.81l-.83 1.29a4.87 4.87 0 006.25 0l-.82-1.28a3.51 3.51 0 01-2.3.8zm2-4.55A1.17 1.17 0 1011.16 6 1.17 1.17 0 0010 4.83zM8 2.88A5.12 5.12 0 112.88 8 5.12 5.12 0 018 2.88M8 1a7 7 0 107 7 7 7 0 00-7-7z"></path>
+  </svg></li-icon>
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+<!---->    </div>
+
+
+
+          <button title="Reply to this message" aria-label="Reply to this message" id="ember262" class="artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view msg-s-event-listitem__hover-action-button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="reply-small">
+<!---->    
+  <use href="#reply-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  
+</span></button>
+
+          <div id="ember263" class="msg-s-event-listitem__reactions-options-ellipsis artdeco-dropdown artdeco-dropdown--placement-top artdeco-dropdown--justification-right ember-view" aria-label="Options for the message from Sean: Okay understood, that seems reasonable Rafael. Would you like to connect with our technical lead Alex for the first step? The first step is a code review / technical call and then the second is a call with the client.
+
+The code review call is a high level call. We ask developers to share a piece of code they have written or a couple (could be a side project, open source project, other previous tests, or even client work if you want to do a screen share). If you do not have code available, that is okay, it can just be a discussion.
+
+On the call we discuss some higher level topics like architecture and code quality, scaling and performance, code maintainability and security. Do you have any code written that you would be able to use for the call?
+
+You can book a time directly in Alex&amp;#39;s calendar: https://calendly.com/alex-hustler/30min. If you need to cancel / reschedule on the day of, you can let Alex know directly at alex.hustler@donestreet.com.
+
+Let me know which day you book for and I will update Alex, or if you are unable to find a time that works, let me know.">
+            <button aria-expanded="false" id="ember264" class="msg-s-event-listitem__options-trigger artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-top ember-view" type="button" tabindex="0">
+              <svg role="img" aria-hidden="false" aria-label="Options for the message from Sean: Okay understood, that seems reasonable Rafael. Would you like to connect with our technical lead Alex for the first step? The first step is a code review / technical call and then the second is a call with the client.
+
+The code review call is a high level call. We ask developers to share a piece of code they have written or a couple (could be a side project, open source project, other previous tests, or even client work if you want to do a screen share). If you do not have code available, that is okay, it can just be a discussion.
+
+On the call we discuss some higher level topics like architecture and code quality, scaling and performance, code maintainability and security. Do you have any code written that you would be able to use for the call?
+
+You can book a time directly in Alex&amp;#39;s calendar: https://calendly.com/alex-hustler/30min. If you need to cancel / reschedule on the day of, you can let Alex know directly at alex.hustler@donestreet.com.
+
+Let me know which day you book for and I will update Alex, or if you are unable to find a time that works, let me know." class="msg-s-event-listitem__options-trigger-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+            
+<!----></button>
+            <div class="msg-s-event-listitem__options-content">
+              <div tabindex="-1" aria-hidden="true" id="ember265" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-top ember-view"><!----></div>
+            </div>
+          </div>
+      </div>
+    
+    
+<!---->            
+<div class="msg-s-event-with-indicator display-flex ">
+  <div class="msg-s-event__content" dir="ltr">
+    
+              <p class="msg-s-event-listitem__body t-14 t-black--light t-normal
+                  "><!---->Okay understood, that seems reasonable Rafael. Would you like to connect with our technical lead Alex for the first step? The first step is a code review / technical call and then the second is a call with the client.<!----><br><br><!---->The code review call is a high level call. We ask developers to share a piece of code they have written or a couple (could be a side project, open source project, other previous tests, or even client work if you want to do a screen share). If you do not have code available, that is okay, it can just be a discussion.<!----><br><br><!---->On the call we discuss some higher level topics like architecture and code quality, scaling and performance, code maintainability and security. Do you have any code written that you would be able to use for the call?<!----><br><br><!---->You can book a time directly in Alex's calendar:<span class="white-space-pre"> </span><a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU " target="_blank" tabindex="0" href="https://calendly.com/alex-hustler/30min" data-test-app-aware-link=""><!---->https://calendly.com/alex-hustler/30min<!----></a><!---->. If you need to cancel / reschedule on the day of, you can let Alex know directly at<span class="white-space-pre"> </span><a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU " target="_self" tabindex="0" href="mailto:alex.hustler@donestreet.com" data-test-app-aware-link=""><!---->alex.hustler@donestreet.com<!----></a><!---->.<!----><br><br><!---->Let me know which day you book for and I will update Alex, or if you are unable to find a time that works, let me know.<!----><!----></p>
+  </div>
+<!---->  </div>
+
+
+<!---->          
+  </div>
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-s-event-listitem__message-bubble msg-s-event-listitem__message-bubble--msg-actions-enabled" tabindex="0">
+      <div class="msg-s-event-listitem__actions-container artdeco-card">
+          
+  <ul class="emoji-popular-list__container" role="menu">
+      <li role="none">
+        <div aria-label="React with clapping hands" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="clapping hands">
+          <span class="emoji-popular-list__item-emoji">
+            👏
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with thumbs up" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="thumbs up">
+          <span class="emoji-popular-list__item-emoji">
+            👍
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with smiling face with smiling eyes" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="smiling face with smiling eyes">
+          <span class="emoji-popular-list__item-emoji">
+            😊
+          </span>
+        </div>
+      </li>
+  </ul>
+
+    
+  <div>
+    <span tabindex="-1" id="ember282" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_hover_reaction__emoji-hoverable__content" id="ember283" class="msg-reactions__entry-point msg-reactions-action-menu__entry-point m0 p0 emoji-hoverable-trigger artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <li-icon aria-hidden="true" type="emoji-face-icon" class="artdeco-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+    <path d="M4.84 6A1.16 1.16 0 116 7.17 1.17 1.17 0 014.84 6zM8 9.38a3.51 3.51 0 01-2.3-.81l-.83 1.29a4.87 4.87 0 006.25 0l-.82-1.28a3.51 3.51 0 01-2.3.8zm2-4.55A1.17 1.17 0 1011.16 6 1.17 1.17 0 0010 4.83zM8 2.88A5.12 5.12 0 112.88 8 5.12 5.12 0 018 2.88M8 1a7 7 0 107 7 7 7 0 00-7-7z"></path>
+  </svg></li-icon>
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+<!---->    </div>
+
+
+
+<!---->
+<!---->        </div>
+    
+    
+          
+<div class="msg-s-event-with-indicator display-flex ">
+  <div class="msg-s-event__content">
+    
+            
+  <div class="ZqRHKGpHgipwVjvZqasXDFsxkDQOnLyXpJC msg-s-event-listitem__unrolled-update-v2 artdeco-card overflow-hidden">
+<!---->
+<!---->
+<!---->
+            
+    
+  <article class="update-components-article
+      
+       update-components-article--no-background
+       update-components-mini-update-v2__reshared-content " role="presentation">
+    <div class="update-components-article--with-small-image update-components-article--rounded-border  update-components-article--with-small-image-fs">
+      <div class="update-components-article__link-container">
+          <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  
+              tap-target" aria-label="Open article: 30 Minute Meeting - Alex Hustler by calendly.com, graphic" target="_blank" href="https://calendly.com/alex-hustler/30min" data-test-app-aware-link="">
+              
+    
+                
+  <div class="ivm-image-view-model   ">
+      
+  <div class="ivm-view-attr__img-wrapper
+      
+      ">
+<!---->
+<!---->          <img width="128" src="https://media.licdn.com/dms/image/sync/v2/D5627AQETgWL93htVXQ/articleshare-shrink_160/articleshare-shrink_160/0/1711727651186?e=1764975600&amp;v=beta&amp;t=FBLf2s2aDQdLmvOcGrX3KOFwOMO_t6iUX9yWr_85NfM" loading="lazy" height="72" alt="" id="ember285" class="ivm-view-attr__img--centered ivm-view-attr__img--aspect-fill update-components-article__image--rounded-corners evi-image lazy-image ember-view">
+  </div>
+
+        </div>
+
+              
+
+          </a>
+<!---->        </div>
+      <div class="update-components-article__description-container
+          
+          ">
+        <div class="flex-grow-1 full-width">
+          <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  update-components-article__meta flex-grow-1 full-width tap-target display-flex justify-space-between align-items-flex-start" target="_blank" aria-label="30 Minute Meeting - Alex Hustler" aria-describedby="update-components-article__description-" href="https://calendly.com/alex-hustler/30min" data-test-app-aware-link="">
+            <div class="display-flex full-width">
+              <div class="display-flex flex-column flex-grow-1 full-width">
+                <div>
+                        
+<div class="t-14 update-components-article__title break-words t-black t-bold text-heading-small " dir="ltr">
+    <span dir="ltr"><!---->30 Minute Meeting - Alex Hustler<!----></span>
+</div>
+
+                        
+<span class="update-components-article__subtitle--inset
+                             update-components-article__subtitle-ellipsis update-components-article__subtitle--low-emphasis t-12 t-normal t-black--light text-body-xsmall " dir="ltr">
+    <!---->calendly.com<!---->
+</span>
+
+
+                </div>
+<!---->                </div>
+            </div>
+
+<!----><!---->            </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+<!---->
+<!----><!---->    </div>
+
+          
+  </div>
+<!---->  </div>
+
+        
+  </div>
+
+      
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->    
+<!---->  
+
+    
+            
+          
+
+<!---->    </div>
+
+<!---->  
+        </li>
+        <li class="msg-s-message-list__event clearfix
+            
+            msg-s-message-list__last-msg-ember156
+            ">
+          
+    <time class="msg-s-message-list__time-heading t-12 t-black--light t-bold">
+      Today
+    </time>
+
+    <span class="msg-s-event-listitem--group-a11y-heading visually-hidden">
+      Rafael Uchôa sent the following messages at 4:19 PM
+    </span>
+
+  <div class="msg-s-event-listitem
+       msg-s-event-listitem--m2m-msg-followed-by-date-boundary
+      
+      
+       msg-s-event-listitem--last-in-group
+      
+      
+      
+      
+      
+      " data-event-urn="urn:li:msg_message:(urn:li:fsd_profile:ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk,2-MTc2NDM1NzU1Mzc1OWI0NjI4NS0xMDAmYzBkYjZkYTgtMTdiNi00MmVmLTgwZTAtMjExZmY1MjZjZTEyXzEwMA==)" data-view-name="message-list-item">
+        
+        <a tabindex="0" href="https://www.linkedin.com/in/ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk" id="ember158" class="ember-view msg-s-event-listitem__link">
+          <span class="a11y-text">
+            View Rafael’s profile
+          </span>
+            <img title="Rafael Uchôa" src="https://media.licdn.com/dms/image/v2/D4D35AQGTq0Eiz6yqNQ/profile-framedphoto-shrink_100_100/B4DZoRu7PBGkAk-/0/1761234105585?e=1764975600&amp;v=beta&amp;t=TnCMcCOQmnn_QOP6sjgk53W2BObZVblG6ORiQ78Vgu8" loading="lazy" alt="Rafael Uchôa, #OPEN_TO_WORK" id="ember159" class="msg-s-event-listitem__profile-picture EntityPhoto-circle-2 evi-image lazy-image ember-view">
+        </a>
+
+      
+      <div class="msg-s-message-group__meta">
+
+                <span>
+                  <a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU  inline-block v-align-middle" href="https://www.linkedin.com/in/ACoAAAfH874BUF7Ws4gHdPxFEL1fkgqdyYSJ9Nk" data-test-app-aware-link="">
+                      <span class="msg-s-message-group__profile-link msg-s-message-group__name t-14 t-black t-bold hoverable-link-text">
+
+                          Rafael Uchôa
+                      </span>
+                  </a>
+                    
+    <svg role="img" aria-hidden="false" aria-label="LinkedIn Premium" class="inline-block v-align-middle flex-shrink-zero " xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" data-supported-dps="14x14" data-test-icon="linkedin-bug-premium-v2-xxsmall">
+<!---->    <svg display="var(--hue-web-svg-display-light)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/7lputkpzv6s224ks0n6c7h2qo" x="0" y="0" width="14" height="14"></image>
+  </svg>
+  <svg display="var(--hue-web-svg-display-dark)">
+    <image href="https://static.licdn.com/aero-v1/sc/h/e41cj52mke6g9s3xjsvu8yrbz" x="0" y="0" width="14" height="14"></image>
+  </svg>
+</svg>
+
+
+                </span>
+        
+
+    <span class="t-12 t-black--light t-normal">
+       (He/Him)
+    </span>
+
+        <time class="msg-s-message-group__timestamp white-space-nowrap t-12 t-black--light t-normal">
+          4:19 PM
+        </time>
+      </div>
+      
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-s-event-listitem__message-bubble msg-s-event-listitem__message-bubble--msg-fwd-enabled" tabindex="0">
+      <div class="msg-s-event-listitem__actions-container artdeco-card">
+          
+  <ul class="emoji-popular-list__container" role="menu">
+      <li role="none">
+        <div aria-label="React with clapping hands" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="clapping hands">
+          <span class="emoji-popular-list__item-emoji">
+            👏
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with thumbs up" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="thumbs up">
+          <span class="emoji-popular-list__item-emoji">
+            👍
+          </span>
+        </div>
+      </li>
+      <li role="none">
+        <div aria-label="React with smiling face with smiling eyes" class="emoji-popular-list__item" tabindex="0" role="menuitem" title="smiling face with smiling eyes">
+          <span class="emoji-popular-list__item-emoji">
+            😊
+          </span>
+        </div>
+      </li>
+  </ul>
+
+    
+  <div>
+    <span tabindex="-1" id="ember161" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_hover_reaction__emoji-hoverable__content" id="ember162" class="msg-reactions__entry-point msg-reactions-action-menu__entry-point m0 p0 emoji-hoverable-trigger artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <li-icon aria-hidden="true" type="emoji-face-icon" class="artdeco-button__icon" size="small"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" width="16" height="16" focusable="false">
+    <path d="M4.84 6A1.16 1.16 0 116 7.17 1.17 1.17 0 014.84 6zM8 9.38a3.51 3.51 0 01-2.3-.81l-.83 1.29a4.87 4.87 0 006.25 0l-.82-1.28a3.51 3.51 0 01-2.3.8zm2-4.55A1.17 1.17 0 1011.16 6 1.17 1.17 0 0010 4.83zM8 2.88A5.12 5.12 0 112.88 8 5.12 5.12 0 018 2.88M8 1a7 7 0 107 7 7 7 0 00-7-7z"></path>
+  </svg></li-icon>
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+      <div id="msg_pillar_hover_reaction__emoji-hoverable__content" class="ember-view"><div id="ember164" class="ember-view"></div></div>
+  </div>
+
+
+
+          <button title="Reply to this message" aria-label="Reply to this message" id="ember165" class="artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view msg-s-event-listitem__hover-action-button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="reply-small">
+<!---->    
+  <use href="#reply-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  
+</span></button>
+
+          <div id="ember166" class="msg-s-event-listitem__reactions-options-ellipsis artdeco-dropdown artdeco-dropdown--placement-top artdeco-dropdown--justification-right ember-view" aria-label="Options for the message from Rafael: Hi, thanks for the information! I’ve scheduled a time for Tuesday. Here’s the link:&nbsp;https://github.com/uuchoaa/resume/pull/5
+Please let me know if you need anything else from me.">
+            <button aria-expanded="false" id="ember167" class="msg-s-event-listitem__options-trigger artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-top ember-view" type="button" tabindex="0">
+              <svg role="img" aria-hidden="false" aria-label="Options for the message from Rafael: Hi, thanks for the information! I’ve scheduled a time for Tuesday. Here’s the link:&nbsp;https://github.com/uuchoaa/resume/pull/5
+Please let me know if you need anything else from me." class="msg-s-event-listitem__options-trigger-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="overflow-web-ios-small">
+<!---->    
+  <use href="#overflow-web-ios-small" width="16" height="16"></use>
+</svg>
+
+            
+<!----></button>
+            <div class="msg-s-event-listitem__options-content">
+              <div tabindex="-1" aria-hidden="true" id="ember168" class="artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-top ember-view"><!----></div>
+            </div>
+          </div>
+      </div>
+    
+    
+<!---->            
+<div class="msg-s-event-with-indicator display-flex ">
+  <div class="msg-s-event__content" dir="ltr">
+    
+              <p class="msg-s-event-listitem__body t-14 t-black--light t-normal
+                  "><!---->Hi, thanks for the information! I’ve scheduled a time for Tuesday. Here’s the link:<span class="white-space-pre"> </span><a class="BZlYAjikHPGRJsJDVXcEAIgyCHVdMWfWWELYvU " target="_blank" tabindex="0" href="https://github.com/uuchoaa/resume/pull/5" data-test-app-aware-link=""><!---->https://github.com/uuchoaa/resume/pull/5<!----></a><br><span class="white-space-pre"> </span>Please let me know if you need anything else from me.<!----><!----></p>
+  </div>
+    
+<span data-test-msg-cross-pillar-message-sending-indicator-presenter__container="" class="msg-s-event-with-indicator__sending-indicator align-self-flex-end
+     msg-s-event-with-indicator__sending-indicator--sent 
+    
+    " title="Sent at 11/28/2025, 4:19 PM">
+    <svg data-test-msg-cross-pillar-message-sending-indicator-presenter__sending-indicator--sent="" width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="8" cy="8" r="6.5"></circle>
+      <path d="M7.40005 12L4.30005 8.9L5.60005 7.6L7.10005 9L9.70005 5H12L7.40005 12Z">
+      </path>
+    </svg>
+</span>
+
+</div>
+
+
+<!---->          
+  </div>
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->    
+<!---->  
+
+    
+            
+          
+
+<!---->    </div>
+
+<!---->  
+        </li>
+      <li class="msg-s-message-list__typing-indicator-container--without-seen-receipt">
+<!---->        </li>
+
+<!----><!---->        <li class="msg-s-message-list__bottom-of-list"></li>
+    </ul>
+  </div>
+  <div id="ember169" class="ember-view"><!----></div>
+
+    
+  </div>
+
+    
+  <div class="align-items-flex-end display-flex artdeco-divider">
+<!---->    </div>
+
+  
+<!---->
+      
+  <form id="msg-form-ember155" class="
+      msg-form msg-form--thread-footer-feature">
+      
+<!---->
+<!---->
+          
+  <div class="msg-form__attachment-drag-and-drop">
+    <div class="msg-form__attachment-drag-and-drop-content display-flex flex-column align-items-center justify-center">
+      <svg role="none" aria-hidden="true" class="msg-form__attachment-drag-and-drop-state-illustration" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" data-supported-dps="128x128" data-test-icon="main-person">
+<!---->  <svg display="var(--hue-web-svg-display-dark)">
+  <image href="https://static.licdn.com/aero-v1/sc/h/dkn9vy3eabq3wt8vt27ka3lh2" x="0" y="0" width="128" height="128"></image>
+</svg>
+
+<svg display="var(--hue-web-svg-display-light)">
+  <image href="https://static.licdn.com/aero-v1/sc/h/5i1dq5b4w5vyu5nihh3ntgpy3" x="0" y="0" width="128" height="128"></image>
+</svg>
+</svg>
+      <div class="msg-form__attachment-drag-and-drop-text display-flex flex-column align-items-center justify-center">
+        <div class="msg-form__attachment-drag-and-drop-state-text t-16 t-bold">
+          Drag your file here.
+        </div>
+        <div class="msg-form__attachment-drag-and-drop-discoverability-text text-align-center">
+          <div class="t-16 t-bold">
+            Select your file
+          </div>
+          <div class="t-14">
+            Or drag &amp; drop next time
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+            
+  <div class="overflow-auto scrollable" data-test-msg-cross-pillar-uploaded-attachment-list-presenter="">
+<!---->    </div>
+
+<!---->
+<!---->
+<!---->
+<!---->
+        
+  <div class="msg-form__msg-content-container
+      
+      
+       msg-form__message-texteditor relative flex-grow-1 display-flex">
+    <div class="msg-form__msg-content-container--scrollable scrollable
+        
+        relative">
+      
+  <div class="flex-grow-1 relative">
+<!---->
+    <div class="msg-form__contenteditable t-14 t-black--light t-normal flex-grow-1 full-height notranslate
+        
+        
+        
+        " contenteditable="true" role="textbox" dir="auto" aria-multiline="true" aria-label="Write a message…"><p><br></p></div>
+
+<!---->
+    <div aria-hidden="true" class="msg-form__placeholder
+        t-14 t-black--light t-normal" data-placeholder="Write a message…">
+    </div>
+
+  </div>
+
+
+<!---->
+<!---->
+<!---->      </div>
+
+      <div class="msg-form__expand-btn-wrapper p2">
+          <button aria-expanded="false" id="ember171" class="msg-form__expand-btn artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--1 artdeco-button--tertiary ember-view" type="button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="chevron-up-small">
+<!---->    
+  <use href="#chevron-up-small" width="16" height="16"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  Maximize compose field
+</span></button>
+      </div>
+<!---->    </div>
+
+  <div class="msg-form__gai-module-container
+      
+      ">
+    
+  <div class="msg-gai-inline-module">
+<!---->
+<!---->    </div>
+
+  </div>
+
+<!---->            <footer class="msg-form__footer flex-shrink-zero
+              pb7">
+<!----><!---->              <div class="msg-form__left-actions
+                display-flex">
+                
+  <div class="msg-form__upload-attachment inline-block" data-test-msg-ui-upload-attachment-presenter="">
+    <input name="persist" value="true" type="hidden">
+    <input name="upload_info" type="hidden">
+    <input id="attachment-input-ember172" class="msg-form__attachment-upload-input hidden" accept="image/*" type="file">
+    <button title="Attach an image to your conversation with Sean Sweeney" aria-label="Attach an image to your conversation with Sean Sweeney" id="attachment-trigger-ember172" class="msg-form__footer-action artdeco-button artdeco-button--tertiary artdeco-button--circle artdeco-button--muted m0 artdeco-button--2 artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view" type="button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="image-medium">
+<!---->    
+  <use href="#image-medium" width="24" height="24"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  Attach an image to your conversation with Sean Sweeney
+</span></button>
+  </div>
+
+                
+  <div class="msg-form__upload-attachment inline-block" data-test-msg-ui-upload-attachment-presenter="">
+    <input name="persist" value="true" type="hidden">
+    <input name="upload_info" type="hidden">
+    <input id="attachment-input-ember174" class="msg-form__attachment-upload-input hidden" accept="image/*,.ai,.psd,.pdf,.doc,.docx,.csv,.ppt,.pptx,.pps,.ppsx,.xls,.xlsx,.txt,.eml,.mov,.mp4" type="file">
+    <button title="Attach a file to your conversation with Sean Sweeney" aria-label="Attach a file to your conversation with Sean Sweeney" id="attachment-trigger-ember174" class="msg-form__footer-action artdeco-button artdeco-button--tertiary artdeco-button--circle artdeco-button--muted m0 artdeco-button--2 artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view" type="button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="attachment-medium">
+<!---->    
+  <use href="#attachment-medium" width="24" height="24"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  Attach a file to your conversation with Sean Sweeney
+</span></button>
+  </div>
+
+                
+  <div class="tenor-gif__button relative">
+      <button title="Open GIF Keyboard" aria-label="Open GIF Keyboard" aria-expanded="false" id="ember176" class="msg-form__footer-action gif-button artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view" type="button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="gif-medium">
+<!---->    
+  <use href="#gif-medium" width="24" height="24"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  Open GIF Keyboard
+</span></button>
+  </div>
+
+<!---->                
+  <div>
+    <span tabindex="-1" id="ember178" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button title="Open Emoji Keyboard" aria-label="Open Emoji Keyboard" aria-expanded="false" aria-controls="artdeco-hoverable-msg_pillar_emoji__emoji-hoverable__content" id="ember179" class="msg-form__footer-action emoji-hoverable-trigger artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view" data-reaction-summary__emoji-hoverable="" type="button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="emoji-medium">
+<!---->    
+  <use href="#emoji-medium" width="24" height="24"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  Open Emoji Keyboard
+</span></button>
+        
+    </span>
+
+      <div id="msg_pillar_emoji__emoji-hoverable__content" class="ember-view"><div id="ember181" class="ember-view"></div></div>
+  </div>
+
+<!---->              </div>
+              <div class="msg-form__right-actions display-flex align-items-center">
+                
+
+<div>
+    <button class="msg-form__send-button artdeco-button artdeco-button--1" disabled="" type="submit">
+        Send
+    </button>
+</div>
+
+                
+
+  <div class="relative ml2">
+    <span tabindex="-1" id="ember183" class="artdeco-hoverable-trigger artdeco-hoverable-trigger--content-placed-top ember-view">
+      <button aria-expanded="false" aria-controls="artdeco-hoverable-artdeco-gen-43" id="ember184" class="msg-form__send-toggle artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view" data-test-msg-ui-send-mode-toggle-presenter__button="" type="button">        <svg role="none" aria-hidden="true" class="artdeco-button__icon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="overflow-web-ios-medium">
+<!---->    
+  <use href="#overflow-web-ios-medium" width="24" height="24"></use>
+</svg>
+
+
+<span class="artdeco-button__text">
+  Open send options
+</span></button>
+      <div id="artdeco-gen-43" class="ember-view"><div id="ember186" class="ember-view"></div></div>
+    </span>
+  </div>
+
+              </div>
+          </footer>
+        
+
+<!---->
+  <div id="ember188" class="ember-view"><div id="ember189" class="ember-view"><!----></div></div>
+
+      
+  </form>
+
+  <div id="ember190" class="ember-view"><div id="ember191" class="ember-view"><!----></div></div>
+
+  <div id="ember192" class="ember-view"><div id="ember193" class="ember-view"><!----></div></div>
+
+        
+<!---->
+<!---->
+<!---->  
+
+
+  </div>
+
+</div>
+
+
+<div id="ember148" class="ember-view"><div id="ember149" class="ember-view"><!----></div></div>
+
+
+<div id="msg-pillar__reactor-list-outlet"></div>
+
+          
+      </div>
+    </div>
+  </div>
+</main>
 </body>
 </html>
 
