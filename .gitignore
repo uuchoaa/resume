@@ -11,30 +11,33 @@
 /.env*
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
-
-# Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
+/rails-app/log/**/*
+/rails-app/tmp/**/*
+!/rails-app/log/.keep
+!/rails-app/tmp/.keep
+!/rails-app/tmp/pids/
+!/rails-app/tmp/pids/.keep
+!/rails-app/tmp/storage/
+!/rails-app/tmp/storage/.keep
 
 # Ignore storage (uploaded files in development and any SQLite databases).
-/storage/*
-!/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
+/rails-app/storage/*
+!/rails-app/storage/.keep
 
-/public/assets
+/rails-app/public/assets
 
 # Ignore key files for decrypting credentials and more.
-/config/*.key
+/rails-app/config/*.key
 
+/rails-app/app/assets/builds/*
+!/rails-app/app/assets/builds/.keep
 
-/app/assets/builds/*
-!/app/assets/builds/.keep
+# Electron
+/electron-app/node_modules/
+/electron-app/dist/
+/electron-app/.DS_Store
+
+# General
 PR_PLAN.md
 .DS_Store
+*.log

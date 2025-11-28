@@ -1,9 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
-import consumer from "../channels/consumer"
+import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
   connect() {
-    console.log("Scrapes controller connected")
+    console.log("✅ Scrapes controller connected!")
+    console.log("Controller element:", this.element)
+    
+    // Create consumer directly here
+    const consumer = createConsumer()
     
     // Subscribe to ActionCable channel
     this.channel = consumer.subscriptions.create("ScrapesChannel", {
