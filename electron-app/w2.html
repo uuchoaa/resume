@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W2 - Control Panel</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 600px;
+    }
+    
+    h1 {
+      margin: 0 0 20px 0;
+      font-size: 2.5em;
+    }
+    
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin: 10px 0;
+      opacity: 0.9;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    
+    button {
+      background: white;
+      color: #f5576c;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px 5px;
+      transition: transform 0.2s;
+    }
+    
+    button:hover {
+      transform: scale(1.05);
+    }
+    
+    .button-group {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎛️ Window 2</h1>
+    <p>Control Panel</p>
+    <p>This window will display the Rails app (localhost:3000) and control scraping.</p>
+    <div class="badge">Static HTML - Ready for Rails Integration</div>
+    <div class="button-group">
+      <button onclick="testElectronAPI()">Test Electron API</button>
+      <button onclick="simulateScrape()">Simulate Scrape</button>
+    </div>
+  </div>
+
+  <script>
+    function testElectronAPI() {
+      if (window.electronAPI) {
+        window.electronAPI.test();
+        alert('Electron API is working! ✅');
+      } else {
+        alert('Electron API not found ❌');
+      }
+    }
+    
+    function simulateScrape() {
+      alert('Scraping will be implemented here! 🚀');
+      console.log('Scrape button clicked');
+    }
+    
+    console.log('W2 loaded successfully');
+  </script>
+</body>
+</html>
+
