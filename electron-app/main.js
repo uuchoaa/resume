@@ -174,11 +174,8 @@ ipcMain.handle('inject-response', async (event, responseText) => {
       path.join(__dirname, 'injector.js'),
       'utf8'
     );
-    
-    // Injeta o script com o texto como parâmetro
-    const result = await linkedinWindow.webContents.executeJavaScript(
-      `(${injectorScript})(\`${responseText.replace(/`/g, '\\`')}\`)`
-    );
+        // Injeta o script com o texto como parâmetro
+    const result = await linkedinWindow.webContents.executeJavaScript(injectorScript);
     
     console.log('✅ Injection result:', result);
     return result;

@@ -1,7 +1,9 @@
 // Script injetado em W1 para injetar texto no textarea do LinkedIn
 // Este script roda no contexto da página (W1)
 
-((responseText) => {
+(function(responseText) {
+  console.log('💬 Injecting response:', responseText);
+  
   try {
     // Seletores possíveis para o textarea do LinkedIn
     const selectors = [
@@ -19,12 +21,13 @@
       const element = document.querySelector(selector);
       if (element) {
         textarea = element;
-        console.log(`Found textarea using selector: ${selector}`);
+        console.log('✅ Found textarea using selector:', selector);
         break;
       }
     }
     
     if (!textarea) {
+      console.error('❌ Textarea not found');
       return {
         success: false,
         error: 'LinkedIn message textarea not found'
@@ -65,13 +68,14 @@
       textarea.focus();
     }
     
+    console.log('✅ Text injected successfully!');
     return {
       success: true,
       message: 'Response injected successfully'
     };
     
   } catch (error) {
-    console.error('Injection error:', error);
+    console.error('❌ Injection error:', error);
     return {
       success: false,
       error: error.message

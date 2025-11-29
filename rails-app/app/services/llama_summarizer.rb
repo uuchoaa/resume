@@ -106,13 +106,27 @@ class LlamaSummarizer
     end.join("\n")
     
     <<~PROMPT
-      Recent LinkedIn recruiting messages:
+      Generate response options for LinkedIn recruiting conversations.
+      
+      Example 1:
+      Messages:
+      Sarah: Hi! We have a Senior Rails position at our startup. Interested?
+      John: Could you share more details about the role?
+      
+      AFFIRMATIVE: Yes, I'm interested! I'd love to learn more about the position and discuss how my experience aligns with your needs.
+      NEGATIVE: Thank you for reaching out, but I'm not looking for new opportunities at this time. Best of luck with your search!
+      
+      Example 2:
+      Messages:
+      Mike: We offer $120k base + equity. Remote work available.
+      Lisa: That sounds interesting. What's the tech stack?
+      
+      AFFIRMATIVE: The compensation and remote setup look great! I'd like to schedule a call to discuss the technical details and team structure.
+      NEGATIVE: I appreciate the offer, but I've decided to pursue other directions in my career. Thanks for considering me!
+      
+      Now generate responses for this conversation:
+      Messages:
       #{messages_text}
-      
-      Write 2 response options for the candidate.
-      
-      First option: Show interest and ask to continue the conversation.
-      Second option: Politely decline the opportunity.
       
       AFFIRMATIVE:
       NEGATIVE:
