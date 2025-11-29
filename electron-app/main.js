@@ -25,6 +25,7 @@ function createWindows() {
 
   // Carrega LinkedIn
   linkedinWindow.loadURL('https://www.linkedin.com/messaging/');
+  // linkedinWindow.loadURL(`file://${path.join(__dirname, 'w1.html')}`);
   linkedinWindow.webContents.openDevTools();
 
   // W2 - Control Panel (Rails App)
@@ -162,4 +163,32 @@ function sendToRails(data) {
     req.end();
   });
 }
+
+// IPC Handler: Injeta resposta no textarea de W1
+ipcMain.handle('inject-response', async (event, responseText) => {
+  try {
+    console.log('💬 Injecting response into W1:', responseText.substring(0, 50) + '...');
+    
+    // Lê o script de injeção
+    const injectorScript = fs.readFileSync(
+      path.join(__dirname, 'injector.js'),
+      'utf8'
+    );
+    
+    // Injeta o script com o texto como parâmetro
+    const result = await linkedinWindow.webContents.executeJavaScript(
+      `(${injectorScript})(\`${responseText.replace(/`/g, '\\`')}\`)`
+    );
+    
+    console.log('✅ Injection result:', result);
+    return result;
+    
+  } catch (error) {
+    console.error('❌ Injection error:', error);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+});
 

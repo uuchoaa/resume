@@ -100,6 +100,44 @@ export default class extends Controller {
     })
   }
 
+  generateResponses(event) {
+    event.preventDefault()
+    console.log("💬 Generate Responses button clicked")
+    
+    if (!this.lastScrapedData) {
+      alert("Please scrape a conversation first!")
+      return
+    }
+    
+    // Show loading state
+    const btn = event.currentTarget
+    const originalText = btn.textContent
+    btn.disabled = true
+    btn.textContent = "Generating..."
+    
+    // Send to Rails for response generation
+    fetch('/deals/generate_responses', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.lastScrapedData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Responses received:", data)
+      this.displayResponseOptions(data.responses)
+    })
+    .catch(error => {
+      console.error("Generate responses error:", error)
+      this.showError("Failed to generate responses: " + error.message)
+    })
+    .finally(() => {
+      btn.disabled = false
+      btn.textContent = originalText
+    })
+  }
+
   displayResults(data) {
     const container = document.getElementById("results-container")
     const emptyState = document.getElementById("empty-state")
@@ -129,6 +167,57 @@ export default class extends Controller {
     `
     
     content.insertAdjacentHTML('afterbegin', summaryHtml)
+  }
+
+  displayResponseOptions(responses) {
+    const container = document.getElementById("results-container")
+    const content = document.getElementById("results-content")
+    
+    // Add response options to top of results
+    const optionsHtml = `
+      <div class="border-l-4 border-purple-400 bg-purple-50 p-4 mb-4">
+        <h4 class="text-sm font-medium text-purple-800 mb-3">💬 AI Response Suggestions</h4>
+        <div class="space-y-2">
+          <button 
+            data-action="click->scrapes#selectResponse"
+            data-response="${this.escapeHtml(responses.affirmative)}"
+            class="w-full text-left p-3 bg-white border border-green-300 rounded-lg hover:bg-green-50 hover:border-green-400 transition-colors">
+            <div class="font-semibold text-green-700 text-xs mb-1">✅ AFFIRMATIVE</div>
+            <div class="text-sm text-gray-800">${this.escapeHtml(responses.affirmative)}</div>
+          </button>
+          
+          <button 
+            data-action="click->scrapes#selectResponse"
+            data-response="${this.escapeHtml(responses.negative)}"
+            class="w-full text-left p-3 bg-white border border-red-300 rounded-lg hover:bg-red-50 hover:border-red-400 transition-colors">
+            <div class="font-semibold text-red-700 text-xs mb-1">❌ NEGATIVE</div>
+            <div class="text-sm text-gray-800">${this.escapeHtml(responses.negative)}</div>
+          </button>
+        </div>
+      </div>
+    `
+    
+    content.insertAdjacentHTML('afterbegin', optionsHtml)
+  }
+
+  selectResponse(event) {
+    const responseText = event.currentTarget.getAttribute('data-response')
+    console.log("✉️ Selected response:", responseText)
+    
+    // Check if we're in Electron
+    if (window.electronAPI && window.electronAPI.injectResponse) {
+      window.electronAPI.injectResponse(responseText)
+        .then(() => {
+          console.log("✅ Response injected into W1")
+          alert("✅ Response injected! Check W1 textarea")
+        })
+        .catch(error => {
+          console.error("Inject error:", error)
+          alert("❌ Failed to inject: " + error.message)
+        })
+    } else {
+      alert("Not running in Electron app or API not available")
+    }
   }
 
   showError(message) {

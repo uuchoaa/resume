@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     collection do
       post :find_or_create
       post :summarize
+      post :generate_responses
     end
   end
   resources :agencies

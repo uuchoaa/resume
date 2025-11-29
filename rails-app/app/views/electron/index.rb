@@ -20,6 +20,13 @@ module Views
                 scrapes_target: "summarizeBtn"
               }
             )
+            header.action(
+              "Generate Responses",
+              data: {
+                action: "click->scrapes#generateResponses",
+                scrapes_target: "generateBtn"
+              }
+            )
           end
 
           div(id: "scrape-results", class: "mt-6") do

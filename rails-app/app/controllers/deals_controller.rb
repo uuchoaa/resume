@@ -1,5 +1,5 @@
 class DealsController < CrudController
-  skip_before_action :verify_authenticity_token, only: [:find_or_create, :summarize]
+  skip_before_action :verify_authenticity_token
 
   # GET /deals/kanban
   def index
@@ -8,6 +8,20 @@ class DealsController < CrudController
     view.data = Deal.includes(:agency, :recruter).all
     view.current_path = request.path
     render view
+  end
+
+  def summarize
+    summary = LlamaSummarizer.summarize(params.permit!.to_h.with_indifferent_access)
+    render json: {
+      status: "success",
+      summary: summary
+    }, status: :ok
+  rescue StandardError => e
+    puts "❌ Error summarizing: #{e.message}"
+    render json: {
+      status: "error",
+      message: e.message
+    }, status: :unprocessable_entity
   end
 
   # POST /deals/find_or_create
@@ -43,21 +57,21 @@ class DealsController < CrudController
     }, status: :unprocessable_entity
   end
 
-  # POST /deals/summarize
-  def summarize
-    puts "🤖 Received summarize request"
+  # POST /deals/generate_responses
+  def generate_responses
+    puts "🤖 Received generate_responses request"
     
     conversation_data = params.permit!.to_h.with_indifferent_access
     
-    # Chama o LlamaSummarizer
-    summary = LlamaSummarizer.summarize(conversation_data)
+    # Chama o LlamaSummarizer para gerar respostas
+    responses = LlamaSummarizer.generate_responses(conversation_data)
     
     render json: {
       status: "success",
-      summary: summary
+      responses: responses
     }, status: :ok
   rescue StandardError => e
-    puts "❌ Error generating summary: #{e.message}"
+    puts "❌ Error generating responses: #{e.message}"
     puts e.backtrace.first(5)
     render json: {
       status: "error",

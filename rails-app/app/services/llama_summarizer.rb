@@ -7,6 +7,10 @@ class LlamaSummarizer
   def self.summarize(conversation_data)
     new(conversation_data).summarize
   end
+
+  def self.generate_responses(conversation_data)
+    new(conversation_data).generate_responses
+  end
   
   def initialize(conversation_data)
     @conversation_data = conversation_data
@@ -37,6 +41,37 @@ class LlamaSummarizer
     puts "❌ Error generating summary: #{e.message}"
     "Error: Unable to generate summary - #{e.message}"
   end
+
+  def generate_responses
+    # Pega apenas as últimas 2 mensagens
+    last_messages = @conversation_data[:messages].last(2)
+    
+    prompt = build_responses_prompt(last_messages, @conversation_data[:contact])
+    
+    puts "🤖 Generating response options..."
+    
+    output = `#{LLAMA_CLI_PATH} \
+      -m #{MODEL_PATH} \
+      -p "#{prompt.gsub('"', '\"')}" \
+      -n 150 \
+      --temp 0.8 \
+      -no-cnv \
+      --repeat-penalty 1.1 \
+      2>/dev/null`
+    
+    # Parse as duas opções
+    responses = parse_responses(output)
+    
+    puts "✅ Generated #{responses.length} response options"
+    
+    responses
+  rescue => e
+    puts "❌ Error generating responses: #{e.message}"
+    {
+      affirmative: "Error: Unable to generate response",
+      negative: "Error: Unable to generate response"
+    }
+  end
   
   private
   
@@ -61,6 +96,57 @@ class LlamaSummarizer
       
       Provide a concise, professional summary in 2-3 sentences.
     PROMPT
+  end
+
+  def build_responses_prompt(last_messages, contact)
+    contact_name = contact[:name] || 'the recruiter'
+    
+    messages_text = last_messages.map do |msg|
+      "#{msg[:sender]}: #{msg[:text]}"
+    end.join("\n")
+    
+    <<~PROMPT
+      Recent LinkedIn recruiting messages:
+      #{messages_text}
+      
+      Write 2 response options for the candidate.
+      
+      First option: Show interest and ask to continue the conversation.
+      Second option: Politely decline the opportunity.
+      
+      AFFIRMATIVE:
+      NEGATIVE:
+    PROMPT
+  end
+
+  def parse_responses(output)
+    # Limpa o output
+    cleaned = output.strip
+    
+    # Tenta extrair as respostas
+    affirmative = nil
+    negative = nil
+    
+    if cleaned =~ /AFFIRMATIVE:\s*(.+?)(?=NEGATIVE:|$)/m
+      affirmative = $1.strip
+    end
+    
+    if cleaned =~ /NEGATIVE:\s*(.+?)$/m
+      negative = $1.strip
+    end
+    
+    # Fallback se não conseguir parsear
+    unless affirmative && negative
+      # Tenta split por linhas e pegar primeira e segunda
+      lines = cleaned.split("\n").reject(&:empty?)
+      affirmative = lines[0] || "I'm interested! Can we discuss further?"
+      negative = lines[1] || "Thank you, but I'm not interested at this time."
+    end
+    
+    {
+      affirmative: affirmative,
+      negative: negative
+    }
   end
   
   def extract_summary(output, prompt)
