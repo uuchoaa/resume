@@ -3,6 +3,16 @@
  */
 
 /**
+ * DataType represents the type of data extracted by a Reader
+ */
+export enum DataType {
+  TEXT = 'text',
+  JSON = 'json',
+  IMAGE = 'image',
+  BINARY = 'binary'
+}
+
+/**
  * Source represents a website/platform (e.g., LinkedIn, Calendly)
  */
 export interface Source {
@@ -31,6 +41,7 @@ export interface Reader {
   id: string;           // 'extract-conversation'
   name: string;         // 'Extract Conversation'
   description: string;  // Human-readable description
+  dataType: DataType;   // Type of data this reader extracts
   script: string;       // JavaScript code to inject and execute
   testFixture?: string; // Optional path to test HTML file
 }
@@ -53,6 +64,7 @@ export interface Processor {
   id: string;           // 'summarize', 'export-json'
   name: string;         // 'Summarize', 'Export JSON'
   description: string;  // Human-readable description
+  compatibleDataTypes: DataType[]; // Data types this processor can handle
   execute: (data: any) => Promise<any>; // Processing function
 }
 
@@ -66,6 +78,7 @@ export interface ExecutionResult {
   timestamp: string;
   actionId: string;
   actionName: string;
+  dataType?: DataType;  // Type of data (for readers)
   scenarioId: string;
   sourceId: string;
   url: string;

@@ -3,12 +3,13 @@
  * Placeholder for future implementation
  */
 
-import { Reader } from '../../../../../types';
+import { Reader, DataType } from '../../../../../types';
 
 export const extractPosts: Reader = {
   id: 'extract-posts',
   name: 'Extract Posts',
   description: 'Extracts posts from the LinkedIn feed (placeholder)',
+  dataType: DataType.JSON,
   script: `
 (async () => {
   return {

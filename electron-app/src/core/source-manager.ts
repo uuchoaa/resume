@@ -30,14 +30,27 @@ export class SourceManager {
 
   /**
    * Find source by domain
+   * Returns the most specific source (domain-specific over universal)
    */
   findSourceByDomain(hostname: string): Source | undefined {
+    let universalSource: Source | undefined;
+
+    // First pass: look for domain-specific sources and track universal source
     for (const source of this.sources.values()) {
+      // Empty domains array means universal (applies to all domains)
+      if (source.domains.length === 0) {
+        universalSource = source;
+        continue;
+      }
+
+      // Check if this source matches the hostname
       if (source.domains.some(domain => hostname.includes(domain))) {
-        return source;
+        return source; // Return specific match immediately
       }
     }
-    return undefined;
+
+    // If no specific source found, return universal source (if exists)
+    return universalSource;
   }
 
   /**

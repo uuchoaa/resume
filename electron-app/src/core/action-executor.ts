@@ -17,7 +17,50 @@ export class ActionExecutor {
   ): Promise<ExecutionResult> {
     try {
       const url = window.webContents.getURL();
-      const data = await window.webContents.executeJavaScript(reader.script);
+      const scriptResult = await window.webContents.executeJavaScript(reader.script);
+
+      let data = scriptResult;
+
+      // Check if this is a screenshot reader (special marker)
+      if (scriptResult && typeof scriptResult === 'object' && scriptResult.__screenshot__) {
+        // Get full page dimensions
+        const dimensions = await window.webContents.executeJavaScript(`
+          ({
+            width: Math.max(
+              document.documentElement.scrollWidth,
+              document.body.scrollWidth,
+              document.documentElement.offsetWidth,
+              document.body.offsetWidth,
+              document.documentElement.clientWidth
+            ),
+            height: Math.max(
+              document.documentElement.scrollHeight,
+              document.body.scrollHeight,
+              document.documentElement.offsetHeight,
+              document.body.offsetHeight,
+              document.documentElement.clientHeight
+            )
+          })
+        `);
+
+        // Capture the entire page
+        const image = await window.capturePage({
+          x: 0,
+          y: 0,
+          width: dimensions.width,
+          height: dimensions.height
+        });
+
+        // Convert to base64
+        const base64 = image.toPNG().toString('base64');
+        data = {
+          format: 'png',
+          base64: base64,
+          width: dimensions.width,
+          height: dimensions.height,
+          dataUrl: `data:image/png;base64,${base64}`
+        };
+      }
 
       return {
         success: true,
@@ -25,6 +68,7 @@ export class ActionExecutor {
         timestamp: new Date().toISOString(),
         actionId: reader.id,
         actionName: reader.name,
+        dataType: reader.dataType,
         scenarioId,
         sourceId,
         url
@@ -36,6 +80,7 @@ export class ActionExecutor {
         timestamp: new Date().toISOString(),
         actionId: reader.id,
         actionName: reader.name,
+        dataType: reader.dataType,
         scenarioId,
         sourceId,
         url: window.webContents.getURL()

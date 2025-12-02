@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useElectron } from '../context/ElectronContext';
 
 export function Header() {
-  const { url, source, scenario, navigateTo, navigateBack, navigateForward, reload, captureAndSavePage, captureToClipboard, clearHistory, loadWelcome } = useElectron();
+  const { url, source, scenario, navigateTo, navigateBack, navigateForward, reload, clearHistory, loadWelcome } = useElectron();
   const [urlInput, setUrlInput] = useState('');
 
   useEffect(() => {
@@ -68,21 +68,6 @@ export function Header() {
           className="px-4 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm"
         >
           Go
-        </button>
-        <div className="border-l border-gray-300 mx-1"></div>
-        <button 
-          onClick={captureAndSavePage}
-          className="px-3 py-1 bg-purple-500 hover:bg-purple-600 text-white rounded text-sm" 
-          title="Save Screenshot to Downloads"
-        >
-          💾
-        </button>
-        <button 
-          onClick={captureToClipboard}
-          className="px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm" 
-          title="Copy Screenshot to Clipboard"
-        >
-          📋
         </button>
         <div className="border-l border-gray-300 mx-1"></div>
         <button 

@@ -3,12 +3,13 @@
  * Extracts messages and contact information from LinkedIn chat
  */
 
-import { Reader } from '../../../../../types';
+import { Reader, DataType } from '../../../../../types';
 
 export const extractConversation: Reader = {
   id: 'extract-conversation',
   name: 'Extract Conversation',
   description: 'Extracts all messages and contact info from the current LinkedIn chat',
+  dataType: DataType.JSON,
   testFixture: 'chat.html',
   script: `
 (async () => {

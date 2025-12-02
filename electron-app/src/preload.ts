@@ -27,10 +27,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   executeProcessor: (recordId: string, processorId: string) => 
     ipcRenderer.invoke('execute-processor', recordId, processorId),
 
-  // Screenshot
-  captureAndSavePage: () => ipcRenderer.invoke('capture-and-save-page'),
-  captureToClipboard: () => ipcRenderer.invoke('capture-to-clipboard'),
-
   // Navigation history
   clearHistory: () => ipcRenderer.invoke('clear-history'),
   loadWelcome: () => ipcRenderer.invoke('load-welcome'),

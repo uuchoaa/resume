@@ -30,6 +30,12 @@ export function DetailModal() {
 
   if (!selectedRecord) return null;
 
+  // Filter processors based on the dataType of the extracted data
+  const dataType = selectedRecord.result.dataType;
+  const compatibleProcessors = dataType 
+    ? processors.filter(p => p.compatibleDataTypes.includes(dataType))
+    : processors; // Show all if no dataType specified (backwards compatibility)
+
   const content = {
     result: selectedRecord.result,
     processed: selectedRecord.processed
@@ -58,7 +64,7 @@ export function DetailModal() {
               className="flex-1 border border-gray-300 rounded p-2 text-sm"
             >
               <option value="">Select a processor...</option>
-              {processors.map(p => (
+              {compatibleProcessors.map(p => (
                 <option key={p.id} value={p.id}>
                   {p.name} - {p.description}
                 </option>

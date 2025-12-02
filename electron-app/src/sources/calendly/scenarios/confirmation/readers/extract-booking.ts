@@ -3,12 +3,13 @@
  * Extracts booking details from Calendly confirmation page
  */
 
-import { Reader } from '../../../../../types';
+import { Reader, DataType } from '../../../../../types';
 
 export const extractBooking: Reader = {
   id: 'extract-booking',
   name: 'Extract Booking',
   description: 'Extracts meeting details, date, time, and participant info from Calendly confirmation',
+  dataType: DataType.JSON,
   testFixture: 'confirmation.html',
   script: `
 (async () => {

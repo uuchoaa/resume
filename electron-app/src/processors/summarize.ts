@@ -3,12 +3,13 @@
  * Creates a simple summary of extracted data
  */
 
-import { Processor } from '../types';
+import { Processor, DataType } from '../types';
 
 export const summarizeProcessor: Processor = {
   id: 'summarize',
   name: 'Summarize',
   description: 'Creates a basic summary of the extracted data',
+  compatibleDataTypes: [DataType.TEXT, DataType.JSON],
   
   async execute(data: any): Promise<any> {
     try {

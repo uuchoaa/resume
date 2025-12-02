@@ -20,6 +20,7 @@ export interface Processor {
   id: string;
   name: string;
   description: string;
+  compatibleDataTypes: string[];  // Array of DataType values
 }
 
 export interface DataRecord {
@@ -28,6 +29,7 @@ export interface DataRecord {
     success: boolean;
     timestamp: string;
     actionName: string;
+    dataType?: string;  // DataType of the extracted data
     sourceId: string;
     scenarioId: string;
     data?: any;
@@ -59,10 +61,6 @@ export interface ElectronAPI {
 
   // Processors
   executeProcessor: (recordId: string, processorId: string) => Promise<{ success: boolean; output?: any; error?: string }>;
-
-  // Screenshot
-  captureAndSavePage: () => Promise<{ success: boolean; filePath?: string; fileName?: string; error?: string }>;
-  captureToClipboard: () => Promise<{ success: boolean; error?: string }>;
 
   // Navigation history
   clearHistory: () => Promise<{ success: boolean; error?: string }>;

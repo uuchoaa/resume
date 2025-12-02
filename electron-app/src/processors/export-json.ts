@@ -3,7 +3,7 @@
  * Exports data as formatted JSON
  */
 
-import { Processor } from '../types';
+import { Processor, DataType } from '../types';
 import * as fs from 'fs';
 import * as path from 'path';
 import { app } from 'electron';
@@ -12,6 +12,7 @@ export const exportJsonProcessor: Processor = {
   id: 'export-json',
   name: 'Export JSON',
   description: 'Exports the extracted data as a formatted JSON file',
+  compatibleDataTypes: [DataType.TEXT, DataType.JSON],
   
   async execute(data: any): Promise<any> {
     try {

@@ -27,10 +27,6 @@ interface ElectronContextValue extends ElectronState {
   // Processors
   executeProcessor: (recordId: string, processorId: string) => Promise<boolean>;
   
-  // Screenshot
-  captureAndSavePage: () => Promise<boolean>;
-  captureToClipboard: () => Promise<boolean>;
-  
   // Navigation history
   clearHistory: () => Promise<boolean>;
   loadWelcome: () => Promise<boolean>;
@@ -157,37 +153,6 @@ export function ElectronProvider({ children }: { children: React.ReactNode }) {
     return result.success;
   }, []);
 
-  // Screenshot methods
-  const captureAndSavePage = useCallback(async (): Promise<boolean> => {
-    if (!window.electronAPI) return false;
-    
-    const result = await window.electronAPI.captureAndSavePage();
-    if (result.success) {
-      console.log('Screenshot saved:', result.fileName);
-      alert(`Screenshot saved to Downloads:\n${result.fileName}`);
-      return true;
-    }
-    
-    console.error('Save failed:', result.error);
-    alert(`Failed to save screenshot:\n${result.error}`);
-    return false;
-  }, []);
-
-  const captureToClipboard = useCallback(async (): Promise<boolean> => {
-    if (!window.electronAPI) return false;
-    
-    const result = await window.electronAPI.captureToClipboard();
-    if (result.success) {
-      console.log('Screenshot copied to clipboard');
-      alert('Screenshot copied to clipboard!');
-      return true;
-    }
-    
-    console.error('Copy failed:', result.error);
-    alert(`Failed to copy screenshot:\n${result.error}`);
-    return false;
-  }, []);
-
   // Navigation history methods
   const clearHistory = useCallback(async (): Promise<boolean> => {
     if (!window.electronAPI) return false;
@@ -229,8 +194,6 @@ export function ElectronProvider({ children }: { children: React.ReactNode }) {
     executeWriter,
     clearRecords,
     executeProcessor,
-    captureAndSavePage,
-    captureToClipboard,
     clearHistory,
     loadWelcome,
     selectedRecord,
