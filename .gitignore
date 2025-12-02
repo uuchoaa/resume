@@ -36,6 +36,33 @@
 /electron-app/node_modules/
 /electron-app/dist/
 /electron-app/.DS_Store
+/electron-app/package-lock.json
+/electron-app/tmp/
+/electron-app/tmp/.keep
+/electron-app/tmp/pids/
+/electron-app/tmp/pids/.keep
+/electron-app/tmp/storage/
+/electron-app/tmp/storage/.keep
+/electron-app/tmp/sockets/
+/electron-app/tmp/sockets/.keep
+/electron-app/tmp/cache/
+/electron-app/tmp/cache/.keep
+
+# Electron
+/node_modules/
+/dist/
+/.DS_Store
+/package-lock.json
+/tmp/
+/tmp/.keep
+/tmp/pids/
+/tmp/pids/.keep
+/tmp/storage/
+/tmp/storage/.keep
+/tmp/sockets/
+/tmp/sockets/.keep
+/tmp/cache/
+/tmp/cache/.keep
 
 # General
 PR_PLAN.md
