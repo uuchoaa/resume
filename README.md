@@ -69,3 +69,7 @@ The application has been successfully migrated from a Rails-dependent architectu
 **After**: Electron (W1, W2, Main Process with Core Modules)
 
 All functionality now runs locally within Electron with no external server dependencies.
+
+```
+node read-chat.js https://www.linkedin.com/messaging/thread/2-YzBkYjZkYTgtMTdiNi00MmVmLTgwZTAtMjExZmY1MjZjZTEyXzEwMA==/
+```
