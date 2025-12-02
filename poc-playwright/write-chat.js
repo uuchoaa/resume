@@ -22,7 +22,7 @@ const HEADLESS = process.env.HEADLESS !== 'false';
 const SLOW_MO = parseInt(process.env.SLOW_MO || '0');
 const TIMEOUT = 30000;
 
-// Load cookies
+// Load and normalize cookies
 function loadCookies() {
   const cookiesPath = join(__dirname, 'cookies.json');
   
@@ -35,7 +35,33 @@ function loadCookies() {
   
   try {
     const cookiesData = readFileSync(cookiesPath, 'utf-8');
-    return JSON.parse(cookiesData);
+    const cookies = JSON.parse(cookiesData);
+    
+    // Normalize cookies for Playwright
+    return cookies.map(cookie => {
+      // Normalize sameSite
+      let sameSite = cookie.sameSite;
+      if (!sameSite || !['Strict', 'Lax', 'None'].includes(sameSite)) {
+        sameSite = 'Lax'; // Default safe value
+      }
+      
+      // Ensure domain starts with . for subdomain matching
+      let domain = cookie.domain;
+      if (domain && !domain.startsWith('.') && domain.includes('linkedin')) {
+        domain = '.' + domain;
+      }
+      
+      return {
+        name: cookie.name,
+        value: cookie.value,
+        domain: domain || '.linkedin.com',
+        path: cookie.path || '/',
+        expires: cookie.expirationDate || cookie.expires || -1,
+        httpOnly: cookie.httpOnly || false,
+        secure: cookie.secure !== false, // Default to true
+        sameSite: sameSite
+      };
+    });
   } catch (error) {
     console.error('❌ Error parsing cookies.json:', error.message);
     process.exit(1);
@@ -44,56 +70,40 @@ function loadCookies() {
 
 // Inject message into chat
 async function injectMessage(page, messageText) {
-  return await page.evaluate((text) => {
-    try {
-      if (!text) {
-        return {
-          success: false,
-          error: 'No message text provided'
-        };
-      }
-
-      // Find the message textarea
-      const textarea = document.querySelector('.msg-form__contenteditable, [contenteditable="true"].msg-form__msg-content-container--scrollable');
-      
-      if (!textarea) {
-        return {
-          success: false,
-          error: 'Message textarea not found'
-        };
-      }
-
-      // Set the text
-      if (textarea.getAttribute('contenteditable') === 'true') {
-        // ContentEditable div
-        textarea.textContent = text;
-        
-        // Trigger input event to enable send button
-        const inputEvent = new Event('input', { bubbles: true });
-        textarea.dispatchEvent(inputEvent);
-      } else {
-        // Regular textarea
-        textarea.value = text;
-        
-        // Trigger input event
-        const inputEvent = new Event('input', { bubbles: true });
-        textarea.dispatchEvent(inputEvent);
-      }
-
-      return {
-        success: true,
-        message: 'Text injected successfully',
-        length: text.length
-      };
-      
-    } catch (error) {
-      return {
-        success: false,
-        error: error.message,
-        stack: error.stack
-      };
-    }
-  }, messageText);
+  // Find the message textarea
+  const textarea = await page.locator('.msg-form__contenteditable, [contenteditable="true"].msg-form__msg-content-container--scrollable').first();
+  
+  if (await textarea.count() === 0) {
+    return {
+      success: false,
+      error: 'Message textarea not found'
+    };
+  }
+  
+  try {
+    // Click to focus
+    await textarea.click();
+    
+    // Wait a bit
+    await page.waitForTimeout(300);
+    
+    // Type the message (simulates real keystrokes)
+    await textarea.type(messageText, { delay: 50 }); // 50ms delay between keystrokes
+    
+    // Wait for send button to be enabled
+    await page.waitForTimeout(500);
+    
+    return {
+      success: true,
+      message: 'Text typed successfully',
+      length: messageText.length
+    };
+  } catch (error) {
+    return {
+      success: false,
+      error: error.message
+    };
+  }
 }
 
 // Main function
@@ -146,7 +156,7 @@ async function main() {
     // Navigate to chat
     console.log('🌐 Navigating to chat...');
     await page.goto(chatUrl, { 
-      waitUntil: 'networkidle',
+      waitUntil: 'domcontentloaded',
       timeout: TIMEOUT 
     });
     
@@ -155,6 +165,8 @@ async function main() {
     await page.waitForSelector('.msg-form__contenteditable, [contenteditable="true"]', { 
       timeout: TIMEOUT 
     });
+    
+    console.log('✅ Chat loaded!');
     
     // Give it a moment
     await page.waitForTimeout(1000);
@@ -187,17 +199,25 @@ async function main() {
   } catch (error) {
     console.error('\n❌ Error:', error.message);
     
-    // Take screenshot on error
-    const screenshotPath = join(__dirname, `error-${Date.now()}.png`);
-    await page.screenshot({ path: screenshotPath, fullPage: true });
-    console.error(`📸 Screenshot saved to: ${screenshotPath}`);
+    // Only try to take screenshot if page is still open
+    try {
+      const screenshotPath = join(__dirname, `error-${Date.now()}.png`);
+      await page.screenshot({ path: screenshotPath, fullPage: true });
+      console.error(`📸 Screenshot saved to: ${screenshotPath}`);
+    } catch (screenshotError) {
+      console.error('⚠️  Could not save screenshot (page was closed)');
+    }
     
     process.exit(1);
   } finally {
     if (!HEADLESS) {
       console.log('\n🔒 Closing browser...');
     }
-    await browser.close();
+    try {
+      await browser.close();
+    } catch (e) {
+      // Browser already closed, ignore
+    }
   }
 }
 
