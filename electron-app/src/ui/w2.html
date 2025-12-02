@@ -11,6 +11,16 @@
     <!-- Header -->
     <div class="bg-white border-b border-gray-200 p-4">
       <h1 class="text-xl font-bold text-gray-800">Control Panel</h1>
+      
+      <!-- Navigation Controls -->
+      <div class="mt-3 flex gap-2">
+        <button id="back-btn" class="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm" title="Back">←</button>
+        <button id="forward-btn" class="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm" title="Forward">→</button>
+        <button id="reload-btn" class="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm" title="Reload">↻</button>
+        <input type="text" id="url-input" placeholder="Enter URL..." class="flex-1 px-3 py-1 border border-gray-300 rounded text-sm">
+        <button id="go-btn" class="px-4 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm">Go</button>
+      </div>
+      
       <div class="mt-2 text-sm text-gray-600">
         <div><strong>URL:</strong> <span id="current-url" class="font-mono text-xs">-</span></div>
         <div><strong>Source:</strong> <span id="current-source">-</span></div>

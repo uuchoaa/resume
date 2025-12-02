@@ -23,6 +23,13 @@ const writersListEl = document.getElementById('writers-list')!;
 const historyListEl = document.getElementById('history-list')!;
 const clearHistoryBtn = document.getElementById('clear-history-btn')!;
 
+// Navigation elements
+const backBtn = document.getElementById('back-btn')!;
+const forwardBtn = document.getElementById('forward-btn')!;
+const reloadBtn = document.getElementById('reload-btn')!;
+const urlInput = document.getElementById('url-input') as HTMLInputElement;
+const goBtn = document.getElementById('go-btn')!;
+
 // Writer Modal
 const writerModal = document.getElementById('writer-modal')!;
 const writerModalTitle = document.getElementById('writer-modal-title')!;
@@ -62,6 +69,7 @@ const applyProcessorBtn = document.getElementById('apply-processor-btn')!;
 function updateUI() {
   // Update URL
   currentUrlEl.textContent = currentState.url || '-';
+  urlInput.value = currentState.url || '';
   
   // Update source
   currentSourceEl.textContent = currentState.source?.name || '-';
@@ -225,6 +233,35 @@ applyProcessorBtn.addEventListener('click', async () => {
 clearHistoryBtn.addEventListener('click', async () => {
   if (confirm('Clear all data history?')) {
     await (window as any).electronAPI.clearRecords();
+  }
+});
+
+// Navigation controls
+backBtn.addEventListener('click', async () => {
+  await (window as any).electronAPI.navigateBack();
+});
+
+forwardBtn.addEventListener('click', async () => {
+  await (window as any).electronAPI.navigateForward();
+});
+
+reloadBtn.addEventListener('click', async () => {
+  await (window as any).electronAPI.reload();
+});
+
+goBtn.addEventListener('click', async () => {
+  const url = urlInput.value.trim();
+  if (url) {
+    await (window as any).electronAPI.navigateTo(url);
+  }
+});
+
+urlInput.addEventListener('keypress', async (e) => {
+  if (e.key === 'Enter') {
+    const url = urlInput.value.trim();
+    if (url) {
+      await (window as any).electronAPI.navigateTo(url);
+    }
   }
 });
 
