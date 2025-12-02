@@ -27,7 +27,14 @@ contextBridge.exposeInMainWorld('electronAPI', {
   executeProcessor: (recordId: string, processorId: string) => 
     ipcRenderer.invoke('execute-processor', recordId, processorId),
 
-  // Navigation history
+  // Bookmarks
+  getBookmarks: () => ipcRenderer.invoke('get-bookmarks'),
+  addBookmark: () => ipcRenderer.invoke('add-bookmark'),
+  removeBookmark: (url: string) => ipcRenderer.invoke('remove-bookmark', url),
+  isBookmarked: () => ipcRenderer.invoke('is-bookmarked'),
+  navigateToBookmark: (url: string) => ipcRenderer.invoke('navigate-to-bookmark', url),
+  
+  // Navigation
   clearHistory: () => ipcRenderer.invoke('clear-history'),
   loadWelcome: () => ipcRenderer.invoke('load-welcome'),
 

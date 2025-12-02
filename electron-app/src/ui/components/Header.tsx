@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useElectron } from '../context/ElectronContext';
+import { NavigationHistory } from './NavigationHistory';
 
 export function Header() {
   const { url, source, scenario, navigateTo, navigateBack, navigateForward, reload, clearHistory, loadWelcome } = useElectron();
@@ -34,6 +35,7 @@ export function Header() {
         >
           🏠
         </button>
+        <NavigationHistory />
         <button 
           onClick={navigateBack}
           className="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm" 

@@ -23,6 +23,12 @@ export interface Processor {
   compatibleDataTypes: string[];  // Array of DataType values
 }
 
+export interface BookmarkEntry {
+  url: string;
+  title: string;
+  timestamp: string;
+}
+
 export interface DataRecord {
   id: string;
   result: {
@@ -62,7 +68,14 @@ export interface ElectronAPI {
   // Processors
   executeProcessor: (recordId: string, processorId: string) => Promise<{ success: boolean; output?: any; error?: string }>;
 
-  // Navigation history
+  // Bookmarks
+  getBookmarks: () => Promise<BookmarkEntry[]>;
+  addBookmark: () => Promise<{ success: boolean; message?: string; error?: string }>;
+  removeBookmark: (url: string) => Promise<{ success: boolean }>;
+  isBookmarked: () => Promise<boolean>;
+  navigateToBookmark: (url: string) => Promise<{ success: boolean; error?: string }>;
+  
+  // Navigation
   clearHistory: () => Promise<{ success: boolean; error?: string }>;
   loadWelcome: () => Promise<{ success: boolean; error?: string }>;
 

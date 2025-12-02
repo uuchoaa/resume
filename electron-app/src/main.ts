@@ -55,13 +55,13 @@ function createWindows() {
   }
 
   // Listen to navigation changes in W1
-  w1.webContents.on('did-navigate', () => {
+  w1.webContents.on('did-navigate', async () => {
     const url = w1!.webContents.getURL();
     urlStore.setLastUrl(url);
     notifyW2OfUrlChange();
   });
 
-  w1.webContents.on('did-navigate-in-page', () => {
+  w1.webContents.on('did-navigate-in-page', async () => {
     const url = w1!.webContents.getURL();
     urlStore.setLastUrl(url);
     notifyW2OfUrlChange();
@@ -353,6 +353,53 @@ ipcMain.handle('load-welcome', async () => {
   
   try {
     await w1.loadFile(path.join(__dirname, 'ui/welcome.html'));
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+});
+
+/**
+ * Bookmark management
+ */
+ipcMain.handle('get-bookmarks', () => {
+  return urlStore.getBookmarks();
+});
+
+ipcMain.handle('add-bookmark', async () => {
+  if (!w1) return { success: false, error: 'W1 not available' };
+  
+  const url = w1.webContents.getURL();
+  const title = w1.webContents.getTitle();
+  
+  if (url.startsWith('file://')) {
+    return { success: false, error: 'Cannot bookmark local pages' };
+  }
+  
+  const added = urlStore.addBookmark(url, title);
+  if (added) {
+    return { success: true, message: 'Bookmark added' };
+  } else {
+    return { success: false, error: 'Page already bookmarked' };
+  }
+});
+
+ipcMain.handle('remove-bookmark', async (event, url: string) => {
+  const removed = urlStore.removeBookmark(url);
+  return { success: removed };
+});
+
+ipcMain.handle('is-bookmarked', async () => {
+  if (!w1) return false;
+  const url = w1.webContents.getURL();
+  return urlStore.isBookmarked(url);
+});
+
+ipcMain.handle('navigate-to-bookmark', async (event, url: string) => {
+  if (!w1) return { success: false, error: 'W1 not available' };
+  
+  try {
+    await w1.loadURL(url);
     return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message };
