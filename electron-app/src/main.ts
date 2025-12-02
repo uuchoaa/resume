@@ -3,8 +3,10 @@
  * Manages W1 (browser window) and W2 (control panel)
  */
 
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, clipboard } from 'electron';
 import * as path from 'path';
+import * as fs from 'fs';
+import * as os from 'os';
 import { SourceManager } from './core/source-manager';
 import { ScenarioDetector } from './core/scenario-detector';
 import { ActionExecutor } from './core/action-executor';
@@ -41,8 +43,9 @@ function createWindows() {
   });
 
   // Load initial URL (LinkedIn messaging)
-  w1.loadURL('https://www.linkedin.com/messaging/');
-  w1.webContents.openDevTools();
+  // w1.loadURL('https://www.linkedin.com/messaging/');
+  w1.loadURL('https://bloco-de-pedra.web.app/lancar-presenca');
+  // w1.webContents.openDevTools();
 
   // Listen to navigation changes in W1
   w1.webContents.on('did-navigate', () => {
@@ -310,5 +313,115 @@ ipcMain.handle('clear-records', async () => {
   }
 
   return { success: true };
+});
+
+/**
+ * Capture W1 page and save to Downloads folder (full page)
+ */
+ipcMain.handle('capture-and-save-page', async () => {
+  if (!w1) return { success: false, error: 'W1 not available' };
+  
+  try {
+    // Use Chrome DevTools Protocol for full page screenshot
+    const debug = w1.webContents.debugger;
+    
+    try {
+      // Attach debugger
+      await debug.attach('1.3');
+      
+      // Get layout metrics to determine full page size
+      const { contentSize } = await debug.sendCommand('Page.getLayoutMetrics');
+      
+      // Capture screenshot with full page dimensions
+      const { data } = await debug.sendCommand('Page.captureScreenshot', {
+        format: 'png',
+        captureBeyondViewport: true,
+        clip: {
+          x: 0,
+          y: 0,
+          width: contentSize.width,
+          height: contentSize.height,
+          scale: 1
+        }
+      });
+      
+      // Detach debugger
+      debug.detach();
+      
+      // Get Downloads folder
+      const downloadsPath = path.join(os.homedir(), 'Downloads');
+      const timestamp = new Date().toISOString().replace(/:/g, '-').split('.')[0];
+      const fileName = `screenshot-${timestamp}.png`;
+      const filePath = path.join(downloadsPath, fileName);
+      
+      // Save file (data is base64)
+      fs.writeFileSync(filePath, Buffer.from(data, 'base64'));
+      
+      return { success: true, filePath, fileName };
+    } catch (debugError: any) {
+      // Ensure debugger is detached on error
+      try {
+        debug.detach();
+      } catch (e) {
+        // Ignore detach errors
+      }
+      throw debugError;
+    }
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+});
+
+/**
+ * Capture W1 page and copy to clipboard (full page)
+ */
+ipcMain.handle('capture-to-clipboard', async () => {
+  if (!w1) return { success: false, error: 'W1 not available' };
+  
+  try {
+    // Use Chrome DevTools Protocol for full page screenshot
+    const debug = w1.webContents.debugger;
+    
+    try {
+      // Attach debugger
+      await debug.attach('1.3');
+      
+      // Get layout metrics to determine full page size
+      const { contentSize } = await debug.sendCommand('Page.getLayoutMetrics');
+      
+      // Capture screenshot with full page dimensions
+      const { data } = await debug.sendCommand('Page.captureScreenshot', {
+        format: 'png',
+        captureBeyondViewport: true,
+        clip: {
+          x: 0,
+          y: 0,
+          width: contentSize.width,
+          height: contentSize.height,
+          scale: 1
+        }
+      });
+      
+      // Detach debugger
+      debug.detach();
+      
+      // Convert base64 to NativeImage and copy to clipboard
+      const { nativeImage } = require('electron');
+      const image = nativeImage.createFromBuffer(Buffer.from(data, 'base64'));
+      clipboard.writeImage(image);
+      
+      return { success: true };
+    } catch (debugError: any) {
+      // Ensure debugger is detached on error
+      try {
+        debug.detach();
+      } catch (e) {
+        // Ignore detach errors
+      }
+      throw debugError;
+    }
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
 });
 

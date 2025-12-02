@@ -60,6 +60,10 @@ export interface ElectronAPI {
   // Processors
   executeProcessor: (recordId: string, processorId: string) => Promise<{ success: boolean; output?: any; error?: string }>;
 
+  // Screenshot
+  captureAndSavePage: () => Promise<{ success: boolean; filePath?: string; fileName?: string; error?: string }>;
+  captureToClipboard: () => Promise<{ success: boolean; error?: string }>;
+
   // Event listeners
   onInitData: (callback: (data: { sources: Source[]; processors: Processor[] }) => void) => void;
   onUrlChanged: (callback: (data: { url: string; source: Source | null; scenario: Scenario | null }) => void) => void;
