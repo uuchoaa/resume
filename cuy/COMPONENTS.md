@@ -1304,5 +1304,271 @@ end
 
 ---
 
+### Select - Dropdown Selection
+
+Both native HTML `<select>` and custom JavaScript-powered select menus.
+
+#### Native Select (Simple & Fast)
+
+For standard dropdown selection with keyboard navigation and accessibility built-in.
+
+```ruby
+render Cuy::Select.new(
+  name: "country",
+  label: "Country"
+) do |select|
+  select.option("United States", value: "us")
+  select.option("Canada", value: "ca", selected: true)
+  select.option("Mexico", value: "mx")
+end
+```
+
+**With Option Groups:**
+
+```ruby
+render Cuy::Select.new(name: "timezone", label: "Timezone") do |select|
+  select.optgroup("North America") do |group|
+    group.option("Eastern Time", value: "est")
+    group.option("Central Time", value: "cst")
+    group.option("Pacific Time", value: "pst")
+  end
+  
+  select.optgroup("Europe") do |group|
+    group.option("London", value: "gmt")
+    group.option("Paris", value: "cet")
+  end
+end
+```
+
+**API Reference - Native Select:**
+
+```ruby
+Cuy::Select.new(
+  name: String,
+  label: String | nil,
+  hint: String | nil,
+  error: String | nil,
+  placeholder: String | nil,  # Adds disabled first option
+  disabled: Boolean,
+  multiple: Boolean,          # Allow multiple selection
+  size: Integer | nil,        # Visible options (turns into listbox)
+  **html_options
+)
+
+# Methods
+select.option(text, value: nil, selected: false, disabled: false)
+select.optgroup(label, &block)
+```
+
+#### Custom Select (Rich UI)
+
+For advanced dropdowns with avatars, status indicators, search, and custom layouts. Uses Headless UI under the hood.
+
+**Simple Custom Select:**
+
+```ruby
+render Cuy::CustomSelect.new(
+  name: "assigned_to",
+  label: "Assigned to",
+  options: [
+    { value: "1", label: "Wade Cooper" },
+    { value: "2", label: "Arlene Mccoy", selected: true },
+    { value: "3", label: "Devon Webb" }
+  ]
+)
+```
+
+**With Avatars:**
+
+```ruby
+render Cuy::CustomSelect.new(
+  name: "user_id",
+  label: "Assign to"
+) do |select|
+  select.option(value: "1") do |opt|
+    opt.avatar(src: "/avatars/wade.jpg")
+    opt.label("Wade Cooper")
+  end
+  
+  select.option(value: "2", selected: true) do |opt|
+    opt.avatar(src: "/avatars/arlene.jpg")
+    opt.label("Arlene Mccoy")
+  end
+end
+```
+
+**With Status Indicators:**
+
+```ruby
+render Cuy::CustomSelect.new(
+  name: "status",
+  label: "Status"
+) do |select|
+  select.option(value: "active") do |opt|
+    opt.status(:success)  # Green dot
+    opt.label("Active")
+  end
+  
+  select.option(value: "paused") do |opt|
+    opt.status(:warning)  # Yellow dot
+    opt.label("Paused")
+  end
+  
+  select.option(value: "inactive") do |opt|
+    opt.status(:gray)     # Gray dot
+    opt.label("Inactive")
+  end
+end
+```
+
+**With Secondary Text:**
+
+```ruby
+render Cuy::CustomSelect.new(
+  name: "plan",
+  label: "Subscription Plan"
+) do |select|
+  select.option(value: "free") do |opt|
+    opt.label("Free")
+    opt.description("Basic features for individuals")
+  end
+  
+  select.option(value: "pro", selected: true) do |opt|
+    opt.label("Pro")
+    opt.description("Advanced features for professionals")
+    opt.badge("Popular", variant: :primary)
+  end
+  
+  select.option(value: "enterprise") do |opt|
+    opt.label("Enterprise")
+    opt.description("Custom solutions for teams")
+  end
+end
+```
+
+**With Search/Filter:**
+
+```ruby
+render Cuy::CustomSelect.new(
+  name: "user_id",
+  label: "Select user",
+  searchable: true,
+  search_placeholder: "Search users..."
+) do |select|
+  User.all.each do |user|
+    select.option(value: user.id) do |opt|
+      opt.avatar(src: user.avatar_url)
+      opt.label(user.name)
+      opt.description(user.email)
+    end
+  end
+end
+```
+
+**API Reference - Custom Select:**
+
+```ruby
+Cuy::CustomSelect.new(
+  name: String,
+  label: String | nil,
+  hint: String | nil,
+  error: String | nil,
+  placeholder: String,        # Button text when nothing selected
+  searchable: Boolean,        # Add search input
+  search_placeholder: String,
+  multiple: Boolean,          # Allow multiple selection
+  options: Array | nil,       # Simple array of hashes
+  **html_options
+)
+
+# Option builder methods
+opt.avatar(src:, alt: nil, size: :sm)
+opt.status(variant)  # :success, :warning, :error, :gray, :primary
+opt.label(text)
+opt.description(text)
+opt.badge(text, variant: :primary)
+opt.icon(name)       # Leading icon
+```
+
+#### Comparison: Native vs Custom
+
+**Use Native Select when:**
+- ✅ Simple dropdown with text options
+- ✅ Need form to work without JavaScript
+- ✅ Mobile-optimized (native pickers)
+- ✅ Accessibility is critical (screen readers)
+- ✅ Performance matters (large lists)
+
+**Use Custom Select when:**
+- ✅ Need rich content (avatars, status, descriptions)
+- ✅ Want search/filter functionality
+- ✅ Need custom styling beyond CSS
+- ✅ Multi-select with tags/chips
+- ✅ Want consistent UI across platforms
+
+#### Complete Example: User Assignment Select
+
+```ruby
+class Components::UserSelect < Cuy::Component
+  def initialize(name:, label:, selected: nil, users:)
+    @name = name
+    @label = label
+    @selected = selected
+    @users = users
+  end
+
+  def view_template
+    render Cuy::CustomSelect.new(
+      name: @name,
+      label: @label,
+      searchable: true,
+      placeholder: "Select a user..."
+    ) do |select|
+      @users.each do |user|
+        select.option(
+          value: user.id,
+          selected: user.id == @selected
+        ) do |opt|
+          opt.avatar(
+            src: user.avatar_url,
+            alt: user.name
+          )
+          
+          opt.label(user.name)
+          opt.description(user.email)
+          
+          if user.admin?
+            opt.badge("Admin", variant: :primary)
+          end
+        end
+      end
+    end
+  end
+end
+```
+
+#### Implementation Notes
+
+**Native Select Styling:**
+- Uses `grid` layout to overlay chevron icon
+- `appearance-none` removes browser default
+- Custom chevron positioned with `col-start-1 row-start-1`
+- Dark mode support via `dark:` variants
+
+**Custom Select (Headless UI):**
+- Based on `@headlessui/react` Listbox pattern
+- Fully keyboard accessible (Arrow keys, Enter, Escape)
+- Auto-positioning (anchored to button)
+- Scrollable with max height
+- Selected state with checkmark
+- Focus management
+
+**Mobile Considerations:**
+- Native select uses OS picker on mobile
+- Custom select may need mobile-specific styles
+- Consider viewport height for dropdown positioning
+
+---
+
 More components coming soon! Check the [README](./README.md) for the full component list.
 
