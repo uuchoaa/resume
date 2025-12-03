@@ -1011,5 +1011,298 @@ end
 
 ---
 
+## Form Components
+
+### Input - Form Input Field
+
+Flexible input component with support for labels, help text, icons, add-ons, and various styles.
+
+#### Basic Usage
+
+```ruby
+render Cuy::Input.new(
+  name: "email",
+  type: :email,
+  label: "Email",
+  placeholder: "you@example.com"
+)
+```
+
+#### API Reference
+
+##### `Cuy::Input.new(**options)`
+
+**Required:**
+- `name:` (String) - Input name attribute
+
+**Optional:**
+- `type:` (Symbol) - Input type (`:text`, `:email`, `:tel`, `:password`, `:search`, `:number`, `:date`, `:url`, etc.)
+- `label:` (String) - Label text
+- `hint:` (String) - Help text below the input
+- `placeholder:` (String) - Placeholder text
+- `error:` (String) - Error message (shows error state)
+- `value:` (String) - Input value
+- `disabled:` (Boolean) - Disabled state
+- `icon:` (Symbol) - Leading icon (`:search`, `:user`, `:envelope`, `:phone`, `:briefcase`)
+- `trailing_icon:` (Symbol) - Icon on the right side
+- `addon:` (String) - Leading text add-on (e.g., "https://")
+- `corner_hint:` (String) - Optional text in top-right corner
+- `label_style:` (Symbol) - `:normal`, `:inset`, or `:floating`
+- `group_position:` (Symbol) - For shared borders: `:top`, `:middle`, `:bottom`, `:bottom_left`, `:bottom_right`
+
+#### Variants
+
+##### With Help Text
+
+```ruby
+render Cuy::Input.new(
+  name: "email",
+  label: "Email",
+  hint: "We'll never share your email with anyone else.",
+  placeholder: "you@example.com"
+)
+```
+
+##### With Validation Error
+
+```ruby
+render Cuy::Input.new(
+  name: "email",
+  label: "Email",
+  value: "not-an-email",
+  error: "Please provide a valid email address."
+)
+```
+
+##### With Corner Hint
+
+```ruby
+render Cuy::Input.new(
+  name: "username",
+  label: "Username",
+  corner_hint: "Optional",
+  placeholder: "johndoe"
+)
+```
+
+##### With Leading Icon
+
+```ruby
+render Cuy::Input.new(
+  name: "search",
+  type: :search,
+  label: "Search candidates",
+  icon: :search,
+  placeholder: "John Smith"
+)
+```
+
+##### With Trailing Icon
+
+```ruby
+render Cuy::Input.new(
+  name: "website",
+  type: :url,
+  label: "Website URL",
+  trailing_icon: :link,
+  placeholder: "https://example.com"
+)
+```
+
+##### With Leading Add-on
+
+```ruby
+render Cuy::Input.new(
+  name: "website",
+  label: "Website",
+  addon: "https://",
+  placeholder: "www.example.com"
+)
+```
+
+##### With Trailing Add-on
+
+```ruby
+# Text add-on
+render Cuy::Input.new(
+  name: "weight",
+  label: "Weight",
+  trailing_addon: "kg"
+)
+
+# Button add-on (using block)
+render Cuy::Input.new(
+  name: "query",
+  label: "Search candidates",
+  icon: :search,
+  placeholder: "John Smith"
+) do |input|
+  input.trailing_button do
+    svg_icon(:filter, class: "size-4 -ml-0.5")
+    span { "Sort" }
+  end
+end
+```
+
+##### With Inline Dropdown
+
+```ruby
+render Cuy::Input.new(
+  name: "phone",
+  type: :tel,
+  label: "Phone number",
+  placeholder: "123-456-7890"
+) do |input|
+  input.leading_select(
+    name: "country",
+    options: [
+      { value: "us", label: "US" },
+      { value: "ca", label: "CA" },
+      { value: "eu", label: "EU" }
+    ],
+    selected: "us"
+  )
+end
+```
+
+##### Grouped Inputs (Shared Borders)
+
+```ruby
+fieldset do
+  legend(class: "block text-sm/6 font-medium") { "Card details" }
+  
+  div(class: "mt-2 grid grid-cols-2") do
+    # Card number (full width, top)
+    div(class: "col-span-2") do
+      render Cuy::Input.new(
+        name: "card_number",
+        placeholder: "Card number",
+        group_position: :top
+      )
+    end
+    
+    # Expiration date (bottom-left)
+    div(class: "-mt-px -mr-px") do
+      render Cuy::Input.new(
+        name: "expiration",
+        placeholder: "MM / YY",
+        group_position: :bottom_left
+      )
+    end
+    
+    # CVC (bottom-right)
+    div(class: "-mt-px") do
+      render Cuy::Input.new(
+        name: "cvc",
+        placeholder: "CVC",
+        group_position: :bottom_right
+      )
+    end
+  end
+end
+```
+
+##### Inset Label (Floating Within Input)
+
+```ruby
+render Cuy::Input.new(
+  name: "name",
+  label: "Name",
+  placeholder: "Jane Smith",
+  label_style: :inset
+)
+```
+
+**Result:**
+```
+┌─────────────────────────┐
+│ Name                    │
+│ Jane Smith              │
+└─────────────────────────┘
+```
+
+##### Overlapping/Floating Label
+
+```ruby
+render Cuy::Input.new(
+  name: "name",
+  label: "Name",
+  placeholder: "Jane Smith",
+  label_style: :floating
+)
+```
+
+**Result:**
+```
+   ┌─Name─┐
+───┤      ├──────────────
+   │ Jane Smith          │
+   └─────────────────────┘
+```
+
+##### Disabled State
+
+```ruby
+render Cuy::Input.new(
+  name: "email",
+  label: "Email",
+  value: "user@example.com",
+  disabled: true
+)
+```
+
+##### Hidden Label (Visually Hidden)
+
+```ruby
+render Cuy::Input.new(
+  name: "search",
+  label: "Search",
+  hide_label: true,
+  placeholder: "Search..."
+)
+```
+
+#### Complete Example: Search Input with Sort Button
+
+```ruby
+class Components::SearchBar < Cuy::Component
+  def view_template
+    render Cuy::Input.new(
+      name: "q",
+      type: :search,
+      label: "Search candidates",
+      icon: :search,
+      placeholder: "John Smith"
+    ) do |input|
+      input.trailing_button(
+        type: "button",
+        class: "gap-x-1.5"
+      ) do
+        svg(viewBox: "0 0 16 16", fill: "currentColor", class: "size-4 -ml-0.5") do |s|
+          s.path(d: "M2 2.75A.75.75 0 0 1 2.75 2h9.5a.75.75 0 0 1 0 1.5h-9.5A.75.75 0 0 1 2 2.75ZM2 6.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5A.75.75 0 0 1 2 6.25Zm0 3.5A.75.75 0 0 1 2.75 9h3.5a.75.75 0 0 1 0 1.5h-3.5A.75.75 0 0 1 2 9.75ZM9.22 9.53a.75.75 0 0 1 0-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1-1.06 1.06l-.97-.97v5.69a.75.75 0 0 1-1.5 0V8.56l-.97.97a.75.75 0 0 1-1.06 0Z")
+        end
+        span { "Sort" }
+      end
+    end
+  end
+end
+```
+
+#### Features
+
+- ✅ Dark mode support
+- ✅ Validation states (error with red styling)
+- ✅ Disabled state
+- ✅ Icons (leading/trailing)
+- ✅ Add-ons (text labels)
+- ✅ Inline dropdowns
+- ✅ Attached buttons
+- ✅ Grouped inputs with shared borders
+- ✅ Multiple label styles (normal, inset, floating, hidden)
+- ✅ Accessible (proper labels, ARIA attributes, error announcements)
+- ✅ Mobile-optimized touch targets
+
+---
+
 More components coming soon! Check the [README](./README.md) for the full component list.
 
