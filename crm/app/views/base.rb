@@ -14,21 +14,18 @@ class Views::Base < Cuy::Base
     h1(class: "font-bold text-4xl") { "#{@model&.class.to_s.humanize}" }
   end
 
-  def navbar
-    nav(class: "border-b border-gray-200 bg-white") do
-      div(class: "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8") do
-        yield
-      end
+  def render_navbar
+    render Cuy::Navbar.new(current_path) do |nav|
+      nav.item("/deals/new") { "dekas" }
+      nav.item("/agencies/new") { "agencies" }
+
+      # nav.logo { Views::Logo }
     end
   end
 
   def view_template
-    navbar do
-      render Cuy::Navbar.new(current_path) do |nav|
-        nav.item("/") { "Home" }
-        nav.item("/agencies") { "agencies" }
-      end
-    end
+    render_navbar
+
     page_header
     div do
       main_content
