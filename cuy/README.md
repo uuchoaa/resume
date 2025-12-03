@@ -260,12 +260,34 @@ render Cuy::Avatar.new(
 #### Nav
 
 ```ruby
-render Cuy::Nav.new(current_path: request.path) do |nav|
-  nav.item { a(href: "/") { "Home" } }
-  nav.item { a(href: "/posts") { "Posts" } }
-  nav.item { a(href: "/about") { "About" } }
+render Cuy::Nav.new(current_path: request.path, theme: :dark) do |nav|
+  # Logo
+  nav.logo do
+    img(src: "/logo.svg", alt: "Company", class: "h-8 w-auto")
+  end
+  
+  # Navigation items - auto-detects active state
+  nav.item("/") { "Dashboard" }
+  nav.item("/team") { "Team" }
+  nav.item("/projects") { "Projects" }
+  
+  # Notifications with badge
+  nav.notifications_icon(count: 3)
+  
+  # User profile dropdown
+  nav.user_profile(
+    avatar_url: current_user.avatar_url,
+    name: current_user.name
+  ) do |profile|
+    profile.item("/profile") { "Your Profile" }
+    profile.item("/settings") { "Settings" }
+    profile.divider
+    profile.item("/logout", method: :delete) { "Sign Out" }
+  end
 end
 ```
+
+See [Components Guide](./COMPONENTS.md) for detailed documentation.
 
 #### Breadcrumb
 
@@ -569,10 +591,35 @@ app/
 - **Performance**: Less JS = faster initial load
 - **Optional**: Add Hotwire/Turbo for interactivity
 
+## 🧠 Rails Integration
+
+Cuy includes powerful **Model-Aware Components** that leverage Rails' introspection to automatically generate forms, tables, and detail views. See [Rails Integration Guide](./RAILS_INTEGRATION.md) for details.
+
+Quick preview:
+
+```ruby
+# Auto-generated form - detects fields, types, validations, associations
+render Cuy::ModelForm.new(model: @post)
+
+# Auto-generated table - formats columns, adds actions
+render Cuy::ModelTable.new(collection: @posts)
+
+# Auto-generated detail view - shows all attributes beautifully
+render Cuy::ModelDetails.new(model: @post)
+```
+
+**Benefits:**
+- 95% less code to maintain
+- Zero configuration for standard cases
+- Automatic I18n support
+- Type-safe by default
+- Adapts when models change
+
 ## 🚧 Roadmap
 
 - [ ] Complete all base components
 - [ ] Phlexbook implementation
+- [ ] Model-aware components (ModelForm, ModelTable, ModelDetails)
 - [ ] Dark mode support
 - [ ] Animation/transition system
 - [ ] Form validation helpers
@@ -580,13 +627,15 @@ app/
 - [ ] RTL language support
 - [ ] Component variants generator
 - [ ] Tailwind plugin
-- [ ] Rails generators
+- [ ] Rails generators (`rails g cuy:scaffold`)
 
 ## 📖 Resources
 
 - [Phlex Documentation](https://www.phlex.fun/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Tailwind UI](https://tailwindcss.com/plus)
+- [Components Guide](./COMPONENTS.md) - Detailed component documentation
+- [Rails Integration Guide](./RAILS_INTEGRATION.md) - Model-aware components
 - [Component Examples](./phlexbook/stories/)
 
 ## 🤝 Contributing
