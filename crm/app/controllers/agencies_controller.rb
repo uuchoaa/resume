@@ -1,7 +1,9 @@
 class AgenciesController < ApplicationController
+  layout :false
+
   def new
-    view = Views::Agencies::New.new
-    render view
+    agency = Agency.new
+    render Views::Agencies::New.new(agency)
   end
 
   def index
