@@ -37,7 +37,11 @@ class Views::Base < Cuy::Base
   end
 
   def render_main_content
-    main_content
+    main do
+      div(class: "mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8") do
+        main_content
+      end
+    end
   end
 
   def main_content
