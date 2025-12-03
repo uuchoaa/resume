@@ -10,8 +10,12 @@ class Views::Base < Cuy::Base
     @model = model
   end
 
-  def page_header
-    h1(class: "font-bold text-4xl") { "#{@model&.class.to_s.humanize}" }
+  def render_page_header
+    header do
+      div(class: "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8") do
+        page_header
+      end
+    end
   end
 
   def render_navbar
@@ -26,10 +30,14 @@ class Views::Base < Cuy::Base
   def view_template
     render_navbar
 
-    page_header
-    div do
-      main_content
+    div(class: 'py-10') do
+      render_page_header
+      render_main_content
     end
+  end
+
+  def render_main_content
+    main_content
   end
 
   def main_content
