@@ -1,0 +1,18 @@
+{
+  "name": "poc-playwright-linkedin",
+  "version": "1.0.0",
+  "description": "POC: LinkedIn scraping using Playwright with authenticated cookies",
+  "type": "module",
+  "scripts": {
+    "read": "node read-chat.js",
+    "write": "node write-chat.js"
+  },
+  "keywords": ["playwright", "linkedin", "scraping", "poc"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "dotenv": "^16.3.1"
+  }
+}
+
