@@ -1,0 +1,2 @@
+class AgenciesController < CrudController
+end
