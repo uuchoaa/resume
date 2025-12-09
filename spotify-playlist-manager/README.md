@@ -41,7 +41,7 @@ An elegant web application for managing Spotify playlist privacy settings with b
 Before you begin, ensure you have the following installed:
 
 - **Node.js** (v18 or higher)
-- **pnpm** (v10.4.1 or higher) - Package manager
+- **yarn** - Package manager
 - **MySQL** - Database server
 - **Spotify Developer Account** - For OAuth credentials
 
@@ -57,7 +57,7 @@ cd spotify-playlist-manager
 ### 2. Install Dependencies
 
 ```bash
-pnpm install
+yarn install
 ```
 
 ### 3. Set Up Environment Variables
@@ -106,13 +106,13 @@ For detailed instructions, see [SPOTIFY_SETUP.md](./SPOTIFY_SETUP.md).
 
 ```bash
 # Generate and run migrations
-pnpm db:push
+yarn db:push
 ```
 
-### 6. Start Development Server
+### 5. Start Development Server
 
 ```bash
-pnpm dev
+yarn dev
 ```
 
 The application will be available at `http://localhost:3000` (or the next available port).
@@ -189,25 +189,25 @@ spotify-playlist-manager/
 
 ```bash
 # Start development server
-pnpm dev
+yarn dev
 
 # Build for production
-pnpm build
+yarn build
 
 # Start production server
-pnpm start
+yarn start
 
 # Type checking
-pnpm check
+yarn check
 
 # Format code
-pnpm format
+yarn format
 
 # Run tests
-pnpm test
+yarn test
 
 # Database migrations
-pnpm db:push
+yarn db:push
 ```
 
 ### Code Structure
