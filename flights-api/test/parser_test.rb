@@ -1,14 +1,14 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'json'
-require_relative '../GoogleFlightsClient'
+require_relative '../google_flights_client'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 class GoogleFlightsClientTest < Minitest::Test
   def setup
     @client = GoogleFlightsClient.new
-    @sample_response = JSON.parse(File.read('last_response.json'))
+    @sample_response = JSON.parse(File.read('test/assets/last_response.json'))
   end
 
   def test_client_initialization

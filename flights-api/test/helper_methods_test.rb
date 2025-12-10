@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative '../GoogleFlightsClient'
+require_relative '../google_flights_client'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 

@@ -1,0 +1,191 @@
+{
+  "status": "success",
+  "search_params": {
+    "origin": "CGH",
+    "destination": "JPA",
+    "departure_date": "2026-02-06",
+    "return_date": "2026-02-27"
+  },
+  "best_flights": [
+    {
+      "price": 1427.0,
+      "airline": "LATAM",
+      "airline_code": "LA",
+      "departure_time": "19:40",
+      "arrival_time": "22:50",
+      "departure_airport": {
+        "code": "CGH",
+        "name": "São Paulo/Congonhas–Deputado Freitas Nobre Airport"
+      },
+      "arrival_airport": {
+        "code": "JPA",
+        "name": "Presidente Castro Pinto International Airport"
+      },
+      "duration": 190,
+      "stops": 0,
+      "airplane": "Airbus A320",
+      "flight_number": "LA 3824",
+      "emissions": "185 kg CO2e",
+      "extensions": [
+        "Below-average legroom (71 cm)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Stream media to your device"
+      ]
+    },
+    {
+      "price": 1468.0,
+      "airline": "Gol",
+      "airline_code": "G3",
+      "departure_time": "20:45",
+      "arrival_time": "00:05+1",
+      "departure_airport": {
+        "code": "CGH",
+        "name": "São Paulo/Congonhas–Deputado Freitas Nobre Airport"
+      },
+      "arrival_airport": {
+        "code": "JPA",
+        "name": "Presidente Castro Pinto International Airport"
+      },
+      "duration": 200,
+      "stops": 0,
+      "airplane": "Boeing 737",
+      "flight_number": "G3 1048",
+      "emissions": "187 kg CO2e",
+      "extensions": [
+        "Average legroom (76 cm)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Stream media to your device"
+      ]
+    },
+    {
+      "price": 1660.0,
+      "airline": "Azul",
+      "airline_code": "AD",
+      "departure_time": "09:05",
+      "arrival_time": "12:15",
+      "departure_airport": {
+        "code": "CGH",
+        "name": "São Paulo/Congonhas–Deputado Freitas Nobre Airport"
+      },
+      "arrival_airport": {
+        "code": "JPA",
+        "name": "Presidente Castro Pinto International Airport"
+      },
+      "duration": 190,
+      "stops": 0,
+      "airplane": "Embraer 195 E2",
+      "flight_number": "AD 4414",
+      "emissions": "214 kg CO2e",
+      "extensions": [
+        "Average legroom (76 cm)",
+        "Free Wi-Fi",
+        "In-seat USB outlet",
+        "On-demand video"
+      ]
+    },
+    {
+      "price": 1690.0,
+      "airline": "LATAM",
+      "airline_code": "LA",
+      "departure_time": "06:00",
+      "arrival_time": "11:10",
+      "departure_airport": {
+        "code": "CGH",
+        "name": "São Paulo/Congonhas–Deputado Freitas Nobre Airport"
+      },
+      "arrival_airport": {
+        "code": "JPA",
+        "name": "Presidente Castro Pinto International Airport"
+      },
+      "duration": 105,
+      "stops": 1,
+      "layover": {
+        "airport": "BSB",
+        "name": "Aeroporto Internacional de Brasília Presidente Juscelino Kubitschek",
+        "duration": 40
+      },
+      "segments": [
+        {
+          "departure_airport": "CGH",
+          "arrival_airport": "BSB",
+          "departure_time": "06:00",
+          "arrival_time": "07:45",
+          "duration": 105,
+          "airline": "LATAM",
+          "flight_number": "LA 3003",
+          "airplane": "Airbus A320"
+        },
+        {
+          "departure_airport": "BSB",
+          "arrival_airport": "JPA",
+          "departure_time": "08:25",
+          "arrival_time": "11:10",
+          "duration": 165,
+          "airline": "LATAM",
+          "flight_number": "LA 3904",
+          "airplane": "Airbus A320"
+        }
+      ],
+      "emissions": "241 kg CO2e",
+      "extensions": [
+        "Below-average legroom (71 cm)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Stream media to your device"
+      ]
+    },
+    {
+      "price": 1746.0,
+      "airline": "Gol",
+      "airline_code": "G3",
+      "departure_time": "06:00",
+      "arrival_time": "11:30",
+      "departure_airport": {
+        "code": "CGH",
+        "name": "São Paulo/Congonhas–Deputado Freitas Nobre Airport"
+      },
+      "arrival_airport": {
+        "code": "JPA",
+        "name": "Presidente Castro Pinto International Airport"
+      },
+      "duration": 110,
+      "stops": 1,
+      "layover": {
+        "airport": "BSB",
+        "name": "Aeroporto Internacional de Brasília Presidente Juscelino Kubitschek",
+        "duration": 55
+      },
+      "segments": [
+        {
+          "departure_airport": "CGH",
+          "arrival_airport": "BSB",
+          "departure_time": "06:00",
+          "arrival_time": "07:50",
+          "duration": 110,
+          "airline": "Gol",
+          "flight_number": "G3 1402",
+          "airplane": "Boeing 737"
+        },
+        {
+          "departure_airport": "BSB",
+          "arrival_airport": "JPA",
+          "departure_time": "08:45",
+          "arrival_time": "11:30",
+          "duration": 165,
+          "airline": "Gol",
+          "flight_number": "G3 2102",
+          "airplane": "Boeing 737"
+        }
+      ],
+      "emissions": "246 kg CO2e",
+      "extensions": [
+        "Average legroom (76 cm)",
+        "Wi-Fi for a fee",
+        "In-seat USB outlet",
+        "Stream media to your device"
+      ]
+    }
+  ]
+}
