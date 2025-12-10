@@ -1,0 +1,60 @@
+require 'rake/testtask'
+
+desc "Run all tests (excluding slow integration tests)"
+Rake::TestTask.new(:test) do |t|
+  t.libs << "test"
+  t.libs << "."
+  t.test_files = FileList['test/*_test.rb'].exclude('test/integration_test.rb')
+  t.verbose = true
+  ENV['SKIP_INTEGRATION'] = '1'
+end
+
+desc "Run parser tests only"
+Rake::TestTask.new(:test_parser) do |t|
+  t.libs << "test"
+  t.libs << "."
+  t.test_files = FileList['test/parser_test.rb']
+  t.verbose = true
+end
+
+desc "Run helper method tests only"
+Rake::TestTask.new(:test_helpers) do |t|
+  t.libs << "test"
+  t.libs << "."
+  t.test_files = FileList['test/helper_methods_test.rb']
+  t.verbose = true
+end
+
+desc "Run client integration tests only"
+Rake::TestTask.new(:test_client) do |t|
+  t.libs << "test"
+  t.libs << "."
+  t.test_files = FileList['test/client_test.rb']
+  t.verbose = true
+end
+
+desc "Run integration tests (SLOW - makes real API calls)"
+Rake::TestTask.new(:test_integration) do |t|
+  t.libs << "test"
+  t.libs << "."
+  t.test_files = FileList['test/integration_test.rb']
+  t.verbose = true
+  ENV.delete('SKIP_INTEGRATION')
+end
+
+desc "Run tests with coverage (if SimpleCov is available)"
+task :test_coverage do
+  begin
+    require 'simplecov'
+    SimpleCov.start do
+      add_filter '/test/'
+    end
+    Rake::Task[:test].invoke
+  rescue LoadError
+    puts "SimpleCov not available. Install with: gem install simplecov"
+    puts "Running tests without coverage..."
+    Rake::Task[:test].invoke
+  end
+end
+
+task default: :test
