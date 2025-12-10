@@ -415,7 +415,17 @@ curl http://localhost:3000/api/v1/flights/search \
 
 ## Testing
 
-The project includes a comprehensive Minitest test suite with 32 tests covering all parser functionality.
+The project includes a comprehensive Minitest test suite with 64 tests organized into three categories.
+
+### Test Structure
+
+```
+test/
+├── parser_test.rb          # 21 tests - Flight data extraction & validation
+├── helper_methods_test.rb  # 26 tests - Helper method unit tests
+├── client_test.rb          # 17 tests - HTTP client & integration tests
+└── test_all.rb            # Test suite runner
+```
 
 ### Run Tests
 
@@ -424,30 +434,59 @@ The project includes a comprehensive Minitest test suite with 32 tests covering 
 gem install minitest-reporters
 
 # Run all tests
-ruby test_parser.rb
+rake test
+
+# Run specific test suites
+rake test_parser    # Parser tests only
+rake test_helpers   # Helper method tests only
+rake test_client    # Client integration tests only
+
+# Or use Ruby directly
+ruby test/test_all.rb
 ```
 
 ### Test Coverage
 
 ```
-32 tests, 82 assertions, 0 failures, 0 errors
+64 tests, 146 assertions, 0 failures, 0 errors, 4 skips
 ✅ All tests passing
+⏭️  4 intentional skips (require actual API data)
 ```
 
-**Tests validate:**
+**Parser Tests (21 tests)**
 - ✅ Flight data extraction and parsing
 - ✅ Airport structure (codes, names)
 - ✅ Price conversion (cents → BRL)
 - ✅ Date/time formatting (ISO 8601)
 - ✅ Airline code validation
-- ✅ Extension parsing (WiFi, power, legroom)
+- ✅ Multiple flight extraction
 - ✅ Edge case handling (nil, empty inputs)
-- ✅ Helper method functionality
 
-**Test files:**
-- `test_parser.rb` - Full Minitest suite
-- `test_extraction.rb` - Manual extraction demo
-- `test_parse_simple.rb` - Step-by-step debugging
+**Helper Method Tests (26 tests)**
+- ✅ `format_datetime` - Various date/time formats
+- ✅ `extract_airplane` - Aircraft model extraction
+- ✅ `extract_airport_name` - Airport name fallbacks
+- ✅ `extract_extensions` - Amenity parsing (WiFi, power, legroom)
+- ✅ `extract_carbon_emissions` - CO2 data
+- ✅ `extract_segments` - Multi-leg flight parsing
+
+**Client Integration Tests (17 tests)**
+- ✅ HTTP request building
+- ✅ Required header validation
+- ✅ Payload structure & encoding
+- ✅ Response body decoding
+- ✅ Response parsing
+- ✅ Client reusability
+
+### Manual Testing
+
+For testing actual API calls (requires valid tokens):
+
+```bash
+./test_client.rb
+```
+
+This script tests live API integration and saves responses for inspection.
 
 ---
 

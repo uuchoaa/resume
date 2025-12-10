@@ -1,15 +1,23 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+# Manual integration test for Google Flights Client
+# This is NOT part of the automated test suite
+# Use this to manually test actual API calls with current tokens
+
 require_relative 'GoogleFlightsClient'
 require 'json'
 
-puts "Testing Google Flights Client"
-puts "=" * 50
+puts "Google Flights Client - Manual Integration Test"
+puts "=" * 60
+puts "⚠️  Warning: This uses static tokens that may have expired"
+puts "=" * 60
+puts ""
 
 client = GoogleFlightsClient.new
 
 # Test with the same parameters we captured in HAR
+puts "Testing search: GRU → REC (2025-12-10 to 2025-12-17)"
 result = client.search(
   origin: 'GRU',
   destination: 'REC',
@@ -18,32 +26,57 @@ result = client.search(
 )
 
 puts "\nResult:"
+puts "-" * 60
+
 if result[:error]
-  puts "Error: #{result[:error]}"
+  puts "❌ Error: #{result[:error]}"
   puts "Details: #{result[:details]}" if result[:details]
-  puts "\nRaw body preview:" if result[:raw_body_preview]
-  puts result[:raw_body_preview][0..500] if result[:raw_body_preview]
+  
+  if result[:raw_body_preview]
+    puts "\nRaw body preview (first 500 chars):"
+    puts result[:raw_body_preview][0..500]
+  end
+  
+  puts "\n💡 Tip: Tokens may have expired. Extract new tokens from:"
+  puts "   1. Open Google Flights in browser"
+  puts "   2. Open DevTools → Network tab"
+  puts "   3. Perform a search"
+  puts "   4. Find GetShoppingResults request"
+  puts "   5. Copy headers and update GoogleFlightsClient.rb"
 else
-  puts "Status: #{result[:status]}"
+  puts "✅ Status: #{result[:status]}"
   puts "Note: #{result[:note]}"
 
-  if result[:data]
-    puts "\nData structure:"
-    puts "- Type: #{result[:data].class}"
-    if result[:data].is_a?(Array)
-      puts "- Array length: #{result[:data].length}"
-      puts "- First element type: #{result[:data][0].class}" if result[:data][0]
-      puts "- First element keys: #{result[:data][0].keys.inspect}" if result[:data][0].is_a?(Hash)
-    elsif result[:data].is_a?(Hash)
-      puts "- Hash keys: #{result[:data].keys.inspect}"
+  if result[:best_flights]
+    puts "\n✈️  Flights found: #{result[:best_flights].length}"
+    
+    result[:best_flights].first(3).each_with_index do |flight, idx|
+      puts "\n--- Flight ##{idx + 1} ---"
+      puts "#{flight[:airline]} (#{flight[:airline_code]}) - #{flight[:airplane]}"
+      puts "#{flight[:departure_airport][:code]} → #{flight[:arrival_airport][:code]}"
+      puts "Departure: #{flight[:departure_time]}"
+      puts "Arrival: #{flight[:arrival_time]}"
+      puts "Duration: #{flight[:duration]} minutes"
+      puts "Stops: #{flight[:stops]}"
+      puts "Price: R$ #{flight[:price]}"
     end
-    puts "- Total size: #{result[:data].to_s.length} characters"
+    
+    if result[:best_flights].length > 3
+      puts "\n... and #{result[:best_flights].length - 3} more flights"
+    end
 
-    # Save to file for inspection
-    File.write('last_response.json', JSON.pretty_generate(result[:data]))
-    puts "\nFull response saved to: last_response.json"
+    # Save full response
+    output_file = 'last_response.json'
+    File.write(output_file, JSON.pretty_generate([result[:status], result[:best_flights], result]))
+    puts "\n💾 Full response saved to: #{output_file}"
+    puts "   File size: #{File.size(output_file) / 1024} KB"
   end
 end
 
-puts "\n" + "=" * 50
+puts "\n" + "=" * 60
 puts "Test completed!"
+puts ""
+puts "📝 Next steps:"
+puts "   - Run automated tests: rake test"
+puts "   - Run parser tests: rake test_parser"
+puts "   - Run all tests: ruby test/test_all.rb"
