@@ -223,12 +223,15 @@ class GoogleFlightsClient
     end
 
     # Find the object with flight data (usually the largest one)
-    flight_data = json_objects.max_by { |obj| obj.to_s.length }
+    raw_data = json_objects.max_by { |obj| obj.to_s.length }
+
+    # Extract and structure the flight data
+    structured_data = extract_flights(raw_data)
 
     {
       status: 'success',
-      data: flight_data,
-      note: 'Successfully retrieved flight data from Google Flights'
+      **structured_data,
+      note: 'Successfully retrieved and parsed flight data from Google Flights'
     }
   rescue => e
     {
@@ -237,5 +240,166 @@ class GoogleFlightsClient
       backtrace: e.backtrace.first(3),
       raw_body_preview: body.force_encoding('UTF-8')[0..1000]
     }
+  end
+
+  def extract_flights(raw_data)
+    return { best_flights: [] } unless raw_data && raw_data[0] && raw_data[0][2]
+    
+    # Parse the nested JSON string
+    inner_data = JSON.parse(raw_data[0][2])
+    
+    # Flights can be at index 2, 3, 4, etc. - collect from all sections
+    flights_arrays = []
+    (2..10).each do |idx|
+      section = inner_data[idx]
+      if section.is_a?(Array) && section.length > 0
+        # Check if this looks like a flights section
+        if section[0].is_a?(Array) && section[0][0].is_a?(Array)
+          flights_arrays << section
+        end
+      end
+    end
+    
+    best_flights = []
+    
+    flights_arrays.each do |flights_array|
+      flights_array.each do |flight_group|
+      # Skip nil, false, or invalid entries
+      next unless flight_group.is_a?(Array) && flight_group[0].is_a?(Array)
+      
+      flight_data = flight_group[0]
+      flight_info = flight_data[0]
+      
+      next unless flight_info.is_a?(Array)
+      
+      # Extract basic flight info
+      airline_code = flight_info[0]
+      airline_names = flight_info[1] || []
+      segments = flight_info[2] || []
+      
+      departure_airport = flight_info[3]
+      departure_date = flight_info[4]
+      departure_time = flight_info[5]
+      arrival_airport = flight_info[6]
+      arrival_date = flight_info[7]
+      arrival_time = flight_info[8]
+      duration_minutes = flight_info[9]
+      stops_count = flight_info[10] || 0
+      
+      # Price info is at flight_info[22][7]
+      price_data = flight_info[22]
+      price_cents = price_data && price_data[7] ? price_data[7] : nil
+      
+      # Ensure segments is an array
+      segments = flight_info[2].is_a?(Array) ? flight_info[2] : []
+      
+      # Build flight object
+      flight = {
+        departure_airport: {
+          code: departure_airport,
+          name: extract_airport_name(segments[0], departure_airport)
+        },
+        arrival_airport: {
+          code: arrival_airport,
+          name: extract_airport_name(segments[0], arrival_airport)
+        },
+        duration: duration_minutes,
+        airplane: extract_airplane(segments[0]),
+        airline: airline_names[0],
+        airline_code: airline_code,
+        extensions: extract_extensions(segments[0]),
+        carbon_emissions: extract_carbon_emissions(segments[0]),
+        price: price_cents ? (price_cents / 100.0).round(2) : nil,
+        departure_time: format_datetime(departure_date, departure_time),
+        arrival_time: format_datetime(arrival_date, arrival_time),
+        stops: stops_count,
+        segments: extract_segments(segments)
+      }
+      
+        best_flights << flight
+      end
+    end
+    
+    { best_flights: best_flights }
+  end
+  
+  def extract_airport_name(segment, airport_code)
+    return airport_code unless segment
+    # Airport name is at index 4 or 5 in segment
+    segment[4] || segment[5] || airport_code
+  end
+  
+  def extract_airplane(segment)
+    return nil unless segment
+    # Airplane model is at index 17
+    segment[17]
+  end
+  
+  def extract_extensions(segment)
+    return [] unless segment
+    # Extensions like wifi, power, legroom are in array at index 11
+    extensions_array = segment[11] || []
+    extensions = []
+    
+    extensions << "In-seat power & USB outlets" if extensions_array[1]
+    extensions << "Wi-Fi" if extensions_array[10]
+    
+    # Legroom info at index 13
+    if segment[13]
+      extensions << "Average legroom (#{segment[13]})"
+    end
+    
+    extensions
+  end
+  
+  def extract_carbon_emissions(segment)
+    return nil unless segment
+    # Carbon emissions in grams at index 29
+    emissions_grams = segment[29]
+    return nil unless emissions_grams
+    
+    {
+      this_flight: emissions_grams,
+      typical_for_this_route: emissions_grams,
+      difference_percent: 0
+    }
+  end
+  
+  def format_datetime(date_array, time_array)
+    return nil unless date_array && date_array.is_a?(Array) && date_array.length >= 3
+    
+    year, month, day = date_array
+    return nil unless year && month && day
+    
+    # time_array can be either an array [hour, minute] or a single integer (hour)
+    if time_array.is_a?(Array)
+      hour = time_array[0] || 0
+      minute = time_array[1] || 0
+    elsif time_array.is_a?(Integer)
+      hour = time_array
+      minute = 0
+    else
+      hour = 0
+      minute = 0
+    end
+    
+    sprintf("%04d-%02d-%02dT%02d:%02d:00-03:00", year, month, day, hour, minute)
+  end
+  
+  def extract_segments(segments_array)
+    segments_array.map do |segment|
+      next nil unless segment
+      
+      {
+        departure_airport: segment[3],
+        arrival_airport: segment[6],
+        departure_time: format_datetime(segment[19], segment[8]),
+        arrival_time: format_datetime(segment[20], segment[10]),
+        duration: segment[11],
+        airline: segment[22] ? segment[22][3] : nil,
+        flight_number: segment[22] ? "#{segment[22][0]}#{segment[22][1]}" : nil,
+        airplane: segment[16]
+      }
+    end.compact
   end
 end
